@@ -1,0 +1,39 @@
+#home {
+  .videobox {
+    width: 100%;
+    height: 50vh;
+    position: relative;
+    .video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+@include sm {
+  #home {
+    .videobox {
+      width: 100%;
+      height: 50vh;
+      position: relative;
+      .video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+@include md {
+  #home {
+    .videobox {
+      height: 100vh;
+    }
+    .video {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

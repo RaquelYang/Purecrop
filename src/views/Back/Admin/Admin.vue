@@ -20,9 +20,10 @@
         <v-list-item
           v-for="item in items"
           :key="item.title"
+          :to="item.to"
           link
         >
-          <v-list-item-icon>
+          <v-list-item-icon >
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
 
@@ -46,11 +47,11 @@ export default {
   data () {
     return {
       items: [
-        { title: '商品管理', icon: 'mdi-help-box' },
-        { title: '最新消息', icon: 'mdi-view-dashboard' },
-        { title: '輪播圖管理', icon: 'mdi-image' },
-        { title: '訂單管理', icon: 'mdi-help-box' },
-        { title: '會員管理', icon: 'mdi-help-box' }
+        { title: '商品管理', icon: 'mdi-help-box', to: '/admin' },
+        { title: '最新消息', icon: 'mdi-view-dashboard', to: '/admin' },
+        { title: '輪播圖管理', icon: 'mdi-image', to: '/admin' },
+        { title: '訂單管理', icon: 'mdi-help-box', to: '/admin/orders' },
+        { title: '會員管理', icon: 'mdi-help-box', to: '/admin' }
       ],
       right: null
     }

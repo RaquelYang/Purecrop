@@ -21,7 +21,7 @@
                 <th class="text-h5" width="15%">總計</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody v-for="product in products" :key="product._id">
               <tr>
                 <td>
                   <v-checkbox :ripple="false"></v-checkbox>
@@ -47,6 +47,10 @@
                 </td>
                 <td>$99</td>
               </tr>
+            </tbody>
+          </v-simple-table>
+          <v-simple-table class="grey lighten-4 px-3 py-3">
+            <tbody>
               <tr>
                 <td colspan="2" class="text-start">
                   <form class=" align-center pt-3 px-2">
@@ -83,13 +87,12 @@
                   </tr>
                 </td>
               </tr>
-              <tr class="">
+              <tr>
                 <td colspan="2" class="text-start">
                   <div class="d-flex">
                     <v-checkbox :ripple="false"></v-checkbox>
                     <span>全選</span>
                   </div>
-
                 </td>
                 <td colspan="4" class="text-end ">
                   <span class="text-subtitle-1">訂單金額(1商品)：</span>
@@ -139,7 +142,8 @@
                 <td></td>
                 <td></td>
                 <td>
-                  <v-btn :ripple="false" plain text outlined block large class="changebtn light-green darken-2 white--text font-weight-bold text-h6">
+                  <v-btn :ripple="false" plain text outlined block large class="changebtn light-green  darken-2 white--text font-weight-bold text-h6"
+                  @click="checkOut()">
                     下訂單
                   </v-btn>
                 </td>
@@ -186,3 +190,46 @@
 }
 }
 </style>
+<script>
+export default {
+  data () {
+    return {
+      products: []
+    }
+  },
+  async created () {
+    try {
+      const { data } = await this.api.get('/users/me/cart', {
+        headers: {
+          authorization: 'Bearer ' + this.user.token
+        }
+      })
+      this.products = data.result
+    } catch (error) {
+      this.$swal({
+        icon: 'error',
+        title: '失敗',
+        text: '取得購物車資料失敗'
+      })
+    }
+  },
+  methods: {
+    async checkOut () {
+      try {
+        await this.api.post('/orders', {}, {
+          headers: {
+            authorization: 'Bearer ' + this.user.token
+          }
+        })
+        this.$router.push('/orders')
+      } catch (error) {
+        this.$swal({
+          icon: 'error',
+          title: '失敗',
+          text: '結帳失敗'
+        })
+      }
+    }
+  }
+}
+</script>

@@ -12,6 +12,9 @@ import 'swiper/css/swiper.css'
 import mixin from './mixin.js'
 import ImgInputer from 'vue-img-inputer'
 import 'vue-img-inputer/dist/index.css'
+import { formatDistanceToNow } from 'date-fns'
+import { zhTW } from 'date-fns/locale'
+import parseISO from 'date-fns/fp/parseISO'
 
 Vue.component('ImgInputer', ImgInputer)
 
@@ -19,6 +22,11 @@ Vue.use(VueAwesomeSwiper)
 Vue.use(VueSweetalert2)
 Vue.mixin(mixin)
 Vue.config.productionTip = false
+Vue.prototype.$date = {
+  formatDistanceToNow,
+  parseISO,
+  locales: { zhTW }
+}
 
 new Vue({
   router,

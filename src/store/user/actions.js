@@ -1,6 +1,6 @@
 import { api } from '@/plugins/axios.js'
 import swal from 'sweetalert2'
-// import router from '@/router'
+import router from '@/router'
 
 export const login = async ({ commit }, loginform) => {
   try {
@@ -34,7 +34,9 @@ export const logout = async ({ commit, state }) => {
       text: '登出成功'
     })
     commit('logout')
-    // router.push('/').catch(() => {})
+    if (router.currentRoute.meta.login) {
+      router.push('/').catch(() => {})
+    }
   } catch (error) {
     swal.fire({
       icon: 'error',

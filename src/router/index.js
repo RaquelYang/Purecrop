@@ -95,6 +95,15 @@ const routes = [
             }
           }
         ]
+      },
+      {
+        path: 'orders',
+        name: 'Orders',
+        component: () => import(/* webpackChunkName: "orders" */ '../views/Front/Orders.vue'),
+        meta: {
+          login: true,
+          title: '無疑農 | 訂單頁面'
+        }
       }
     ]
   },

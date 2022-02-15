@@ -5,7 +5,7 @@
         <v-col></v-col>
         <v-col cols="12" md="9">
           <h3 class="text-h3">無疑農｜購物車</h3>
-          <div class="d-flex flex-row flex-nowrap justify-center my-15 text-h3 grey lighten-2 py-10"
+          <div class="nocart"
           v-if="user.cart === 0">
           <span>
             目前購物車沒有商品
@@ -65,14 +65,13 @@
               </tr>
             </tbody>
           </v-simple-table>
-          <div class="d-flex flex-row flex-nowrap justify-end mt-5 grey lighten-4 px-3 py-3">
+          <div class="d-flex flex-row flex-nowrap justify-end mt-5 grey lighten-4 px-3 py-3" v-if="!user.cart === 0">
             <span>總金額 ： {{ new Intl.NumberFormat('en-IN').format(total) }}</span>
           </div>
           <div class="d-flex flex-row flex-nowrap justify-space-between mt-5 grey lighten-4 px-3 py-3"
             v-if="user.cart !== 0">
             <v-checkbox :ripple="false" label="全選"></v-checkbox>
             <v-btn :ripple="false" text large class="primary" to="/cart/cartcheckout"
-            @click="checkout"
             >去買單</v-btn>
           </div>
         </v-col>
@@ -84,6 +83,13 @@
 
 <style lang="scss">
 #cartcheck{
+  .nocart{
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    font-size: 5rem;
+    margin-top: 10rem;
+  }
   tr,td,th{
     padding: 0.6rem 0;
     text-align: center;
@@ -148,7 +154,7 @@ export default {
       this.$swal({
         icon: 'error',
         title: '失敗',
-        text: '取得購物車資料'
+        text: '取得購物車資料失敗'
       })
     }
   },
@@ -158,7 +164,7 @@ export default {
       this.products[this.idx].quantity++
       try {
         await this.api.patch('/users/me/cart',
-          { product: this.products[this.idx].product._id, quantity },
+          { product: this.products[this.idx].product._id, quantity: this.products[this.idx].quantity },
           {
             headers: {
               authorization: 'Bearer ' + this.user.token
@@ -175,7 +181,6 @@ export default {
           })
         }
       } catch (error) {
-        console.log(error)
         this.$swal({
           icon: 'error',
           title: '失敗',

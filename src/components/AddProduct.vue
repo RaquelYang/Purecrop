@@ -229,7 +229,7 @@ export default {
           })
 
           this.products[this.form.idx] = { ...this.form, image: data.result.image }
-          this.$emit('changetable')
+          this.$emit('changetable', data.result)
           this.$swal({
             icon: 'success',
             title: '成功',
@@ -250,8 +250,8 @@ export default {
     },
     openform () {
       this.form = {
-        name: null,
-        price: null,
+        name: ' ',
+        price: 1,
         spec: {
           origin: '',
           type: '',

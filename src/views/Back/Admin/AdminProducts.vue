@@ -5,7 +5,6 @@
     <v-row>
       <v-col cols="10" class="px-0 mx-auto">
         <v-data-table
-          v-model="selected"
           :headers="headers"
           :items="products"
 
@@ -39,7 +38,7 @@
     </v-row>
   </v-container>
   <AddProduct :parentdialog="parentdialog" @closedialog="parentdialog=false"
-  @products='product' ref="AddProduct" />
+  @products='product' ref="AddProduct" @changetable="changetable"/>
 </div>
 </template>
 
@@ -50,16 +49,15 @@ export default {
     return {
       parentdialog: false,
       products: [],
-      selected: [],
       idx: -1,
       headers: [
         {
-          text: '產品名稱', align: 'start', sortable: false, value: 'name', width: '30%'
+          text: '產品名稱', align: 'start', value: 'name', width: '30%'
         },
         { text: '商品圖片', value: 'image', align: 'center', sortable: false, width: '15%' },
         { text: '價格', value: 'price', align: 'center', width: '20%' },
         { text: '是否上架', value: 'sell', width: '15%' },
-        { text: '操作', value: 'action', align: 'center', width: '20%' }
+        { text: '操作', value: 'action', align: 'center', width: '20%', sortable: false }
       ]
 
     }
@@ -77,12 +75,30 @@ export default {
       this.$refs.AddProduct.editform(id)
       this.idx = this.products.findIndex(product => product._id === id)
     },
-    deleteProduct (id) {
-
+    async deleteProduct (id) {
+      this.idx = this.products.findIndex(product => product._id === id)
+      try {
+        await this.api.delete('/products/' + this.products[this.idx]._id, {
+          headers: {
+            authorization: 'Bearer ' + this.admin.token
+          }
+        })
+        this.products.splice(this.idx, 1)
+        this.$swal({
+          icon: 'success',
+          title: '成功',
+          text: '刪除成功'
+        })
+      } catch (error) {
+        this.$swal({
+          icon: 'error',
+          title: '錯誤',
+          text: error.response.data.message
+        })
+      }
     },
     async switchbtn (id) {
       this.idx = this.products.findIndex(product => product._id === id)
-      console.log(this.idx)
       try {
         await this.api.post('/products/update', { id: this.products[this.idx]._id, sell: this.products[this.idx].sell }
           , {
@@ -97,6 +113,13 @@ export default {
           text: error.response.data.message
         })
       }
+    },
+    changetable (data) {
+      console.log(data)
+      const idx = this.products.findIndex(product => product._id === data._id)
+      this.products[idx] = data
+      this.products.push({})
+      this.products.pop()
     }
   },
   components: { AddProduct }

@@ -39,8 +39,8 @@
               <p class="mb-0 text-h5 red--text font-weight-bold"> $&nbsp;{{ new Intl.NumberFormat('en-IN').format(product.price) }}</p>
             </v-card-text>
             <v-card-actions class="flex-column px-4 pb-4" >
-              <v-btn  block text :ripple="false" class="buybtn mx-0 mt-4 text-h6" @click="buyNow()">直接購買</v-btn>
-              <v-btn block text :ripple="false" class="addcartbtn light-green darken-1 white--text mx-0 mt-4 text-h6" @click="addCart">加入購物車</v-btn>
+              <v-btn  block text :ripple="false" class="buybtn mx-0 mt-4 text-h6" @click="buyNow(product)">直接購買</v-btn>
+              <v-btn block text :ripple="false" class="addcartbtn light-green darken-1 white--text mx-0 mt-4 text-h6" @click="addCart(product)">加入購物車</v-btn>
             </v-card-actions>
           </v-card>
           </v-col>
@@ -121,11 +121,28 @@ export default{
     }
   },
   methods:{
-    addCart(){
-
+    addCart(product){
+      if (!this.user.isLogin) {
+        this.$swal({
+          icon: 'error',
+          title: '錯誤',
+          text: '請先登入'
+        })
+        return
+      }
+      this.$store.dispatch('user/addCart', { product: product._id, quantity: 1 })
     },
-    buyNow(){
-      console.log('d');
+    buyNow(product){
+      if (!this.user.isLogin) {
+        this.$swal({
+          icon: 'error',
+          title: '錯誤',
+          text: '請先登入'
+        })
+        return
+      }
+      this.$store.dispatch('user/addCart', { product: product._id, quantity: 1 })
+      this.$router.push('/cart')
     },
     singleproduct(id){
       this.$router.push('productintroduction/' + id)

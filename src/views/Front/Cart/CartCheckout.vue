@@ -68,7 +68,7 @@
                   <tr>
                     <td class="text-start ps-3 text-h5">賣家宅配</td>
                     <td>
-                      <v-btn :ripple="false" plain text outlined>
+                      <v-btn :ripple="false" plain text outlined @click="parentdialog=true">
                         ＋新增收件人地址
                       </v-btn>
                     </td>
@@ -133,6 +133,7 @@
                   @click="checkOut()">
                     下訂單
                   </v-btn>
+                  <UserInfo :parentdialog="parentdialog" @closedialog="parentdialog=false"/>
                 </td>
               </tr>
             </tbody>
@@ -185,12 +186,13 @@
 }
 </style>
 <script>
+import UserInfo from '@/components/UserInfo.vue'
 export default {
   data () {
     return {
+      parentdialog: false,
       products: [],
       selected: false,
-      isActive: false,
       payselects: [
         '信用卡/金融卡',
         '貨到付款'
@@ -246,6 +248,7 @@ export default {
         return accu + curr.quantity * curr.product.price
       }, 0)
     }
-  }
+  },
+  components: { UserInfo }
 }
 </script>

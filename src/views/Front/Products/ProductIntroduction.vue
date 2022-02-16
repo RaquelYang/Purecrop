@@ -253,9 +253,13 @@ export default {
         type: data.result.spec.type,
         content: data.result.spec.content
       }
-      document.title = `${this.name} | 購物網`
+      document.title = ` 無疑農 | ${this.name}`
     } catch (error) {
-      this.$router.push('/')
+      this.$swal({
+        icon: 'error',
+        title: '錯誤',
+        text: '取得商品錯誤'
+      })
     }
   },
   methods: {

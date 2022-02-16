@@ -61,9 +61,9 @@
               </tr>
             </tbody>
           </v-simple-table>
-          <v-simple-table class="grey lighten-4 px-3 py-3">
-            <tbody>
-              <tr v-if="!user.cart !== 0">
+          <v-simple-table class="grey lighten-4 px-3 py-3" v-if="user.cart !== 0">
+            <tbody >
+              <tr >
                 <td colspan="6">
                   <div class="d-flex align-center justify-end pe-5">
                     <p class="pr-2 text-subtitle-1">總金額 ：</p>
@@ -72,7 +72,7 @@
                   </div>
                 </td>
               </tr>
-              <tr>
+              <tr >
                 <td colspan="6" >
                   <div class="d-flex justify-end py-5 pe-5">
                     <v-btn :ripple="false" text large
@@ -172,16 +172,27 @@ export default {
   methods: {
     async plus (id, quantity) {
       this.idx = this.products.findIndex(product => product.product._id === id)
-      this.products[this.idx].quantity++
       try {
-        await this.api.patch('/users/me/cart',
-          { product: this.products[this.idx].product._id, quantity: this.products[this.idx].quantity },
-          {
-            headers: {
-              authorization: 'Bearer ' + this.user.token
+        if (quantity !== 0) {
+          this.products[this.idx].quantity++
+          await this.api.patch('/users/me/cart',
+            { product: this.products[this.idx].product._id, quantity: this.products[this.idx].quantity },
+            {
+              headers: {
+                authorization: 'Bearer ' + this.user.token
+              }
             }
-          }
-        )
+          )
+        } else if (quantity === 0) {
+          await this.api.patch('/users/me/cart',
+            { product: this.products[this.idx].product._id, quantity },
+            {
+              headers: {
+                authorization: 'Bearer ' + this.user.token
+              }
+            }
+          )
+        }
         if (quantity === 0) {
           this.products.splice(this.idx, 1)
           this.$store.commit('user/updateCart', this.user.cart - 1)
@@ -228,6 +239,27 @@ export default {
       return this.products.reduce((accu, curr) => {
         return accu + curr.quantity * curr.product.price
       }, 0)
+    },
+    cart () {
+      return this.user.cart
+    }
+  },
+  watch: {
+    async cart () {
+      try {
+        const { data } = await this.api.get('/users/me/cart', {
+          headers: {
+            authorization: 'Bearer ' + this.user.token
+          }
+        })
+        this.products = data.result
+      } catch (error) {
+        this.$swal({
+          icon: 'error',
+          title: '失敗',
+          text: '取得購物車資料失敗'
+        })
+      }
     }
   }
 }

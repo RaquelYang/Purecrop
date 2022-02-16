@@ -56,6 +56,7 @@
                     class="message py-2 text-start"
                       outlined
                       placeholder="統一編號/警衛代收/電話聯絡時間..."
+                      v-model="orderinfo.ordermessage"
                     ></v-textarea>
                   </form>
                 </td>
@@ -133,7 +134,7 @@
                   @click="checkOut()">
                     下訂單
                   </v-btn>
-                  <UserInfo :parentdialog="parentdialog" @closedialog="parentdialog=false"/>
+                  <UserInfo :products='products' :parentdialog="parentdialog" @closedialog="parentdialog=false" @changetable='adddelivey'/>
                 </td>
               </tr>
             </tbody>
@@ -193,6 +194,13 @@ export default {
       parentdialog: false,
       products: [],
       selected: false,
+      orderinfo: {
+        ordermessage: '',
+        ordername: '',
+        orderphone: null,
+        orderaddress: '',
+        orderpay: ''
+      },
       payselects: [
         '信用卡/金融卡',
         '貨到付款'
@@ -240,6 +248,13 @@ export default {
     },
     payselected (option) {
       this.selected = option
+      this.orderinfo.orderpay = option
+    },
+    adddelivey (data) {
+      console.log(data)
+      this.orderinfo.ordername = data.ordername
+      this.orderinfo.orderphone = data.orderphone
+      this.orderinfo.orderaddress = data.orderaddress
     }
   },
   computed: {

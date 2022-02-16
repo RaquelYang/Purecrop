@@ -1,6 +1,6 @@
 <template>
   <div id="userinfo">
-    <v-dialog v-model="parentdialog" persistent >
+    <v-dialog v-model="parentdialog" persistent class="dialog">
       <section class="grey lighten-4 py-8">
         <div class="d-flex justify-end pe-6 pb-2">
           <v-btn icon>
@@ -14,36 +14,26 @@
                   <v-card-text>
                     <v-container>
                       <v-row>
-                        <v-col cols="6" class="text-h3" >{{form._id.length > 0 ? '編輯資料' : '新增資料'}}</v-col>
+                        <v-col cols="6" class="text-h3 font-weight-bold light-green--text text--darken-3" >寄送資訊</v-col>
                         <v-col
                           cols="12"
                           md="12"
                           xl="12"
                         >
-                          <span class="text-h5 font-weight-bold light-green--text text--darken-3">商品規格</span>
                           <v-text-field
-                            v-model="form.spec.origin"
-                            label="產地"
+                            v-model="form.ordername"
+                            label="姓名"
                             type="string"
-
                           ></v-text-field>
                           <v-text-field
-                            v-model="form.spec.type"
-                            label="食物種類"
-                            type="string"
-
+                            v-model="form.orderphone"
+                            label="電話"
+                            type="number"
                           ></v-text-field>
                           <v-text-field
-                            v-model="form.spec.content"
-                            label="內容物/成分"
+                            v-model="form.orderaddress"
+                            label="地址"
                             type="string"
-
-                          ></v-text-field>
-                          <v-text-field
-                            v-model="form.spec.from"
-                            label="出貨地"
-                            type="string"
-
                           ></v-text-field>
                         </v-col>
                         <v-col
@@ -60,7 +50,6 @@
                     <v-btn
                       class="text-h5 white--text px-5 mx-5 my-5"
                       large
-                      :disabled="cancelBtnDisabled"
                       color="red darken-1"
                       @click="cancelForm"
                     >
@@ -69,11 +58,10 @@
                     <v-btn
                       class="text-h5 px-5 mx-5 my-5"
                       large
-                      :disabled="submitBtnDisabled"
                       color="success darken-1"
                       @click="submitForm"
                     >
-                      {{form._id.length > 0 ? '編輯' : '新增'}}
+                      送出
                     </v-btn>
                   </v-card-actions>
                 </v-card>
@@ -84,77 +72,54 @@
     </v-dialog>
   </div>
 </template>
-<style>
-/* @import "../scss/variable.scss"; */
-/* @import "../scss/mixins/rwd.scss"; */
+<style lang="scss">
+@import "../scss/variable.scss";
+@import "../scss/mixins/rwd.scss";
+
 @include lg{
-#footer{
-    .contact{
-      margin-left:5.5rem;
+#userinfo{
+    .v-dialog{
+      width: 50%;
     }
   }
 }
 @include xl{
-#footer{
-    .contact{
-      margin-left:11rem;
+#userinfo{
+    .v-dialog{
+      width: 50%;
     }
   }
 }
+#userinfo{
+    .v-dialog{
+      width: 50%;
+    }
+  }
 </style>
 <script>
 
 export default {
   data () {
     return {
-      submitBtnDisabled: false,
-      cancelBtnDisabled: false,
-      products: [],
       form: {
-        name: '',
-        price: 0,
-        spec: {
-          origin: '',
-          type: '',
-          content: '',
-          from: ''
-        },
-        description: '',
-        image: null,
-        sell: false,
-        _id: ''
-      },
-      rules: {
-        required: value => !!value || '此為必填欄位',
-        min: value => value >= 0 || '價格需大於 0 元'
+        ordername: '',
+        orderaddress: '',
+        orderphone: null
       }
     }
   },
   methods: {
     cancelForm (event) {
-      if (this.cancelBtnDisabled) {
-        event.preventDefault()
-        return
-      }
       this.form = {
-        name: '',
-        price: null,
-        spec: {
-          origin: '',
-          type: '',
-          content: '',
-          from: ''
-        },
-        description: '',
-        image: null,
-        sell: false,
-        _id: ''
+        ordername: '',
+        orderaddress: '',
+        orderphone: null
       }
       this.$emit('closedialog')
     },
     async submitForm (event) {
       event.preventDefault()
-      if (!this.form.name || !this.form.price || this.form.price < 0) {
+      if (!this.form.ordername || !this.form.orderaddress || !this.form.orderphone) {
         this.$swal({
           icon: 'error',
           title: '錯誤',
@@ -162,92 +127,16 @@ export default {
         })
         return
       }
-      this.cancelBtnDisabled = true
-      this.submitBtnDisabled = true
-      const fd = new FormData()
-      for (const key in this.form) {
-        if (key !== '_id') {
-          fd.append(key, this.form[key])
-        }
-      }
-      for (const key in this.form.spec) {
-        fd.append(`spec[${key}]`, this.form.spec[key])
-      }
-
-      try {
-        if (this.form._id.length === 0) {
-          const { data } = await this.api.post('/products', fd, {
-            headers: {
-              authorization: 'Bearer ' + this.admin.token
-            }
-          })
-          this.products.push(data.result)
-        } else {
-          const { data } = await this.api.patch('/products/' + this.form._id, fd, {
-            headers: {
-              authorization: 'Bearer ' + this.admin.token
-            }
-          })
-
-          this.products[this.form.idx] = { ...this.form, image: data.result.image }
-          this.$emit('changetable', data.result)
-          this.$swal({
-            icon: 'success',
-            title: '成功',
-            text: '編輯成功'
-          })
-        }
-        this.$emit('closedialog')
-        this.cancelBtnDisabled = false
-        this.submitBtnDisabled = false
-      } catch (error) {
-        this.$swal({
-          icon: 'error',
-          title: '錯誤',
-          text: error.response.data.message
-        })
-      }
-      this.submitBtnDisabled = false
-    },
-    openform () {
-      this.form = {
-        name: ' ',
-        price: 1,
-        spec: {
-          origin: '',
-          type: '',
-          content: '',
-          from: ''
-        },
-        description: '',
-        image: null,
-        sell: false,
-        _id: ''
-      }
-    },
-    editform (id) {
-      const idx = this.products.findIndex(product => product._id === id)
-      this.form = { ...this.products[idx], image: null }
-    }
-  },
-  async created () {
-    try {
-      const { data } = await this.api.get('/products/all', {
-        headers: {
-          authorization: 'Bearer ' + this.admin.token
-        }
-      })
-      this.products = data.result
-      this.$emit('products', this.products)
-    } catch (error) {
+      this.$emit('changetable', this.form)
       this.$swal({
-        icon: 'error',
-        title: '錯誤',
-        text: '取得商品失敗'
+        icon: 'success',
+        title: '成功',
+        text: '編輯成功'
       })
+      this.$emit('closedialog')
     }
   },
   props: ['parentdialog'],
-  emits: ['closedialog']
+  emits: ['closedialog', 'changetable']
 }
 </script>

@@ -13,7 +13,7 @@
         <v-row class="mt-5">
           <!-- left -->
           <v-col cols="12" md="5" class="grey lighten-3">
-            <SwiperProduct :parent-image="image"/>
+            <v-img :src="this.image"></v-img>
           </v-col>
           <!-- right -->
           <v-col cols="12" md="7" class="grey lighten-3">
@@ -25,8 +25,8 @@
               <v-simple-table class="grey lighten-3">
                 <tbody class="lighten-4">
                   <tr>
-                    <td class="text-h6">運送</td>
-                    <td class="text-h6">
+                    <td width="50%" class="text-h6">運送</td>
+                    <td width="50%" class="text-h6">
                       備貨時間約 3 - 5 天
                     </td>
                   </tr>
@@ -48,30 +48,19 @@
                         </template>
                         <div class="tooltiptext pt-4">
                           <div class="d-flex justify-space-between">
-                            <p>便利商店 711</p>
-                            <p class="ml-15">$60</p>
-                          </div>
-                          <p>預計到貨時間 2/5 - 2/7</p>
-                          <div class="d-flex justify-space-between">
-                            <p>便利商店 全家</p>
-                            <p>$60</p>
-                          </div>
-                          <p>預計到貨時間 2/5 - 2/7</p>
-                          <div class="d-flex justify-space-between">
                             <p>貨運</p>
-                            <p>$90</p>
+                            <p>$60</p>
                           </div>
                           <p>預計到貨時間 2/5 - 2/7</p>
                         </div>
                       </v-tooltip>
                     </td>
                   </tr>
-                </tbody>
-                <tbody>
                   <tr>
                     <td class="text-h6">數量</td>
                     <td class="text-h6">
                       <v-text-field
+                        background-color="transparent"
                         hide-spin-buttons
                         readonly
                         flat
@@ -90,21 +79,17 @@
                       </v-text-field>
                     </td>
                   </tr>
-                  <tr>
-                    <td>
-                      <v-btn text :ripple='false' block large class=" my-10 text-h5 addcart"
-                      @click="addCart"
-                      >加入購物車</v-btn>
-                    </td>
-                    <td>
-                      <v-btn text :ripple='false' block large
-                      class="light-green white--text my-10 text-h5 buynow"
-                      @click="buyNow"
-                      >立即購買</v-btn>
-                    </td>
-                  </tr>
                 </tbody>
               </v-simple-table>
+              <div class="d-flex">
+                <v-btn text :ripple='false' large width="30%" class=" my-10 text-h5 mr-10 addcart"
+                  @click="addCart"
+                  >加入購物車</v-btn>
+                  <v-btn text :ripple='false' large width="30%"
+                  class="light-green white--text my-10 text-h5 buynow"
+                  @click="buyNow"
+                  >立即購買</v-btn>
+              </div>
             </div>
           </v-col>
         </v-row>
@@ -218,10 +203,25 @@
   .v-input__slot{
     margin: 0;
   }
+    .v-input__prepend-inner,.v-input__append-inner{
+    padding: 0px;
+    border:1px solid green;
+  }
+  .v-text-field__slot{
+    padding: 2px 0;
+    border-top:1px solid green;
+    border-bottom:1px solid green;
+  }
+  .v-input__control{
+    margin: auto;
+  }
+  .v-text-field input{
+    text-align: center;
+  }
 }
 </style>
 <script>
-import SwiperProduct from '@/components/SwiperProduct.vue'
+// import SwiperProduct from '@/components/SwiperProduct.vue'
 export default {
   data () {
     return {
@@ -280,11 +280,20 @@ export default {
       this.$store.dispatch('user/addCart', { product: this.$route.params.id, quantity: this.quantity })
     },
     buyNow () {
-
+      if (!this.user.isLogin) {
+        this.$swal({
+          icon: 'error',
+          title: '錯誤',
+          text: '請先登入'
+        })
+        return
+      }
+      this.$store.dispatch('user/addCart', { product: this.$route.params.id, quantity: this.quantity })
+      this.$router.push('/cart')
     }
   },
   components: {
-    SwiperProduct
+    // SwiperProduct
   },
   computed: {
     quantityState () {

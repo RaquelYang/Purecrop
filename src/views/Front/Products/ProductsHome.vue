@@ -29,9 +29,9 @@
         <v-col cols="12" md="9">
           <v-row>
           <v-col v-for="product in products" :key="product._id" cols="12" xl="3" md="4">
-          <v-card  :ripple="false" :to='"productintroduction/" + product._id' >
-            <v-img height="200" class="parallax" :src="product.image">
-              <span class="badge"></span>
+          <v-card  :ripple="false" >
+            <v-img height="200" class="parallax cursor" :src="product.image"  @click="singleproduct(product._id)">
+              <!-- <span class="badge"></span> -->
             </v-img>
 
             <v-card-text class="pb-0">
@@ -39,8 +39,8 @@
               <p class="mb-0 text-h5 red--text font-weight-bold"> $&nbsp;{{ new Intl.NumberFormat('en-IN').format(product.price) }}</p>
             </v-card-text>
             <v-card-actions class="flex-column px-4 pb-4" >
-              <v-btn to="/news/pages" block text :ripple="false" class="buybtn mx-0 mt-4 text-h6">直接購買</v-btn>
-              <v-btn to="/news/pages" block text :ripple="false" class="addcartbtn light-green darken-1 white--text mx-0 mt-4 text-h6">加入購物車</v-btn>
+              <v-btn  block text :ripple="false" class="buybtn mx-0 mt-4 text-h6" @click="buyNow()">直接購買</v-btn>
+              <v-btn block text :ripple="false" class="addcartbtn light-green darken-1 white--text mx-0 mt-4 text-h6" @click="addCart">加入購物車</v-btn>
             </v-card-actions>
           </v-card>
           </v-col>
@@ -96,6 +96,9 @@ export default {
       color:white
     }
   }
+  .cursor{
+    cursor: pointer;
+  }
 }
 </style>
 <script>
@@ -115,6 +118,17 @@ export default{
         title: '失敗',
         text: '商品取得失敗'
       })
+    }
+  },
+  methods:{
+    addCart(){
+
+    },
+    buyNow(){
+      console.log('d');
+    },
+    singleproduct(id){
+      this.$router.push('productintroduction/' + id)
     }
   }
 }

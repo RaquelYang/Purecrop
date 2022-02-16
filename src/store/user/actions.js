@@ -70,6 +70,7 @@ export const addCart = async ({ commit, state }, data) => {
     return
   }
   try {
+    console.log(state)
     const { data: resData } = await api.post('/users/me/cart', data, {
       headers: {
         authorization: 'Bearer ' + state.token

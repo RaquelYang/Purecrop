@@ -16,10 +16,9 @@
           >
             <thead>
               <tr>
-                <th class=" text-h5" ></th>
-                <th class=" text-start text-h5">品名</th>
-                <th class=" text-h5" width="10%"></th>
-                <th class="text-h5" width="10%">單價</th>
+                <th class=" text-start text-h5 ps-8">品名</th>
+                <th class=" text-h5" width="15%">商品</th>
+                <th class="text-h5" width="15%">單價</th>
                 <th class=" text-h5" width="15%">數量</th>
                 <th class="text-h5" width="15%">總計</th>
                 <th class=" text-h5" width="10%">操作</th>
@@ -27,11 +26,8 @@
             </thead>
             <tbody v-for="product in products" :key="product._id">
               <tr>
-                <td>
-                  <v-checkbox :ripple="false"></v-checkbox>
-                </td>
                 <td class="text-start">
-                  <span class="text-h6">{{product.product.name}}</span>
+                  <span class="text-h6 ps-8">{{product.product.name}}</span>
                 </td>
                 <td>
                   <img :src="product.product.image" width="80px">
@@ -65,15 +61,29 @@
               </tr>
             </tbody>
           </v-simple-table>
-          <div class="d-flex flex-row flex-nowrap justify-end mt-5 grey lighten-4 px-3 py-3" v-if="!user.cart === 0">
-            <span>總金額 ： {{ new Intl.NumberFormat('en-IN').format(total) }}</span>
-          </div>
-          <div class="d-flex flex-row flex-nowrap justify-space-between mt-5 grey lighten-4 px-3 py-3"
-            v-if="user.cart !== 0">
-            <v-checkbox :ripple="false" label="全選"></v-checkbox>
-            <v-btn :ripple="false" text large class="primary" to="/cart/cartcheckout"
-            >去買單</v-btn>
-          </div>
+          <v-simple-table class="grey lighten-4 px-3 py-3">
+            <tbody>
+              <tr v-if="!user.cart !== 0">
+                <td colspan="6">
+                  <div class="d-flex align-center justify-end pe-5">
+                    <p class="pr-2 text-subtitle-1">總金額 ：</p>
+                    <p class="text-h4 orange--text text--darken-4 pr-2">{{ new Intl.NumberFormat('en-IN').format(total) }}</p>
+                    <p class="text-subtitle-1">元</p>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="6" >
+                  <div class="d-flex justify-end py-5 pe-5">
+                    <v-btn :ripple="false" text large
+                      class="primary" to="/cart/cartcheckout">
+                      <span class="text-h5 px-3">去買單</span>
+                    </v-btn>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </v-simple-table>
         </v-col>
         <v-col></v-col>
       </v-row>
@@ -93,6 +103,7 @@
   tr,td,th{
     padding: 0.6rem 0;
     text-align: center;
+    vertical-align: center;
   }
   tr:hover{
     background-color: transparent !important;

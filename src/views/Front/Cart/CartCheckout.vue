@@ -13,9 +13,8 @@
                   </th>
               </tr>
               <tr>
-                <th class=" text-h5" width="5%"></th>
                 <th class=" text-start px-5 text-h5">品名</th>
-                <th class=" text-h5" width="10%"></th>
+                <th class=" text-h5" width="10%">商品</th>
                 <th class="text-h5" width="10%">單價</th>
                 <th class=" text-h5" width="20%">數量</th>
                 <th class="text-h5" width="15%">總計</th>
@@ -23,16 +22,13 @@
             </thead>
             <tbody v-for="product in products" :key="product._id">
               <tr>
-                <td>
-                  <v-checkbox :ripple="false"></v-checkbox>
-                </td>
                 <td class="text-start px-5">
-                  <span class="text-h6">新鮮芭樂乾芭樂乾</span>
+                  <span class="text-h6">{{product.product.name}}</span>
                 </td>
                 <td>
-                  <img src="https://picsum.photos/50/50/?random=10">
+                  <img :src="product.product.image" height="80px">
                 </td>
-                <td>$99</td>
+                <td>$&nbsp;{{ new Intl.NumberFormat('en-IN').format(product.product.price) }}</td>
                 <td>
                   <v-text-field
                     background-color="transparent"
@@ -41,11 +37,12 @@
                     flat
                     solo
                     type="number"
-                    value="1"
+                    value="product.quantity"
+                    v-model.number="product.quantity"
                   >
                   </v-text-field>
                 </td>
-                <td>$99</td>
+                <td>$&nbsp;{{ new Intl.NumberFormat('en-IN').format(product.product.price * product.quantity) }}</td>
               </tr>
             </tbody>
           </v-simple-table>
@@ -53,10 +50,10 @@
             <tbody>
               <tr>
                 <td colspan="2" class="text-start">
-                  <form class=" align-center pt-3 px-2">
-                    <label class="px-2 text-subtitle-1">留言：</label>
+                  <form class=" align-center pt-3">
+                    <label class="px-2 text-h5">留言：</label>
                     <v-textarea
-                    class="message py-2 px-2 text-start"
+                    class="message py-2 text-start"
                       outlined
                       placeholder="統一編號/警衛代收/電話聯絡時間..."
                     ></v-textarea>
@@ -64,57 +61,47 @@
                 </td>
                 <td colspan="4" class="text-start text-subtitle-1">
                   <tr>
-                    <td class="text-start ps-3" width="30%">賣家資訊</td>
+                    <td class="text-start ps-3 text-h5" width="30%">賣家資訊</td>
                     <td width="30%"></td>
-                    <td class="text-end pe-3" width="30%" >$80</td>
+                    <td class="text-end pe-3 text-h5" width="30%" >$60</td>
                   </tr>
                   <tr>
-                    <td class="text-start ps-3">賣家宅配</td>
+                    <td class="text-start ps-3 text-h5">賣家宅配</td>
                     <td>
                       <v-btn :ripple="false" plain text outlined>
                         ＋新增收件人地址
                       </v-btn>
                     </td>
                   </tr>
-                  <tr>
-                      <td class="text-start ps-3">電子發票</td>
-                      <td>1 個未填寫收據</td>
-                      <td class="text-start" >
-                        <v-btn :ripple="false" plain text color="blue accent-3" class="changebtn">
-                          變更
-                        </v-btn>
-                      </td>
-                  </tr>
                 </td>
               </tr>
               <tr>
-                <td colspan="2" class="text-start">
-                  <div class="d-flex">
-                    <v-checkbox :ripple="false"></v-checkbox>
-                    <span>全選</span>
+                <td colspan="4">
+                  <div class="d-flex align-center justify-end">
+                    <span class="text-subtitle-1 pr-2 orderprice">訂單金額(<span>{{this.products.length}}</span>商品)：</span>
+                    <span class="text-h4 pr-2 orange--text text--darken-4">{{ new Intl.NumberFormat('en-IN').format(total) }}</span>
+                    <span class="text-subtitle-1">元</span>
                   </div>
                 </td>
-                <td colspan="4" class="text-end ">
-                  <span class="text-subtitle-1">訂單金額(1商品)：</span>
-                  <span class="text-h5 light-green--text text--darken-4">$123</span>
-                </td>
               </tr>
-            </tbody>
-          </v-simple-table>
-          <v-simple-table class="mt-10 grey lighten-4 px-3 py-3">
-            <tbody>
               <tr>
                 <td width="20%">付款方式</td>
                 <td class="text-start">
-                  <v-btn :ripple="false" plain text outlined class="me-4">信用卡/金融卡</v-btn>
-                  <v-btn :ripple="false" plain text outlined>銀行轉帳</v-btn>
+                  <v-btn v-for="payselect in payselects" :key="payselect" :ripple="false"
+                  plain text outlined
+                  :class="{payselect:payselect===selected}" class="me-4"
+                  @click="payselected(payselect)"
+                  >
+                  {{payselect}}
+                  </v-btn>
+
                 </td>
                 <td></td>
               </tr>
-              <tr>
+              <tr v-if="selected === '信用卡/金融卡'">
                 <td>選擇帳戶</td>
                 <td class="text-start">
-                  <v-btn :ripple="false" plain text outlined>
+                  <v-btn  :ripple="false" plain text outlined>
                   ＋新增信用卡付款
                   </v-btn>
                 </td>
@@ -126,7 +113,7 @@
                 <td>
                   <v-row>
                     <v-col>商品總金額</v-col>
-                    <v-col class="text-end">$123</v-col>
+                    <v-col class="text-end">$&nbsp;{{ new Intl.NumberFormat('en-IN').format(total) }}</v-col>
                   </v-row>
                   <v-row>
                     <v-col>運費總金額</v-col>
@@ -134,15 +121,15 @@
                   </v-row>
                   <v-row>
                     <v-col>總付款金額</v-col>
-                    <v-col class="text-end">$183</v-col>
+                    <v-col class="text-end">$&nbsp;{{ new Intl.NumberFormat('en-IN').format(total+60) }}</v-col>
                   </v-row>
                 </td>
               </tr>
               <tr>
                 <td></td>
                 <td></td>
-                <td>
-                  <v-btn :ripple="false" plain text outlined block large class="changebtn light-green  darken-2 white--text font-weight-bold text-h6"
+                <td class="text-end pb-1">
+                  <v-btn :ripple="false" plain text outlined large class="changebtn light-green  darken-2 white--text font-weight-bold text-h6"
                   @click="checkOut()">
                     下訂單
                   </v-btn>
@@ -187,14 +174,27 @@
   }
   .v-btn--plain:not(.v-btn--active):not(.v-btn--loading):not(:focus):not(:hover).changebtn .v-btn__content {
     opacity: 1;
-}
+  }
+  .orderprice{
+    letter-spacing: 1px !important;
+  }
+  .payselect{
+    border:1px solid #7CB342;
+    color:#33691E;
+  }
 }
 </style>
 <script>
 export default {
   data () {
     return {
-      products: []
+      products: [],
+      selected: false,
+      isActive: false,
+      payselects: [
+        '信用卡/金融卡',
+        '貨到付款'
+      ]
     }
   },
   async created () {
@@ -206,6 +206,7 @@ export default {
       })
       this.products = data.result
     } catch (error) {
+      console.log(error)
       this.$swal({
         icon: 'error',
         title: '失敗',
@@ -221,14 +222,29 @@ export default {
             authorization: 'Bearer ' + this.user.token
           }
         })
+        this.$swal({
+          icon: 'success',
+          title: '成功',
+          text: '結帳成功'
+        })
         this.$router.push('/orders')
       } catch (error) {
         this.$swal({
           icon: 'error',
           title: '失敗',
-          text: '結帳失敗'
+          text: '沒有商品'
         })
       }
+    },
+    payselected (option) {
+      this.selected = option
+    }
+  },
+  computed: {
+    total () {
+      return this.products.reduce((accu, curr) => {
+        return accu + curr.quantity * curr.product.price
+      }, 0)
     }
   }
 }

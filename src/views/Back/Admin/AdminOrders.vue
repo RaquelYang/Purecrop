@@ -24,14 +24,14 @@
                 {{item.user.email}}
               </td>
             </template>
-            <template v-slot:item.time="{ item }">
+            <template v-slot:item.time>
               <td class="text-center">
-                4 days{{item.a}}
+                {{formatTime}}
               </td>
             </template>
             <template v-slot:item.total="{ item }">
               <td class="text-center">
-                $1000{{item.quantity}}
+                $&nbsp;{{ new Intl.NumberFormat('en-IN').format(item.total) }}
               </td>
             </template>
             <template v-slot:item.products="{ item }">
@@ -119,6 +119,7 @@ export default {
         }
       })
       this.orders = data.result.map((order) => {
+        console.log(order)
         order.total = order.products.reduce((accu, curr) => {
           return accu + curr.quantity * curr.product.price
         }, 0)

@@ -80,7 +80,8 @@
 export default {
   data () {
     return {
-      orders: []
+      orders: [],
+      products: []
     }
   },
   async created () {
@@ -99,5 +100,6 @@ export default {
       })
     }
   }
+
 }
 </script>

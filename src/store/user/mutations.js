@@ -27,3 +27,6 @@ export const extend = (state, data) => {
 export const updateCart = (state, data) => {
   state.cart = data
 }
+export const orderCart = (state, data) => {
+  state.cart = 0
+}

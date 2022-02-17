@@ -70,7 +70,6 @@ export const addCart = async ({ commit, state }, data) => {
     return
   }
   try {
-    console.log(state)
     const { data: resData } = await api.post('/users/me/cart', data, {
       headers: {
         authorization: 'Bearer ' + state.token
@@ -89,4 +88,8 @@ export const addCart = async ({ commit, state }, data) => {
       text: '加入購物車失敗'
     })
   }
+}
+
+export const orderCart = ({ commit, state }) => {
+  commit('orderCart')
 }

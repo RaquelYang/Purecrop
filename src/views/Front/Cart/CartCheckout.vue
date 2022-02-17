@@ -227,7 +227,7 @@ export default {
   methods: {
     async checkOut () {
       try {
-        await this.api.post('/orders', {}, {
+        await this.api.post('/orders', { orderinfo: this.orderinfo }, {
           headers: {
             authorization: 'Bearer ' + this.user.token
           }
@@ -237,6 +237,7 @@ export default {
           title: '成功',
           text: '結帳成功'
         })
+        this.$store.dispatch('user/orderCart')
         this.$router.push('/orders')
       } catch (error) {
         this.$swal({

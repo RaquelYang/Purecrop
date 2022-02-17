@@ -24,9 +24,9 @@
                 {{item.user.email}}
               </td>
             </template>
-            <template v-slot:item.time>
+            <template v-slot:item.time="{item}">
               <td class="text-center">
-                {{formatTime}}
+                {{formatTime(item)}}
               </td>
             </template>
             <template v-slot:item.total="{ item }">
@@ -44,13 +44,19 @@
             <template v-slot:item.action>
               <v-select
                 :items="state"
+
                 item-key="item._id"
                 dense
               ></v-select>
             </template>
             <template v-slot:expanded-item="{ headers, item }">
               <td :colspan="headers.length">
-                More info about {{ item.name }}
+                姓名:{{ item.orderinfo.ordername }}<br>
+                電話:{{ item.orderinfo.orderphone }}<br>
+                地址:{{ item.orderinfo.orderaddress }}<br>
+                付款方式:{{ item.orderinfo.orderpay }}<br>
+                留言:{{ item.orderinfo.ordermessage }}<br>
+
               </td>
             </template>
           </v-data-table>
@@ -101,10 +107,11 @@ export default {
       state: ['待發貨', '待收貨', '已出貨', '已結單'],
       expanded: [],
       orders: [],
+      date: '2022-02-17T02:33:20.739Z',
       headers: [
         { text: '訂單單號', align: 'start', value: 'orders', width: '20%' },
         { text: '使用者帳號', value: 'user', align: 'center', sortable: false, width: '15%' },
-        { text: '已成立時間', value: 'time', align: 'center', sortable: false, width: '15%' },
+        { text: '已成立時間', value: 'time', align: 'center', width: '15%' },
         { text: '總金額', value: 'total', align: 'center', width: '20%' },
         { text: '商品', value: 'products', align: 'center', width: '15%' },
         { text: '狀態', value: 'action', align: 'center', width: '15%', sortable: false }
@@ -119,7 +126,6 @@ export default {
         }
       })
       this.orders = data.result.map((order) => {
-        console.log(order)
         order.total = order.products.reduce((accu, curr) => {
           return accu + curr.quantity * curr.product.price
         }, 0)
@@ -133,9 +139,9 @@ export default {
       })
     }
   },
-  computed: {
-    formatTime () {
-      return this.$date.formatDistanceToNow(new Date('2022-02-15T01:48:18.518Z'), {
+  methods: {
+    formatTime (date) {
+      return this.$date.formatDistanceToNow(new Date(date.date), {
         locale: this.$date.locales.zhTW,
         addSuffix: true
       })

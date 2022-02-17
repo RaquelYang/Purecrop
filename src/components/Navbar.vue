@@ -25,7 +25,6 @@
           <v-badge color="red" :content="user.cart"
           offset-x="12" offset-y="-3" v-if="user.cart">
           </v-badge>
-
           </v-btn>
           <v-btn class="me-8" icon :ripple="false" plain>
             <v-icon v-if="!user.isLogin"

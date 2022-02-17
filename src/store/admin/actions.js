@@ -57,3 +57,26 @@ export const getInfo = async ({ commit, state }) => {
     commit('logout')
   }
 }
+
+export const logout = async ({ commit, state }) => {
+  try {
+    await api.delete('admins/logout', {
+      headers: {
+        authorization: 'Bearer ' + state.token
+      }
+    })
+    swal.fire({
+      icon: 'success',
+      title: '成功',
+      text: '登出成功'
+    })
+    commit('logout')
+    router.push('/')
+  } catch (error) {
+    swal.fire({
+      icon: 'error',
+      title: '失敗',
+      text: error.response.data.message
+    })
+  }
+}

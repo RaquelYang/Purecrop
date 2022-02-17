@@ -6,7 +6,7 @@
       <v-row>
         <v-toolbar-title tag="router-link" to="/" class="font-weight-bold light-green--text col-6 col-md-4">
             <span class="mr-2">Purecrop</span>
-            <span>無疑農123</span>
+            <span>無疑農</span>
             <span class="mx-2 font-weight-light">|</span>
             <span class="font-weight-light light-green--text subtitle-2 leghten-2">產地直送 品質無疑</span>
         </v-toolbar-title>
@@ -104,17 +104,16 @@
   }
   .v-btn__content {
   opacity: 1 !important;
-  i{
-    &:hover{
-      transform: scale(1.05) translateY(-2px);
+    i{
+      &:hover{
+        transform: scale(1.05) translateY(-2px);
+      }
     }
-  }
   }
   a{
     text-decoration: none;
   }
 }
-
 </style>
 
 <script>

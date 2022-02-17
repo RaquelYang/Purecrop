@@ -1,7 +1,7 @@
 
 <template>
 <div id="AdminOrders">
-  <h2 class="pt-5 pb-3 text-center">商品管理123</h2>
+  <h2 class="py-10 text-center text-h2 font-weight-medium">訂單管理</h2>
   <v-container>
     <v-row>
       <v-col cols="10" class="px-0 mx-auto">
@@ -41,22 +41,21 @@
                 </ul>
               </td>
             </template>
-            <template v-slot:item.action>
+            <template v-slot:item.action="{item}">
               <v-select
                 :items="state"
-
-                item-key="item._id"
+                @change="statechange(item._id)"
+                v-model="item.state"
                 dense
               ></v-select>
             </template>
             <template v-slot:expanded-item="{ headers, item }">
               <td :colspan="headers.length">
-                姓名:{{ item.orderinfo.ordername }}<br>
-                電話:{{ item.orderinfo.orderphone }}<br>
-                地址:{{ item.orderinfo.orderaddress }}<br>
-                付款方式:{{ item.orderinfo.orderpay }}<br>
-                留言:{{ item.orderinfo.ordermessage }}<br>
-
+                姓名:{{ item.name }}<br>
+                電話:{{ item.phone }}<br>
+                地址:{{ item.address }}<br>
+                付款方式:{{ item.pay }}<br>
+                留言:{{ itemmessage }}<br>
               </td>
             </template>
           </v-data-table>
@@ -103,18 +102,17 @@
 export default {
   data () {
     return {
-      select: ['待發貨'],
-      state: ['待發貨', '待收貨', '已出貨', '已結單'],
+      state: ['待發貨', '已出貨', '待收貨', '已結單'],
       expanded: [],
       orders: [],
-      date: '2022-02-17T02:33:20.739Z',
+      idx: -1,
       headers: [
-        { text: '訂單單號', align: 'start', value: 'orders', width: '20%' },
-        { text: '使用者帳號', value: 'user', align: 'center', sortable: false, width: '15%' },
-        { text: '已成立時間', value: 'time', align: 'center', width: '15%' },
-        { text: '總金額', value: 'total', align: 'center', width: '20%' },
-        { text: '商品', value: 'products', align: 'center', width: '15%' },
-        { text: '狀態', value: 'action', align: 'center', width: '15%', sortable: false }
+        { text: '訂單單號', align: 'start', value: 'orders', width: ' 10%' },
+        { text: '使用者帳號', value: 'user', align: 'center', sortable: false, width: '10%' },
+        { text: '已成立時間', value: 'time', align: 'center', width: '20%' },
+        { text: '總金額', value: 'total', align: 'center', width: '10%' },
+        { text: '商品', value: 'products', align: 'center', width: '30%' },
+        { text: '狀態', value: 'action', align: 'center', width: '20%', sortable: false }
       ]
     }
   },
@@ -132,6 +130,7 @@ export default {
         return order
       })
     } catch (error) {
+      console.log(error)
       this.$swal({
         icon: 'error',
         title: '失敗',
@@ -145,6 +144,23 @@ export default {
         locale: this.$date.locales.zhTW,
         addSuffix: true
       })
+    },
+    async statechange (id) {
+      this.idx = this.orders.findIndex(order => order._id === id)
+      try {
+        await this.api.post('/orders/update', { id: this.orders[this.idx]._id, state: this.orders[this.idx].state }
+          , {
+            headers: {
+              authorization: 'Bearer ' + this.admin.token
+            }
+          })
+      } catch (error) {
+        this.$swal({
+          icon: 'error',
+          title: '錯誤',
+          text: error.response.data.message
+        })
+      }
     }
   }
 }

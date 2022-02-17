@@ -5,14 +5,14 @@
       <video class="video" src="../../assets/video/home_veg.mp4" autoplay loop  muted playsinline webkit-playsinline>
       </video>
       <v-overlay :value="true" :absolute="true" color="rgba(0,0,0,.8)" z-index="1">
-        <p class="text-h3">在地有機 履歷食材123456</p>
+        <p class="text-h3">在地有機 履歷食材</p>
         <p class="text-center text-h6 mb-0">在地有機、品質無疑，地有機地有機</p>
         <p class="text-center text-h6 mb-0">在地有機、品質無疑，地有機地有機</p>
       </v-overlay>
       <p class="text-h2 vedioarrowdown white--text hidden-sm-and-down">🡇</p>
     </div>
     <!-- 關於無疑農 -->
-    <v-container class="mt-8 mt-md-16">
+    <v-container class="about">
       <v-row >
         <v-col></v-col>
         <v-col cols="12" md="11" lg="9">
@@ -72,19 +72,30 @@
   </div>
 </template>
 <style lang="scss">
+@import "@/scss/variable.scss";
+@import "@/scss/mixins/rwd.scss";
 #home{
+  .about{
+    margin-top: 100px;
+  }
   .vedioarrowdown{
     position: absolute;
     bottom:5%;
     left: 50%;
     transform:translateX(-50%);
     z-index: 100;
-    // animation: upanddown 4s linear infinite;
-    // background-color: rgba(133, 133, 133, 0.3);
     border-radius: 50%;
     padding: 5px 15px;
   }
 }
+@include md{
+  #home{
+      .about{
+      margin-top: 7rem;
+    }
+    }
+  }
+
 @keyframes upanddown{
   0%,100%{
     bottom:5%
@@ -96,9 +107,7 @@
 </style>
 <script>
 import Delivery from '@/components/Delivery.vue'
-
 export default {
-
   components: { Delivery }
 }
 </script>

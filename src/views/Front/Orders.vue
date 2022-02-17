@@ -16,6 +16,7 @@
               <th class=" text-start px-5 text-h5">單號</th>
               <th class=" text-h5">日期</th>
               <th class="text-h5">商品</th>
+              <th class="text-h5">商品狀態</th>
             </tr>
           </thead>
           <tbody v-for="order in orders" :key="order._id">
@@ -33,8 +34,8 @@
                   </li>
                 </ul>
               </td>
+              <td>{{order.state}}</td>
             </tr>
-
           </tbody>
         </v-simple-table>
       </v-col>
@@ -80,8 +81,8 @@
 export default {
   data () {
     return {
-      orders: [],
-      products: []
+      orders: []
+
     }
   },
   async created () {

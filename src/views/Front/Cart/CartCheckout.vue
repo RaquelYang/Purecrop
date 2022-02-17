@@ -56,7 +56,7 @@
                     class="message py-2 text-start"
                       outlined
                       placeholder="統一編號/警衛代收/電話聯絡時間..."
-                      v-model="orderinfo.ordermessage"
+                      v-model="message"
                     ></v-textarea>
                   </form>
                 </td>
@@ -194,13 +194,11 @@ export default {
       parentdialog: false,
       products: [],
       selected: false,
-      orderinfo: {
-        ordermessage: '',
-        ordername: '',
-        orderphone: null,
-        orderaddress: '',
-        orderpay: ''
-      },
+      message: '',
+      name: '',
+      phone: null,
+      address: '',
+      pay: '',
       payselects: [
         '信用卡/金融卡',
         '貨到付款'
@@ -227,7 +225,7 @@ export default {
   methods: {
     async checkOut () {
       try {
-        await this.api.post('/orders', { orderinfo: this.orderinfo }, {
+        await this.api.post('/orders', { message: this.message, name: this.name, phone: this.phone, address: this.address, pay: this.pay }, {
           headers: {
             authorization: 'Bearer ' + this.user.token
           }
@@ -249,13 +247,13 @@ export default {
     },
     payselected (option) {
       this.selected = option
-      this.orderinfo.orderpay = option
+      this.pay = option
     },
     adddelivey (data) {
       console.log(data)
-      this.orderinfo.ordername = data.ordername
-      this.orderinfo.orderphone = data.orderphone
-      this.orderinfo.orderaddress = data.orderaddress
+      this.name = data.name
+      this.phone = data.phone
+      this.address = data.address
     }
   },
   computed: {

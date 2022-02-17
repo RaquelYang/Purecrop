@@ -1,19 +1,18 @@
 <template>
 <div id="AdminProducts">
-  <h2 class="pt-5 pb-3 text-center">商品管理123</h2>
+  <h2 class="py-10 text-center text-h2 font-weight-medium">商品管理</h2>
   <v-container>
     <v-row>
       <v-col cols="10" class="px-0 mx-auto">
         <v-data-table
           :headers="headers"
           :items="products"
-
         >
           <template v-slot:top>
             <v-btn large @click="addproduct"  color="success darken-1" class="text-h5 mb-8">新增商品</v-btn>
           </template>
           <template v-slot:item.image="{ item }">
-          <img v-if="item.image" :src="item.image" style="height: 100px" />
+          <img v-if="item.image" :src="item.image"/>
           </template>
           <template v-slot:item.price="{ item }">
           <div class="text-center">
@@ -41,7 +40,17 @@
   @products='product' ref="AddProduct" @changetable="changetable"/>
 </div>
 </template>
-
+<style lang="scss">
+#AdminProducts{
+  img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    vertical-align: middle;
+    padding: 10px 0;
+  }
+}
+</style>
 <script>
 import AddProduct from '@/components/AddProduct.vue'
 export default {

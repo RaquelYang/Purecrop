@@ -5,8 +5,11 @@
       <v-navigation-drawer permanent>
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title class="text-h6">
+          <v-list-item-title class="text-h6 text-center">
             無疑農 | 管理員
+            <v-btn icon @click="logout">
+              <v-icon>mdi-logout</v-icon>
+            </v-btn>
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -26,12 +29,12 @@
           <v-list-item-icon >
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
-
           <v-list-item-content>
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
+
     </v-navigation-drawer>
     </v-col>
     <v-col>
@@ -48,12 +51,17 @@ export default {
     return {
       items: [
         { title: '商品管理', icon: 'mdi-help-box', to: '/admin' },
-        { title: '最新消息', icon: 'mdi-view-dashboard', to: '/admin' },
-        { title: '輪播圖管理', icon: 'mdi-image', to: '/admin' },
         { title: '訂單管理', icon: 'mdi-help-box', to: '/admin/orders' },
-        { title: '會員管理', icon: 'mdi-help-box', to: '/admin' }
+        { title: '最新消息', icon: 'mdi-view-dashboard', to: '/' },
+        { title: '輪播圖管理', icon: 'mdi-image', to: '/' },
+        { title: '會員管理', icon: 'mdi-help-box', to: '/' }
       ],
       right: null
+    }
+  },
+  methods: {
+    logout () {
+      this.$store.dispatch('admin/logout')
     }
   }
 }

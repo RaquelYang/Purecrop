@@ -99,8 +99,8 @@
 </div>
 </template>
 <style lang="scss">
-@import "../scss/variable.scss";
-@import "../scss/mixins/rwd.scss";
+@import "@/scss/variable.scss";
+@import "@/scss/mixins/rwd.scss";
 #footer{
   .list{
     padding-top: 2rem;

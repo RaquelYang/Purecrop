@@ -9,12 +9,12 @@
         </div>
         <v-container>
           <v-row class="justify-center">
-            <v-col cols="11" lg="11">
+            <v-col cols="12">
                 <v-card>
                   <v-card-text>
                     <v-container>
                       <v-row>
-                        <v-col cols="6" class="text-h3" >{{form._id.length > 0 ? '編輯商品' : '新增商品'}}</v-col>
+                        <v-col cols="6" class="text-h3 text--darken-3 light-green--text font-weight-bold" >{{form._id.length > 0 ? '編輯商品' : '新增商品'}}</v-col>
                         <v-col cols="6">
                           <v-switch
                             v-model="form.sell"
@@ -23,8 +23,7 @@
                         </v-col>
                         <v-col
                           cols="12"
-                          md="8"
-                          xl="8"
+                          md="6"
                         >
                           <v-text-field
                             :rules="[rules.required]"
@@ -36,8 +35,7 @@
                         </v-col>
                         <v-col
                           cols="12"
-                          md="4"
-                          xl="4"
+                          md="6"
                         >
                           <v-text-field
                             v-model.number="form.price"
@@ -94,7 +92,7 @@
                             name="input-7-4"
                             value="The Woodman set to work at once, and so sharp was his axe that the tree was soon chopped nearly through."
                           ></v-textarea>
-                          <v-card-subtitle>＊商品描述使用分行或逗點(,) 分隔</v-card-subtitle>
+                          <v-card-subtitle>＊商品描述使用分行分隔</v-card-subtitle>
                         </v-col>
                         <v-col cols="12">
                           <p class="text-h5 font-weight-bold light-green--text text--darken-3">圖片上傳</p>

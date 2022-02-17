@@ -21,17 +21,17 @@
                           xl="12"
                         >
                           <v-text-field
-                            v-model="form.ordername"
+                            v-model="form.name"
                             label="姓名"
                             type="string"
                           ></v-text-field>
                           <v-text-field
-                            v-model="form.orderphone"
+                            v-model="form.phone"
                             label="電話"
                             type="number"
                           ></v-text-field>
                           <v-text-field
-                            v-model="form.orderaddress"
+                            v-model="form.address"
                             label="地址"
                             type="string"
                           ></v-text-field>
@@ -102,24 +102,24 @@ export default {
   data () {
     return {
       form: {
-        ordername: '',
-        orderaddress: '',
-        orderphone: null
+        name: '',
+        address: '',
+        phone: null
       }
     }
   },
   methods: {
     cancelForm (event) {
       this.form = {
-        ordername: '',
-        orderaddress: '',
-        orderphone: null
+        name: '',
+        address: '',
+        phone: null
       }
       this.$emit('closedialog')
     },
     async submitForm (event) {
       event.preventDefault()
-      if (!this.form.ordername || !this.form.orderaddress || !this.form.orderphone) {
+      if (!this.form.name || !this.form.address || !this.form.phone) {
         this.$swal({
           icon: 'error',
           title: '錯誤',

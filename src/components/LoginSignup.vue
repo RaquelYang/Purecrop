@@ -1,7 +1,7 @@
 <template>
   <div id="loginsignup">
-    <v-dialog v-model="parentdialog" persistent max-width="800px">
-      <section class="grey lighten-4 py-8">
+    <v-dialog v-model="parentdialog" persistent max-width="600px">
+      <section class="grey lighten-4 py-8 modalheight">
         <div class="d-flex justify-end pe-6 pb-2">
           <v-btn icon>
             <v-icon large @click="$emit('closedialog')">mdi-close</v-icon>

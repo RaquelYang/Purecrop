@@ -238,6 +238,7 @@ export default {
         this.$store.dispatch('user/orderCart')
         this.$router.push('/orders')
       } catch (error) {
+        console.log(error)
         this.$swal({
           icon: 'error',
           title: '失敗',

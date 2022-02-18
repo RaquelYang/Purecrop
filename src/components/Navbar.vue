@@ -21,7 +21,7 @@
             <v-icon v-if="user.isLogin" class="light-green--text icon">mdi-account-circle-outline </v-icon>
           </v-btn>
           <v-btn class="me-2" icon :ripple="false" plain to="/cart">
-          <v-icon class="light-green--text icon">mdi-cart-arrow-down</v-icon>
+          <v-icon class="light-green--text icon">mdi-cart</v-icon>
           <v-badge color="red" :content="user.cart"
           offset-x="12" offset-y="-3" v-if="user.cart">
           </v-badge>

@@ -104,6 +104,46 @@ const routes = [
           login: true,
           title: '無疑農 | 訂單頁面'
         }
+      },
+      {
+        path: 'privacyterm',
+        name: 'PrivacyTerm',
+        component: () => import(/* webpackChunkName: "privacypolicy" */ '../views/Front/PrivacyTerm.vue'),
+        meta: {
+          title: '無疑農 | 隱私權政策'
+        }
+      },
+      {
+        path: 'termofservice',
+        name: 'TermOfService',
+        component: () => import(/* webpackChunkName: "termofservice" */ '../views/Front/TermOfService.vue'),
+        meta: {
+          title: '無疑農 | 使用者條款'
+        }
+      },
+      {
+        path: 'comstomerfaq',
+        name: 'Comstomerfaq',
+        component: () => import(/* webpackChunkName: "comstomerfaq" */ '../views/Front/Comstomerfaq.vue'),
+        meta: {
+          title: '無疑農 | 常見問題'
+        }
+      },
+      {
+        path: 'shipping',
+        name: 'Shipping',
+        component: () => import(/* webpackChunkName: "shipping" */ '../views/Front/Shipping.vue'),
+        meta: {
+          title: '無疑農 | 運送服務方式'
+        }
+      },
+      {
+        path: 'payment',
+        name: 'Payment',
+        component: () => import(/* webpackChunkName: "payment" */ '../views/Front/Payment.vue'),
+        meta: {
+          title: '無疑農 | 付款服務方式'
+        }
       }
     ]
   },
@@ -198,6 +238,7 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach((to, from) => {
   document.title = to.meta.title
+  window.scrollTo(0, 0)
 })
 
 export default router

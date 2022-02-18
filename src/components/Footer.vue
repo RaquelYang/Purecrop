@@ -9,18 +9,18 @@
             <h4 class="white--text text--darken-4 text-center text-md-h6 bottomline2">關於我們</h4>
             <ul class="list">
               <li>
-                <v-list-item class="white--text" to="/about" :ripple="false">
+                <v-list-item class="white--text" to="/brand" :ripple="false">
                   品牌故事
                 </v-list-item>
 
               </li>
               <li>
-                <v-list-item class="white--text" to="/about" :ripple="false">
+                <v-list-item class="white--text" to="/privacyterm" :ripple="false">
                   隱私權政策
                 </v-list-item>
               </li>
               <li>
-                <v-list-item class="white--text" to="/about" :ripple="false">
+                <v-list-item class="white--text" to="/termofservice" :ripple="false">
                   使用者條款
                 </v-list-item>
               </li>
@@ -30,17 +30,17 @@
             <h4 class="white--text text--darken-4 text-center text-md-h6 bottomline2">顧客服務</h4>
             <ul class="list ">
               <li >
-                <v-list-item class="white--text"  to="/about" :ripple="false">
+                <v-list-item class="white--text"  to="/comstomerfaq" :ripple="false">
                   常見問題
                 </v-list-item>
               </li>
               <li>
-                <v-list-item class="white--text" to="/about" :ripple="false">
+                <v-list-item class="white--text" to="/shipping" :ripple="false">
                   運送服務方式
                 </v-list-item>
               </li>
               <li>
-                <v-list-item class="white--text" to="/about" :ripple="false">
+                <v-list-item class="white--text" to="/payment" :ripple="false">
                   付款服務方式
                 </v-list-item>
               </li>
@@ -102,6 +102,7 @@
 @import "@/scss/variable.scss";
 @import "@/scss/mixins/rwd.scss";
 #footer{
+  margin-top: 15rem;
   .list{
     padding-top: 2rem;
     list-style: none;

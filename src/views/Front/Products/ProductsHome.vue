@@ -5,17 +5,15 @@
       <v-col></v-col>
       <v-col cols="12" md="9">
         <v-row>
-          <v-col cols="12" md="9" >
-            <Swiper/>
+          <v-col cols="12" md="12" >
+            <swiper ref="mySwiper" :options="swiperOptions" class="swiper">
+              <swiper-slide v-for="productcarousel in productscarousel" :key="productcarousel._id">
+                <v-img :src="productcarousel.file"></v-img>
+              </swiper-slide>
+              <div class="swiper-pagination" slot="pagination"></div>
+            </swiper>
           </v-col>
-          <v-col cols="12" md="3">
-            <div class="image  pb-3">
-              <v-img src="https://picsum.photos/300/100/?random=10"></v-img>
-            </div>
-            <div class="image pt-3">
-              <v-img src="https://picsum.photos/300/100/?random=10"></v-img>
-            </div>
-          </v-col>
+
         </v-row>
       </v-col>
       <v-col></v-col>
@@ -89,7 +87,6 @@
     }
   }
   .buybtn{
-
     border:1px solid #689F38;
     transition: .3s;
     color: #689F38;
@@ -97,21 +94,37 @@
   .cursor{
     cursor: pointer;
   }
+  .swiper-pagination-bullet-active{
+  background-color:#8BC34A !important;
+  }
 }
 </style>
 <script>
-import Swiper from '@/components/Swiper.vue'
 export default {
   data () {
     return {
-      products: []
+      products: [],
+      productscarousel: [],
+      swiperOptions: {
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination'
+        },
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false
+        }
+      }
     }
   },
   async created () {
     try {
       const { data } = await this.api.get('/products')
       this.products = data.result
+      this.getProduct()
     } catch (error) {
+      console.log(error)
       this.$swal({
         icon: 'error',
         title: '失敗',
@@ -145,10 +158,28 @@ export default {
     },
     singleproduct (id) {
       this.$router.push('productintroduction/' + id)
+    },
+    async getProduct () {
+      try {
+        const { data } = await this.api.get('/images')
+        // console.log(data.result[0].productsiper)
+        this.productscarousel = data.result[0].productswiper
+      } catch (error) {
+        this.$swal({
+          icon: 'error',
+          title: '失敗',
+          text: '取得圖片失敗'
+        })
+      }
     }
   },
-  components: {
-    Swiper
+  computed: {
+    swiper () {
+      return this.$refs.mySwiper.$swiper
+    }
+  },
+  mounted () {
+    this.swiper.slideTo(3, 1000, false)
   }
 }
 </script>

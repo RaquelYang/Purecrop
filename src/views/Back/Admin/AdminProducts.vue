@@ -23,7 +23,7 @@
             <v-switch v-model="item.sell" @change="switchbtn(item._id)"></v-switch>
           </template>
           <template v-slot:item.action="{ item }">
-              <v-btn color="light-green darken-2 white--text" class="mr-2"
+              <v-btn color="light-green darken-2 white--text" class="lg-mr-2"
               @click="editProduct(item._id)"
               >
                 <v-icon>mdi-lead-pencil</v-icon>

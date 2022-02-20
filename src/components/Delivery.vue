@@ -16,7 +16,10 @@
       <v-col cols="6" class="text">
         <div class="text-h4 text-center">
           <p>
-            雲林在地芭樂，當季新鮮蔬果
+            雲林在地芭樂
+          </p>
+          <p>
+            當季新鮮蔬果
           </p>
           <p>
             新鮮芭樂再製成芭樂乾
@@ -29,7 +32,10 @@
       <v-col cols="6" class="text" order="1">
         <div class="text-h4 text-center">
           <p>
-            使用古傳天然烘乾法﹐將無花果曬成乾
+            使用古傳天然烘乾法
+          </p>
+          <p>
+            將無花果曬成乾
           </p>
         </div>
       </v-col>
@@ -41,6 +47,9 @@
           <p class="text-h4 text-center">
             天然香茅再製香茅油
           </p>
+          <p>
+            天然驅蚊無負擔
+          </p>
         </div>
       </v-col>
       <v-col cols="6" order="6">
@@ -49,7 +58,10 @@
       <v-col cols="6" class="text" order="5">
         <div>
           <p class="text-h4 text-center">
-            當季野菜甜鹹多
+            當季野菜
+          </p>
+          <p>
+            無農藥植栽ㄉ
           </p>
         </div>
       </v-col>

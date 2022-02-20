@@ -37,7 +37,7 @@
 
     </v-navigation-drawer>
     </v-col>
-    <v-col>
+    <v-col cols="10">
       <router-view/>
     </v-col>
   </v-row>
@@ -52,8 +52,8 @@ export default {
       items: [
         { title: '商品管理', icon: 'mdi-help-box', to: '/admin' },
         { title: '訂單管理', icon: 'mdi-help-box', to: '/admin/orders' },
+        { title: '輪播圖管理', icon: 'mdi-image', to: '/admin/swipers' },
         { title: '最新消息', icon: 'mdi-view-dashboard', to: '/' },
-        { title: '輪播圖管理', icon: 'mdi-image', to: '/' },
         { title: '會員管理', icon: 'mdi-help-box', to: '/' }
       ],
       right: null

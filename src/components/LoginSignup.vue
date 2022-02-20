@@ -17,7 +17,7 @@
                 </v-tabs>
                 <v-tabs-items v-model="tab">
                   <!-- 登入 -->
-                  <v-tab-item :value="0">
+                  <v-tab-item :value="0" style="height:350px">
                     <v-card-text>
                       <v-form @submit.prevent="login" v-model="valid">
                         <v-text-field
@@ -53,7 +53,7 @@
                     </v-card-text>
                   </v-tab-item>
                   <!-- 註冊 -->
-                  <v-tab-item :value="1">
+                  <v-tab-item :value="1" style="height:350px">
                     <v-card-text>
                       <v-form @submit.prevent="register" v-model="valid">
                         <v-text-field
@@ -77,9 +77,9 @@
                           v-model="form.newPassword" label="請再次輸入密碼"
                           @click:append="show3 = !show3"
                           :rules="[rules.required,rules.passwordConfirmation]"
-
                           required />
                         <v-row class="justify-center py-5">
+
                           <v-btn :ripple="false" class="light-green darken-3 white--text"
                           type="submit" :disabled="!valid"
                           >註冊</v-btn>
@@ -100,6 +100,14 @@
   #loginsignup{
     .v-application .text-overline{
       letter-spacing: 0px !important;
+    }
+    .v-dialog{
+      .container{
+        height: 500px !important;
+      }
+    }
+    .theme--light.v-data-table{
+      background-color: transparent !important;
     }
   }
 </style>

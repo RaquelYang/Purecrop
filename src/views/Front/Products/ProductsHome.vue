@@ -6,12 +6,12 @@
       <v-col cols="12" md="9">
         <v-row>
           <v-col cols="12" md="12" >
-            <swiper ref="mySwiper" :options="swiperOptions" class="swiper">
-              <swiper-slide v-for="productcarousel in productscarousel" :key="productcarousel._id">
-                <v-img :src="productcarousel.file"></v-img>
-              </swiper-slide>
-              <div class="swiper-pagination" slot="pagination"></div>
-            </swiper>
+            <v-carousel cycle hide-delimiters progress interval="2500" :show-arrows="false">
+              <v-carousel-item
+                v-for="productcarousel in productscarousel" :key="productcarousel._id"
+                :src="productcarousel.file"
+              ></v-carousel-item>
+            </v-carousel>
           </v-col>
 
         </v-row>
@@ -30,7 +30,6 @@
           <v-card  :ripple="false" >
             <v-img height="200" class="cursor" :src="product.image"  @click="singleproduct(product._id)">
             </v-img>
-
             <v-card-text class="pb-0">
               <p class="text-h5 grey--text text--darken-3 font-weight-bold">{{product.name}}</p>
               <p class="mb-0 text-h5 orange--text text--darken-4 font-weight-bold"> $&nbsp;{{ new Intl.NumberFormat('en-IN').format(product.price) }}</p>
@@ -104,18 +103,7 @@ export default {
   data () {
     return {
       products: [],
-      productscarousel: [],
-      swiperOptions: {
-        spaceBetween: 30,
-        loop: true,
-        pagination: {
-          el: '.swiper-pagination'
-        },
-        autoplay: {
-          delay: 2500,
-          disableOnInteraction: false
-        }
-      }
+      productscarousel: []
     }
   },
   async created () {
@@ -172,14 +160,6 @@ export default {
         })
       }
     }
-  },
-  computed: {
-    swiper () {
-      return this.$refs.mySwiper.$swiper
-    }
-  },
-  mounted () {
-    this.swiper.slideTo(3, 1000, false)
   }
 }
 </script>

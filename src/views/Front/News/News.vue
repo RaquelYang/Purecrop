@@ -1,12 +1,11 @@
 <template>
   <div id="news">
-    <swiper ref="mySwiper" :options="swiperOptions" class="swiper">
-      <swiper-slide v-for="newcarousel in newscarousel" :key="newcarousel._id">
-        <v-img :src="newcarousel.file"></v-img>
-      </swiper-slide>
-
-      <div class="swiper-pagination" slot="pagination"></div>
-    </swiper>
+    <v-carousel cycle hide-delimiters progress interval="2500" :show-arrows="false">
+      <v-carousel-item
+        v-for="newcarousel in newscarousel" :key="newcarousel._id"
+        :src="newcarousel.file"
+      ></v-carousel-item>
+    </v-carousel>
       <router-view/>
   </div>
 </template>
@@ -32,18 +31,7 @@ export default {
   data () {
     return {
       products: [],
-      newscarousel: [],
-      swiperOptions: {
-        spaceBetween: 30,
-        loop: true,
-        pagination: {
-          el: '.swiper-pagination'
-        },
-        autoplay: {
-          delay: 2500,
-          disableOnInteraction: false
-        }
-      }
+      newscarousel: []
     }
   },
   async created () {
@@ -72,14 +60,6 @@ export default {
         })
       }
     }
-  },
-  computed: {
-    swiper () {
-      return this.$refs.mySwiper.$swiper
-    }
-  },
-  mounted () {
-    this.swiper.slideTo(3, 1000, false)
   }
 }
 </script>

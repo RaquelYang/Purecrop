@@ -64,12 +64,16 @@
                   <tr>
                     <td class="text-start ps-3 text-h5" width="30%">賣家資訊</td>
                     <td width="30%"></td>
-                    <td class="text-end pe-3 text-h5" width="30%" >$60</td>
+                    <td class="text-end pe-3 text-h6" width="30%" >快遞：
+                      <span class="text-h5 pr-2 orange--text text--darken-4">$ 60</span>
+                      </td>
                   </tr>
                   <tr>
                     <td class="text-start ps-3 text-h5">賣家宅配</td>
                     <td>
-                      <v-btn :ripple="false" plain text outlined @click="parentdialog=true">
+                      <v-btn :ripple="false" plain text outlined @click="parentdialog=true"
+                      :class="{payselect:addresscolor}"
+                      >
                         ＋新增收件人地址
                       </v-btn>
                     </td>
@@ -85,7 +89,7 @@
                   </div>
                 </td>
               </tr>
-              <tr>
+              <tr class="border">
                 <td width="20%">付款方式</td>
                 <td class="text-start">
                   <v-btn v-for="payselect in payselects" :key="payselect" :ripple="false"
@@ -99,7 +103,7 @@
                 </td>
                 <td></td>
               </tr>
-              <tr v-if="selected === '信用卡/金融卡'">
+              <tr v-if="selected === '信用卡/金融卡'" class="border">
                 <td>選擇帳戶</td>
                 <td class="text-start">
                   <v-btn  :ripple="false" plain text outlined>
@@ -112,17 +116,29 @@
                 <td></td>
                 <td></td>
                 <td>
-                  <v-row>
-                    <v-col>商品總金額</v-col>
-                    <v-col class="text-end">$&nbsp;{{ new Intl.NumberFormat('en-IN').format(total) }}</v-col>
+                  <v-row class="justify-center align-center">
+                    <v-col class="text-subtitle-1">商品總金額</v-col>
+                    <v-col class="text-end">
+                      <span class="text-h6 pr-2 orange--text text--darken-4">
+                        $&nbsp;{{ new Intl.NumberFormat('en-IN').format(total) }}
+                      </span>
+                    </v-col>
                   </v-row>
-                  <v-row>
-                    <v-col>運費總金額</v-col>
-                    <v-col class="text-end">$60</v-col>
+                  <v-row class="justify-center align-center">
+                    <v-col class="text-subtitle-1">運費總金額</v-col>
+                    <v-col class="text-end">
+                      <span class="text-h6 pr-2 orange--text text--darken-4">
+                        $&nbsp;60
+                      </span>
+                    </v-col>
                   </v-row>
-                  <v-row>
-                    <v-col>總付款金額</v-col>
-                    <v-col class="text-end">$&nbsp;{{ new Intl.NumberFormat('en-IN').format(total+60) }}</v-col>
+                  <v-row class="justify-center align-center">
+                    <v-col class="text-subtitle-1">總付款金額</v-col>
+                    <v-col class="text-end">
+                      <span class="text-h4 pr-2 orange--text text--darken-4">
+                        $&nbsp;{{ new Intl.NumberFormat('en-IN').format(total+60) }}
+                      </span>
+                    </v-col>
                   </v-row>
                 </td>
               </tr>
@@ -151,6 +167,7 @@
   tr,td,th{
     padding: 1rem;
     text-align: center;
+    vertical-align: middle;
   }
   tr:hover{
     background-color: transparent !important;
@@ -184,6 +201,12 @@
     border:1px solid #7CB342;
     color:#33691E;
   }
+  .border{
+    td{
+      border:none
+    }
+  }
+
 }
 </style>
 <script>
@@ -202,7 +225,8 @@ export default {
       payselects: [
         '信用卡/金融卡',
         '貨到付款'
-      ]
+      ],
+      addresscolor: false
     }
   },
   async created () {
@@ -238,11 +262,10 @@ export default {
         this.$store.dispatch('user/orderCart')
         this.$router.push('/orders')
       } catch (error) {
-        console.log(error)
         this.$swal({
           icon: 'error',
           title: '失敗',
-          text: '沒有商品'
+          text: '資料填寫未完全'
         })
       }
     },
@@ -251,10 +274,10 @@ export default {
       this.pay = option
     },
     adddelivey (data) {
-      console.log(data)
       this.name = data.name
       this.phone = data.phone
       this.address = data.address
+      this.addresscolor = true
     }
   },
   computed: {

@@ -7,8 +7,6 @@ import './plugins/axios.js'
 import './scss/all.scss'
 import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css'
-import VueAwesomeSwiper from 'vue-awesome-swiper'
-import 'swiper/css/swiper.css'
 import mixin from './mixin.js'
 import ImgInputer from 'vue-img-inputer'
 import 'vue-img-inputer/dist/index.css'
@@ -18,7 +16,6 @@ import parseISO from 'date-fns/fp/parseISO'
 
 Vue.component('ImgInputer', ImgInputer)
 
-Vue.use(VueAwesomeSwiper)
 Vue.use(VueSweetalert2)
 Vue.mixin(mixin)
 Vue.config.productionTip = false

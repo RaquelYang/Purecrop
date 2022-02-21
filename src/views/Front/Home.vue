@@ -2,12 +2,12 @@
   <div id="home" >
     <!-- part1 滿版影片 autoplay -->
     <div class="videobox">
-      <video class="video" src="../../assets/video/home_veg.mp4" autoplay loop  muted playsinline webkit-playsinline>
+      <video class="video" src="@/assets/video/home_veg.mp4" autoplay loop  muted playsinline webkit-playsinline>
       </video>
       <v-overlay :value="true" :absolute="true" color="rgba(0,0,0,.8)" z-index="1">
-        <p class="text-h2">在地有機 履歷食材</p>
-        <p class="text-center text-h4">新鮮健康、食品認證</p>
-        <p class="text-center text-h4 mb-0">在地有機、品質無疑</p>
+        <p class="text-h4 text-sm-h2 pb-md-4 font-weight-light">在地有機 履歷食材</p>
+        <p class="text-center text-h4 hidden-md-and-down">新鮮健康、食品認證</p>
+        <p class="text-center text-h4 mb-0 hidden-md-and-down">在地有機、品質無疑</p>
       </v-overlay>
       <p class="text-h2 vedioarrowdown white--text hidden-sm-and-down">&#709;</p>
     </div>
@@ -18,20 +18,19 @@
         <v-col cols="12" md="11" lg="9">
           <v-row >
             <v-col cols="12" md="6">
-              <h3 class="text-center text-md-h3 light-green--text text--darken-1 font-weight-bold bottomline1">關於無疑農</h3>
+              <h3 class="text-center text-h4 text-md-h3 light-green--text text--darken-1 font-weight-bold bottomline1">關於無疑農</h3>
               <div class="mt-16 text-center text-md-start text-subtitle-1">
                 <p>我們從台大學生創業起家，已經四年了！</p>
-                <p>由營養師設計的菜單，專為忙碌的上班族與學生，提供健康的外送午餐！</p>
+                <p>由營養師設計的菜單，提供健康的外送午餐！</p>
                 <p>使用在地有機、履歷食材，甚至與玉里小農契作無毒米</p>
-                <p>為了讓吃得安心，更請符合國際食品安全認證的食品廠生產。</p>
+                <p>為了讓吃得安心，符合國際食品安全認證的食品廠生產。</p>
                 <p>用善待土地而來的食材，善待你的身體。</p>
-                <p>從產地到廚房，再到你手上，每一步都為了更好的環境謹慎用心。</p>
-                <p>從產地到廚房，再到你手上，每一步都為了更好的環境謹慎用心。</p>
-                <p>從產地到廚房，再到你手上，每一步都為了更好的環境謹慎用心。</p>
+                <p>從產地到廚房，每一步都為了更好的環境謹慎用心。</p>
               </div>
             </v-col>
             <v-col cols="12" md="6">
-              <v-img src="@/assets/images/undraw_blooming_jtv6.svg" height="500px" position="bottom center"></v-img>
+              <div class="svg">
+              </div>
             </v-col>
           </v-row>
         </v-col>
@@ -40,18 +39,18 @@
     </v-container>
     <!-- 品質保證 -->
     <v-container class="qualtity">
-      <h3 class="text-center text-lg-h2 text-md-h3 text-h3 light-green--text text--darken-1 font-weight-bold bottomline">品質保證</h3>
-      <p class="text-center mt-6 mt-lg-10">當季蔬果 <span class="font-weight-bold">x</span>  小農新鮮直送 <span class="font-weight-bold">x</span> 友善土地植栽</p>
+      <h3 class="text-center text-lg-h2 text-sm-h3 text-h4 light-green--text text--darken-1 font-weight-bold bottomline">品質保證</h3>
+      <p class="text-center mt-6 mt-lg-10">當季蔬果 <span class="font-weight-bold">x</span>  小農新鮮直送</p>
       <v-row class="text-center mt-6 mt-lg-10">
         <v-col></v-col>
         <v-col cols="12" md="11" lg="9">
           <v-row class="qualityicon">
             <v-col cols="12" sm="6" md="3">
-          <v-icon class="light-green rounded white--text text-md-h2 text-lg-h1 px-md-8 px-lg-10 py-md-3 px-sm-15 px-15 py-5 text-h1 ">mdi-tree-outline</v-icon>
-          <h3 class="text-lg-h4 text-md-h5 text-h4 mt-10">無農藥</h3>
-          <h5 class="text-h6 text-lg-h6 text-md-subtitle-1 mt-2">天然植栽 有保障</h5>
+              <v-icon class="light-green rounded white--text text-md-h2 text-lg-h1 px-md-8 px-lg-10 py-md-3 px-sm-15 px-15 py-5 text-h1 ">mdi-tree-outline</v-icon>
+              <h3 class="text-lg-h4 text-md-h5 text-h4 mt-10">無農藥</h3>
+              <h5 class="text-h6 text-lg-h6 text-md-subtitle-1 mt-2">天然植栽 有保障</h5>
             </v-col>
-            <v-col cols="12" sm="6" md="3">
+            <v-col cols="12" sm="6" md="3" class="mt-5 mt-sm-0">
               <v-icon class="light-green rounded white--text text-md-h2 text-lg-h1 px-md-8 px-lg-10 py-md-3 px-sm-15 px-15 py-5 text-h1 ">mdi-credit-card-check-outline</v-icon>
               <h3 class="text-lg-h4 text-md-h5 text-h4 mt-10">線上結帳</h3>
               <h5 class="text-h6 text-lg-h6 text-md-subtitle-1 mt-2">多元結帳 結帳方便</h5>
@@ -80,16 +79,16 @@
 @import "@/scss/mixins/rwd.scss";
 #home{
   .about{
-    margin-top: 5rem;
+    margin-top: 1rem;
   }
   .qualtity{
-    margin-top: 5rem;
+    // margin-top: 3rem;
   }
   .delivery{
-    margin-top: 5rem;
+    margin-top: 2rem;
   }
   .qualityicon{
-    margin-top: 5rem;
+    margin-top: 1rem;
   }
   .vedioarrowdown{
     position: absolute;
@@ -99,6 +98,27 @@
     z-index: 100;
     border-radius: 50%;
     padding: 5px 15px;
+  }
+  .svg{
+    background: url('../../assets/images/undraw_blooming_jtv6.svg') no-repeat center/contain;
+    width: auto;
+    height: 400px;
+  }
+}
+@include sm{
+  #home{
+    .about {
+      margin-top: 5rem;
+    }
+    .qualtity {
+    margin-top: 5rem;
+    }
+    .delivery {
+      margin-top: 5rem;
+    }
+    .qualityicon {
+      margin-top: 3rem;
+    }
   }
 }
 @include md{
@@ -113,19 +133,11 @@
       margin-top: 15rem;
     }
     .qualityicon {
-    margin-top: 3rem;
+      margin-top: 3rem;
     }
   }
 }
 
-@keyframes upanddown{
-  0%,100%{
-    bottom:5%
-  }
-  50%{
-    bottom:3%
-  }
-}
 </style>
 <script>
 import Delivery from '@/components/Delivery.vue'

@@ -34,7 +34,7 @@
                           v-model="loginform.password" label="請輸入密碼"
                           @click:append="show2 = !show2"
                           required />
-                        <v-simple-table>
+                        <v-simple-table class="table">
                           <tbody>
                             <tr>
                               <td width="33%">
@@ -44,7 +44,7 @@
                                 type="submit" :disabled="!valid">登入</v-btn>
                               </td>
                               <td width="33%" class="forgetpassword">
-                                <v-btn :ripple="false" text class="light-green--text text--darken-3 text-overline">忘記密碼?</v-btn>
+                                <v-btn :ripple="false" plain text class="light-green--text text--darken-3 text-overline">忘記密碼?</v-btn>
                               </td>
                             </tr>
                           </tbody>
@@ -79,7 +79,6 @@
                           :rules="[rules.required,rules.passwordConfirmation]"
                           required />
                         <v-row class="justify-center py-5">
-
                           <v-btn :ripple="false" class="light-green darken-3 white--text"
                           type="submit" :disabled="!valid"
                           >註冊</v-btn>
@@ -98,6 +97,11 @@
 </template>
 <style lang="scss">
   #loginsignup{
+    tbody {
+      tr:hover {
+        background-color: transparent !important;
+      }
+    }
     .v-application .text-overline{
       letter-spacing: 0px !important;
     }
@@ -108,6 +112,12 @@
     }
     .theme--light.v-data-table{
       background-color: transparent !important;
+      &:hover{
+        background-color: transparent !important;
+      }
+    }
+    .v-btn--plain:not(.v-btn--active):not(.v-btn--loading):not(:focus):not(:hover).changebtn .v-btn__content {
+    opacity: 1;
     }
   }
 </style>

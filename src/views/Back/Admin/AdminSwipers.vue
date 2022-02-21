@@ -48,7 +48,7 @@
         <v-row>
           <v-col cols="4" v-for="(productcarousel,index) in productscarousel" :key="index">
             <v-card height="300px">
-              <v-img :src="productcarousel.file" class="rounded"></v-img>
+              <v-img :src="productcarousel.file" class="rounded" height="220px"></v-img>
               <v-divider class="mx-2 my-2"></v-divider>
               <v-card-actions class="d-flex justify-center">
                 <v-btn icon large class="orange--text text--darken-4 text-center" @click="deleteproductCarousel(productcarousel._id)">
@@ -109,7 +109,7 @@
         <v-row>
           <v-col cols="4" v-for="(newcarousel,index) in newscarousel" :key="index">
             <v-card height="300px">
-              <v-img :src="newcarousel.file" class="rounded"></v-img>
+              <v-img :src="newcarousel.file" class="rounded" height="220px"></v-img>
               <v-divider class="mx-2 my-2"></v-divider>
               <v-card-actions class="d-flex justify-center">
                 <v-btn icon large class="orange--text text--darken-4 text-center" @click="deletenewsCarousel(newcarousel._id)">

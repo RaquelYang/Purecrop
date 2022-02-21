@@ -102,7 +102,7 @@
 @import "@/scss/variable.scss";
 @import "@/scss/mixins/rwd.scss";
 #footer{
-  margin-top: 15rem;
+  margin-top: 5rem;
   .list{
     padding-top: 2rem;
     list-style: none;
@@ -129,6 +129,7 @@
 }
 @include md{
 #footer{
+  margin-top: 15rem;
     .contact{
       text-align: start;
       margin-left: 4.5rem;

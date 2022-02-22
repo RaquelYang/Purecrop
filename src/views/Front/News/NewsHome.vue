@@ -72,7 +72,7 @@
 </template>
 <style lang="scss">
 #newshome{
-  margin-top: 10rem;
+  // margin-top: 10rem;
   .home{
     .v-image__image.v-image__image--cover{
     z-index: 1;

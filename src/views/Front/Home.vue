@@ -18,8 +18,8 @@
         <v-col cols="12" md="11" lg="9">
           <v-row >
             <v-col cols="12" md="6">
-              <h3 class="text-center text-h4 text-md-h3 light-green--text text--darken-1 font-weight-bold bottomline1">關於無疑農</h3>
-              <div class="mt-16 text-center text-md-start text-subtitle-1">
+              <h3 class="text-center text-h4 text-md-h3 light-green--text text--darken-1 font-weight-bold bottomline1" v-scroll-reveal.reset>關於無疑農</h3>
+              <div class="mt-16 text-center text-md-start text-subtitle-1" v-scroll-reveal.reset="{delay:500}">
                 <p>我們從台大學生創業起家，已經四年了！</p>
                 <p>由營養師設計的菜單，提供健康的外送午餐！</p>
                 <p>使用在地有機、履歷食材，甚至與玉里小農契作無毒米</p>
@@ -82,7 +82,7 @@
     margin-top: 1rem;
   }
   .qualtity{
-    // margin-top: 3rem;
+    margin-top: 10rem !important;
   }
   .delivery{
     margin-top: 2rem;

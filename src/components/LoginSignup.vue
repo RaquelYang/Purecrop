@@ -97,12 +97,13 @@
 </template>
 <style lang="scss">
   #loginsignup{
-    tbody {
-      tr:hover {
+    table{
+      tr:hover{
         background-color: transparent !important;
       }
     }
-    .v-application .text-overline{
+    .v-dialog{
+      .v-application .text-overline{
       letter-spacing: 0px !important;
     }
     .v-dialog{
@@ -116,9 +117,11 @@
         background-color: transparent !important;
       }
     }
-    .v-btn--plain:not(.v-btn--active):not(.v-btn--loading):not(:focus):not(:hover).changebtn .v-btn__content {
-    opacity: 1;
+    .v-btn--plain:not(.v-btn--active):not(.v-btn--loading):not(:focus):not(:hover) .v-btn__content {
+    opacity: 1 !important;
     }
+    }
+
   }
 </style>
 <script>

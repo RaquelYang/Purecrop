@@ -66,7 +66,7 @@
           </v-timeline>
         </div>
         <!-- 小板timeline -->
-        <div class="timeline hidden-sm-and-up mt-16">
+        <div class="timeline hidden-md-and-up mt-16">
           <v-container>
             <v-timeline
               dense
@@ -85,6 +85,7 @@
                   <v-col cols="12">
                     <p class="text-h4 font-weight-bold grey--text text--darken-2">初期想法</p>
                     <p>賣業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗</p>
+                    <div class="svg"></div>
                   </v-col>
                 </v-row>
               </v-timeline-item>
@@ -101,6 +102,7 @@
                   <v-col cols="12">
                     <p class="text-h4 font-weight-bold grey--text text--darken-2">想法與初衷</p>
                     <p>賣業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗</p>
+                    <div class="svg1"></div>
                   </v-col>
                 </v-row>
               </v-timeline-item>
@@ -117,6 +119,7 @@
                   <v-col cols="12">
                     <p class="text-h4 font-weight-bold grey--text text--darken-2">架設網站</p>
                     <p>賣業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗</p>
+                    <div class="svg2"></div>
                   </v-col>
                 </v-row>
               </v-timeline-item>
@@ -133,6 +136,7 @@
                   <v-col cols="12">
                     <p class="text-h4 font-weight-bold grey--text text--darken-2">成果發表</p>
                     <p>賣業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗</p>
+                    <div class="svg3"></div>
                   </v-col>
                 </v-row>
               </v-timeline-item>
@@ -215,7 +219,7 @@
   }
   .v-timeline-item{
     position: relative;
-    padding: 10rem 0 !important;
+    padding: 1rem 0 !important;
   }
   .timelineimg{
     position: absolute;

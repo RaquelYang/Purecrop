@@ -10,55 +10,59 @@
     </p>
     <v-row class="deliverycontent">
       <v-col cols="12" sm="6" class="px-0 imgline">
-        <img src="../assets/images/anisa-wulan-asri-dSb8R7QAeLM-unsplash.jpg" />
+        <v-img src="../assets/images/5a22fc9aa25020.8918082015122423306648.png" />
       </v-col>
 
       <v-col cols="12" sm="6" class="text">
         <div class="text-md-h4 text-h5 text-center mt-8 mt-sm-0 mb-8 mb-sm-0">
+          <h2 class="mb-5">芭樂</h2>
           <p>
-            雲林在地芭樂
+            當季水果
           </p>
           <p>
-            新鮮芭樂再製成芭樂乾
+            天然甜味
           </p>
         </div>
       </v-col>
       <v-col cols="12" sm="6" order="1" order-sm="2" class="px-0 imgline">
-        <img src="../assets/images/john-cameron-vtP7PpYlzzQ-unsplash.jpg" />
+        <v-img src="../assets/images/5a1c7e70ca3fe7.9399725215118168168284.png" />
       </v-col>
       <v-col cols="12" sm="6" class="text" order="2" order-sm="1">
         <div class="text-md-h4 text-h5 text-center mt-8 mt-sm-0 mb-8 mb-sm-0">
+          <h2 class="mb-5">野菜</h2>
           <p>
-            使用古傳天然烘乾法
+            無農藥植栽
           </p>
           <p>
-            將無花果曬成乾
+            健康無虞
           </p>
         </div>
       </v-col>
       <v-col cols="12" sm="6" order="3" order-sm="3" class="px-0 imgline">
-        <img src="../assets/images/chuttersnap-rX0nFrnSikU-unsplash.jpg" />
+        <v-img src="../assets/images/kisspng-cymbopogon-citratus-asian-cuisine-lemon-stock-phot-garlic-5ab507ce754ed3.5863863715218134544805.png" />
       </v-col>
       <v-col cols="12" sm="6" class="text" order="4" order-sm="4">
         <div class="text-md-h4 text-h5 text-center mt-8 mt-sm-0 mb-8 mb-sm-0">
+          <h2 class="mb-5">香茅</h2>
           <p>
-            天然香茅再製香茅油
+            再製香茅油
           </p>
           <p>
-            天然驅蚊無負擔
+            天然驅蚊
           </p>
         </div>
       </v-col>
       <v-col cols="12" sm="6" order="5" order-sm="6" class="px-0 imgline">
-        <img src="../assets/images/harvest_veg.jpg" />
+        <v-img src="../assets/images/fig.png" />
       </v-col>
       <v-col cols="12" sm="6" class="text" order="6" order-sm="5">
         <div class="text-md-h4 text-h5 text-center mt-8 mt-sm-0 mb-8 mb-sm-0">
+          <h2 class="mb-5">無花果</h2>
           <p>
-            當季野菜
+            古傳烘乾法
           </p>
           <p>
-            無農藥植栽ㄉ
+            製成無花果乾
           </p>
         </div>
       </v-col>
@@ -70,6 +74,7 @@
 @import "@/scss/variable.scss";
 @import "@/scss/mixins/rwd.scss";
 #delivery {
+  margin-top: 10rem !important;
   .deliverycontent {
     margin-top: 5rem;
     margin-left: 1rem;
@@ -113,6 +118,7 @@
       &::before{
         display: none;
       }
+
     }
 
   }

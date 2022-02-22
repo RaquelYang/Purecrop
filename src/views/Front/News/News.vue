@@ -15,8 +15,8 @@
   background-color:#8BC34A !important;
   }
   .swiper{
-    min-height: 50vh;
-    max-height: 80vh;
+    // min-height: 50vh;
+    // max-height: 80vh;
   }
   img{
     width:100%;

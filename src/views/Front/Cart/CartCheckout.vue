@@ -4,7 +4,7 @@
       <v-row>
         <v-col></v-col>
         <v-col cols="12" md="9">
-          <h3 class="text-h3">無疑農｜結帳</h3>
+          <h3 class="text-lg-h2 text-md-h3 text-h3 light-green--text text--darken-2 font-weight-bold">無疑農｜結帳</h3>
           <v-simple-table class="mt-10 grey lighten-4 px-3 py-3">
             <thead>
               <tr>

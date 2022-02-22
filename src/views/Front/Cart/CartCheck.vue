@@ -3,8 +3,8 @@
     <v-container class="mt-8 mt-md-16">
       <v-row>
         <v-col></v-col>
-        <v-col cols="12" md="9">
-          <h3 class="text-h3">無疑農｜購物車</h3>
+        <v-col cols="12" md="11" lg="9">
+          <h3 class="text-lg-h2 text-h3 light-green--text text--darken-2 font-weight-bold text-center text-sm-start">無疑農｜購物車</h3>
           <div class="nocart"
           v-if="user.cart === 0">
           <span>
@@ -92,13 +92,15 @@
 </template>
 
 <style lang="scss">
+@import "@/scss/variable.scss";
+@import "@/scss/mixins/rwd.scss";
 #cartcheck{
   .nocart{
-    height: 50vh;
+    height: 70vh;
     display: flex;
     justify-content: center;
-    font-size: 5rem;
-    margin-top: 10rem;
+    align-items: center;
+    font-size: 3rem;
   }
   tr,td,th{
     padding: 0.6rem 0;
@@ -143,6 +145,25 @@
     margin: auto;
   }
 }
+@include sm{
+  #cartcheck{
+    .nocart{
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3rem;
+    }
+  }
+}
+@include md{
+  #cartcheck{
+    .nocart{
+      font-size: 5rem;
+    }
+  }
+}
+
 </style>
 
 <script>

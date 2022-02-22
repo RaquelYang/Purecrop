@@ -116,10 +116,9 @@ export default {
       form: {
         name: '',
         address: '',
-        phone: null
+        phone: ''
       },
       valid: true,
-
       rules: {
         required: value => !!value || '此為必填欄位',
         phoneValidator: value => this.form.phone.length === 0 ? '' : validator.isMobilePhone(this.form.phone, 'zh-TW') || '行動電話格式錯誤'

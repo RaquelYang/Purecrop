@@ -1,6 +1,6 @@
 <template>
   <div id="news">
-    <v-carousel cycle hide-delimiters progress interval="2500" :show-arrows="false">
+    <v-carousel height="400px" class="mt-16" cycle hide-delimiters progress interval="2500" :show-arrows="false">
       <v-carousel-item
         v-for="newcarousel in newscarousel" :key="newcarousel._id"
         :src="newcarousel.file"

@@ -3,38 +3,45 @@
   <v-container class="mt-8 mt-md-16">
     <v-row>
       <v-col></v-col>
-      <v-col cols="12" md="9">
-        <h3 class="text-h3">無疑農｜訂單</h3>
+      <v-col cols="12" md="11" lg="9">
+        <h3 class="text-lg-h2 text-h3 light-green--text text--darken-2 font-weight-bold text-center text-md-start">無疑農｜訂單</h3>
         <v-simple-table class="mt-10 grey lighten-4 px-3 py-3">
           <thead>
             <tr>
               <th colspan="6">
-                <p class="text-start text-h6">訂單商品</p>
+                <p class="text-center text-md-h3 text-h5">訂單商品</p>
                 </th>
             </tr>
             <tr>
-              <th class=" text-start px-5 text-h5">單號</th>
-              <th class=" text-h5">日期</th>
-              <th class="text-h5">商品</th>
-              <th class="text-h5">商品狀態</th>
+              <th class=" text-start px-5 text-subtitle-1 text-sm-h5">單號</th>
+              <th class="text-subtitle-1 text-sm-h5">日期</th>
+              <th class="text-subtitle-1 text-sm-h5">商品</th>
+              <th class="text-subtitle-1 text-sm-h5">商品狀態</th>
             </tr>
           </thead>
           <tbody v-for="order in orders" :key="order._id">
             <tr>
               <td class="text-start px-5">
-                <span class="text-h6">{{order._id}}</span>
+                <span class="text-subtitle-2 text-sm-subtitle-1">{{order._id}}</span>
               </td>
-              <td>
+              <td class="text-subtitle-2 text-sm-subtitle-1">
                 {{new Date(order.date).toLocaleString('zh-TW')}}
               </td>
               <td>
-                <ul>
+                <v-list-item  v-for="product in order.products" :key="product._id">
+                  <v-list-item-content >
+                    <v-list-title class="text-subtitle-2 text-sm-subtitle-1">
+                      {{product.product.name}} <span>x</span> {{product.quantity}} 個
+                    </v-list-title>
+                  </v-list-item-content>
+                </v-list-item>
+                <!-- <ul>
                   <li v-for="product in order.products" :key="product._id">
                   {{product.product.name}} * {{product.quantity}}
                   </li>
-                </ul>
+                </ul> -->
               </td>
-              <td>{{order.state}}</td>
+              <td class="text-subtitle-2 text-sm-subtitle-1">{{order.state}}</td>
             </tr>
           </tbody>
         </v-simple-table>
@@ -49,6 +56,7 @@
   tr,td,th{
     padding: 1rem;
     text-align: center;
+
   }
   tr:hover{
     background-color: transparent !important;

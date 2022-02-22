@@ -12,6 +12,7 @@
             :expanded.sync="expanded"
             item-key="_id"
             show-expand
+            multi-sort
             class="elevation-1"
           >
             <template v-slot:item.orders="{ item }">
@@ -35,10 +36,18 @@
               </td>
             </template>
             <template v-slot:item.products="{ item }">
-              <td>
-                <ul>
-                  <li v-for="product in item.products" :key="product._id">{{product.product.name}} x {{product.quantity}} 個</li>
-                </ul>
+              <td class="me-10">
+                <v-list-item  v-for="product in item.products" :key="product._id">
+                  <v-list-item-content >
+                    <v-list-title>
+                      {{product.product.name}} <span>x</span> {{product.quantity}} 個
+                    </v-list-title>
+                  </v-list-item-content>
+                </v-list-item>
+                <!-- <ul>
+                  <li v-for="product in item.products" :key="product._id">
+                    {{product.product.name}} x {{product.quantity}} 個</li>
+                </ul> -->
               </td>
             </template>
             <template v-slot:item.action="{item}">
@@ -50,12 +59,27 @@
               ></v-select>
             </template>
             <template v-slot:expanded-item="{ headers, item }">
-              <td :colspan="headers.length">
-                姓名:{{ item.name }}<br>
-                電話:{{ item.phone }}<br>
-                地址:{{ item.address }}<br>
-                付款方式:{{ item.pay }}<br>
-                留言:{{ itemmessage }}<br>
+              <td :colspan="headers.length" class="py-5">
+              <p>
+                <span class="grey--text text--darken-1">姓名：</span>
+                {{ item.name }}
+              </p>
+              <p>
+                <span class="grey--text text--darken-1">電話：</span>
+                {{ item.phone }}
+              </p>
+              <p>
+                <span class="grey--text text--darken-1">地址：</span>
+                {{ item.address }}
+              </p>
+              <p>
+                <span class="grey--text text--darken-1">付款方式：</span>
+                {{ item.pay }}
+              </p>
+              <p>
+                <span class="grey--text text--darken-1">留言：</span>
+                {{ item.message }}
+              </p>
               </td>
             </template>
           </v-data-table>
@@ -70,9 +94,6 @@
   tr,td,th{
     padding: 1rem;
     text-align: center;
-  }
-  tr:hover{
-    background-color: transparent !important;
   }
   .v-text-field.message input{
     text-align: left;
@@ -95,7 +116,11 @@
   }
   .v-btn--plain:not(.v-btn--active):not(.v-btn--loading):not(:focus):not(:hover).changebtn .v-btn__content {
     opacity: 1;
-}
+  }
+  tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, .06) !important;
+  }
+
 }
 </style>
 <script>
@@ -110,9 +135,9 @@ export default {
         { text: '訂單單號', align: 'start', value: 'orders', width: ' 10%' },
         { text: '使用者帳號', value: 'user', align: 'center', sortable: false, width: '10%' },
         { text: '已成立時間', value: 'time', align: 'center', width: '20%' },
-        { text: '總金額', value: 'total', align: 'center', width: '10%' },
-        { text: '商品', value: 'products', align: 'center', width: '30%' },
-        { text: '狀態', value: 'action', align: 'center', width: '20%', sortable: false }
+        { text: '總金額', value: 'total', align: 'center', width: '15%' },
+        { text: '商品', value: 'products', align: 'center', width: '20%' },
+        { text: '狀態', value: 'action', align: 'center', width: '15%', sortable: false }
       ]
     }
   },
@@ -123,6 +148,7 @@ export default {
           authorization: 'Bearer ' + this.admin.token
         }
       })
+
       this.orders = data.result.map((order) => {
         order.total = order.products.reduce((accu, curr) => {
           return accu + curr.quantity * curr.product.price

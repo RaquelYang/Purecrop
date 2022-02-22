@@ -9,24 +9,24 @@
   <!-- part1 -->
     <v-row class="mt-5">
       <v-col></v-col>
-      <v-col cols="12" md="9">
+      <v-col cols="12" md="11">
         <v-row class="mt-5">
           <!-- left -->
           <v-col cols="12" md="5" class="grey lighten-3">
             <v-img :src="this.image"></v-img>
           </v-col>
           <!-- right -->
-          <v-col cols="12" md="7" class="grey lighten-3">
+          <v-col cols="12" md="7" class="grey lighten-3 ">
             <div class="txt">
               <h3 class="text-h3 font-weight-bold">{{name}}</h3>
-              <p class="text-h4 deep-orange--text text--darken-2 font-weight-bold py-4">
+              <p class="text-h4 deep-orange--text text--darken-2 font-weight-bold py-15">
                 $&nbsp;{{ new Intl.NumberFormat('en-IN').format(price) }}
               </p>
-              <v-simple-table class="grey lighten-3">
+              <v-simple-table class="grey lighten-3" >
                 <tbody class="lighten-4">
                   <tr>
-                    <td width="50%" class="text-h6">運送</td>
-                    <td width="50%" class="text-h6">
+                    <td width="50%" class="text-subtitle-1 text-sm-h6">運送</td>
+                    <td width="50%" class="text-subtitle-1 text-sm-h6">
                       備貨時間約 3 - 5 天
                     </td>
                   </tr>
@@ -57,14 +57,15 @@
                     </td>
                   </tr>
                   <tr>
-                    <td class="text-h6">數量</td>
-                    <td class="text-h6">
+                    <td class="text-subtitle-1 text-sm-h6">數量</td>
+                    <td class="text-subtitle-1 text-sm-h6">
                       <v-text-field
                         background-color="transparent"
                         hide-spin-buttons
                         readonly
                         flat
                         solo
+                        min="1"
                         type="number"
                         value="quantity"
                         v-model.number="quantity"
@@ -82,11 +83,11 @@
                 </tbody>
               </v-simple-table>
               <div class="d-flex">
-                <v-btn text :ripple='false' large width="30%" class=" my-10 text-h5 mr-10 addcart"
+                <v-btn text :ripple='false' large width="30%" class=" my-10 text-subtitle-1 text-sm-h5 mr-10 addcart"
                   @click="addCart"
                   >加入購物車</v-btn>
                   <v-btn text :ripple='false' large width="30%"
-                  class="light-green white--text my-10 text-h5 buynow"
+                  class="light-green white--text my-10 text-subtitle-1 text-sm-h5 buynow"
                   @click="buyNow"
                   >立即購買</v-btn>
               </div>
@@ -97,35 +98,34 @@
       <v-col></v-col>
     </v-row>
     <!-- bottom -->
-    <v-row class="mt-4">
+    <v-row>
       <v-col></v-col>
-      <v-col cols="12" md="9" class="px-0" >
+      <v-col cols="12" md="11" class="px-0 py-0" >
         <v-simple-table class="grey lighten-3">
           <thead>
             <tr>
-              <th class="text-h4 py-8">商品規格</th>
-              <th></th>
+              <th colspan="2" class="text-h4 py-8">商品規格</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody >
             <tr>
-              <td width="20%">產地</td>
-              <td width="50%">{{spec.origin}}</td>
+              <td class="text-subtitle-1 text-sm-h6" width="20%">產地</td>
+              <td class="text-subtitle-1 text-sm-h6" width="50%">{{spec.origin}}</td>
               <!-- <td>台灣</td> -->
             </tr>
             <tr>
-              <td>食物種類</td>
-              <td>{{spec.type}}</td>
+              <td class="text-subtitle-1 text-sm-h6">食物種類</td>
+              <td class="text-subtitle-1 text-sm-h6">{{spec.type}}</td>
               <!-- <td>季節性</td> -->
             </tr>
             <tr>
-              <td>內容物/成分</td>
-              <td>{{spec.content}}</td>
+              <td class="text-subtitle-1 text-sm-h6">內容物/成分</td>
+              <td class="text-subtitle-1 text-sm-h6">{{spec.content}}</td>
               <!-- <td>新鮮芭樂、砂糖、檸檬酸、鹽</td> -->
             </tr>
             <tr>
-              <td>出貨地</td>
-              <td>{{spec.from}}</td>
+              <td class="text-subtitle-1 text-sm-h6">出貨地</td>
+              <td class="text-subtitle-1 text-sm-h6">{{spec.from}}</td>
               <!-- <td>雲林二頭香</td> -->
             </tr>
           </tbody>
@@ -133,15 +133,14 @@
         <v-simple-table class="py-5 grey lighten-3">
           <thead>
             <tr>
-              <th class="text-h4 py-8">商品詳情</th>
-              <th></th>
+              <th colspan="2" class="text-h4 py-8">商品詳情</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>
-                <p>{{description}}</p>
-                <p>選用在地新水果，再經由低溫烘乾而成</p>
+                <p class="text-subtitle-1 text-sm-h6" v-html="descriptionProduct"></p>
+                <!-- <p>選用在地新水果，再經由低溫烘乾而成</p>
                 <p>果乾天然 美味 無添加</p>
                 <p>產品通過SGS檢驗，無添加防腐劑、糖精、色素</p>
                 <p>老少咸宜，越吃越涮嘴</p>
@@ -149,8 +148,8 @@
                 <ul>
                   <li>挑選台南在地新鮮芭樂</li>
                   <li>採用低溫烘乾製作而成</li>
-                  <li>＠商品描述</li>
-                  <li>
+                  <li>＠商品描述</li> -->
+                  <!-- <li>
                     因此特地挑選出品質好的芭樂來製作果乾（非低級加工品），讓顧客彷彿吃得到新鮮芭樂的味道，
                   產品並通過SGS認證，保證無添加防腐劑、色素、糖精。
                   </li>
@@ -159,7 +158,7 @@
                   淨重：150/ 300/ 600g
                   成分：新鮮芭樂、砂糖、檸檬酸、鹽
                   現貨有效期限：2022/ 7/ 15</li>
-                </ul>
+                </ul> -->
               </td>
             </tr>
           </tbody>
@@ -172,6 +171,8 @@
 </div>
 </template>
 <style lang="scss">
+@import "@/scss/variable.scss";
+@import "@/scss/mixins/rwd.scss";
 #ProductIntroductiom{
   .mask{
     width: 100vw;
@@ -184,8 +185,12 @@
   th,td{
     border:none
   }
+  tr{
+    padding-top: 1rem;
+    height: 5rem;
+  }
   .addcart{
-    border:2px solid #558B2F
+    border:1px solid #558B2F
   }
   .v-input--selection-controls{
     margin: 0;
@@ -203,7 +208,7 @@
   .v-input__slot{
     margin: 0;
   }
-    .v-input__prepend-inner,.v-input__append-inner{
+  .v-input__prepend-inner,.v-input__append-inner{
     padding: 0px;
     border:1px solid green;
   }
@@ -212,6 +217,7 @@
     border-top:1px solid green;
     border-bottom:1px solid green;
   }
+
   .v-input__control{
     margin: auto;
   }
@@ -219,9 +225,58 @@
     text-align: center;
   }
 }
+@include sm{
+  #ProductIntroductiom{
+    .mask{
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    }
+    .v-data-table{
+      border-radius: 0px;
+    }
+    th,td{
+      border:none
+    }
+    .addcart{
+      border:2px solid #558B2F
+    }
+    .v-input--selection-controls{
+      margin: 0;
+      padding: 0;
+    }
+    button{
+      font-size: 2rem;
+    }
+    .v-text-field__details{
+      margin: 0;
+    }
+    .v-text-field__details,.v-messages{
+      min-height: 0px;
+    }
+    .v-input__slot{
+      margin: 0;
+    }
+      .v-input__prepend-inner,.v-input__append-inner{
+      padding: 0px;
+      border:1px solid green;
+    }
+    .v-text-field__slot{
+      padding: 2px 0;
+      border-top:1px solid green;
+      border-bottom:1px solid green;
+    }
+    .v-input__control{
+      margin: auto;
+    }
+    .v-text-field input{
+      text-align: center;
+  }
+  }
+
+}
 </style>
 <script>
-// import SwiperProduct from '@/components/SwiperProduct.vue'
 export default {
   data () {
     return {
@@ -296,12 +351,12 @@ export default {
       this.$router.push('/cart')
     }
   },
-  components: {
-    // SwiperProduct
-  },
   computed: {
     quantityState () {
       return this.quantity === 0 ? null : this.quantity > 0
+    },
+    descriptionProduct () {
+      return this.description.replace(/\n/g, '<br /><br />')
     }
   }
 }

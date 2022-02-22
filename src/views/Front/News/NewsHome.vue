@@ -5,63 +5,63 @@
       <p class="text-center mt-6 mt-lg-10">搶先消息 x 小農活動</p>
       <v-row class="mt-16">
         <v-col></v-col>
-        <v-col cols="12" md="9">
+        <v-col cols="12">
           <v-row>
-          <v-col cols="12" xl="3" md="4">
+          <v-col cols="12" xl="3" md="4" sm="6">
           <v-card :ripple="false">
             <v-img height="200" class="imgscale" src="https://picsum.photos/1200/1000/?random=9">
             </v-img>
-            <v-card-title>Cafe Badilico</v-card-title>
+            <v-card-title>四四南村活動</v-card-title>
             <v-card-text>
-              <div class="pb-2">2012/12/21</div>
-              <p class="ellipsis mb-0">Small plates, salads & sandwiches - a2 indoor seats plus patio seating.</p>
+              <div class="pb-2">2021/10/10</div>
+              <p class="ellipsis mb-0">我們從台大學生創業起家，已經四年了！由營養師設計的菜單，專為忙碌的上班族與學生，提供健康的外送午餐！使用在地有機、履歷食材，甚至與玉里小農契作無毒米</p>
             </v-card-text>
             <v-card-actions class="justify-end px-4 pb-4" >
               <v-btn to="/news/pages" text :ripple="false" class="light-green darken-1 white--text">read more</v-btn>
             </v-card-actions>
           </v-card>
           </v-col>
-          <v-col cols="12" xl="3" md="4">
-            <v-card :ripple="false">
-              <v-img height="200" class="imgscale" src="https://picsum.photos/1200/1000/?random=9">
-              </v-img>
-              <v-card-title>Cafe Badilico</v-card-title>
-              <v-card-text>
-                <div class="pb-2">2012/12/21</div>
-                <p class="ellipsis mb-0">Small plates, salads & sandwiches - a2 indoor seats plus patio seating.</p>
-              </v-card-text>
-              <v-card-actions class="justify-end px-4 pb-4" >
-                <v-btn to="/news/pages" text :ripple="false" class="light-green darken-1 white--text">read more</v-btn>
-              </v-card-actions>
-            </v-card>
+          <v-col cols="12" xl="3" md="4" sm="6">
+          <v-card :ripple="false">
+            <v-img height="200" class="imgscale" src="https://picsum.photos/1200/1000/?random=9">
+            </v-img>
+            <v-card-title>四四南村活動</v-card-title>
+            <v-card-text>
+              <div class="pb-2">2021/10/10</div>
+              <p class="ellipsis mb-0">我們從台大學生創業起家，已經四年了！由營養師設計的菜單，專為忙碌的上班族與學生，提供健康的外送午餐！使用在地有機、履歷食材，甚至與玉里小農契作無毒米</p>
+            </v-card-text>
+            <v-card-actions class="justify-end px-4 pb-4" >
+              <v-btn to="/news/pages" text :ripple="false" class="light-green darken-1 white--text">read more</v-btn>
+            </v-card-actions>
+          </v-card>
           </v-col>
-          <v-col cols="12" xl="3" md="4">
-            <v-card :ripple="false">
-              <v-img height="200" class="imgscale" src="https://picsum.photos/1200/1000/?random=9">
-              </v-img>
-              <v-card-title>Cafe Badilico</v-card-title>
-              <v-card-text>
-                <div class="pb-2">2012/12/21</div>
-                <p class="ellipsis mb-0">Small plates, salads & sandwiches - a2 indoor seats plus patio seating.</p>
-              </v-card-text>
-              <v-card-actions class="justify-end px-4 pb-4" >
-                <v-btn to="/news/pages" text :ripple="false" class="light-green darken-1 white--text">read more</v-btn>
-              </v-card-actions>
-            </v-card>
+          <v-col cols="12" xl="3" md="4" sm="6">
+          <v-card :ripple="false">
+            <v-img height="200" class="imgscale" src="https://picsum.photos/1200/1000/?random=9">
+            </v-img>
+            <v-card-title>四四南村活動</v-card-title>
+            <v-card-text>
+              <div class="pb-2">2021/10/10</div>
+              <p class="ellipsis mb-0">我們從台大學生創業起家，已經四年了！由營養師設計的菜單，專為忙碌的上班族與學生，提供健康的外送午餐！使用在地有機、履歷食材，甚至與玉里小農契作無毒米</p>
+            </v-card-text>
+            <v-card-actions class="justify-end px-4 pb-4" >
+              <v-btn to="/news/pages" text :ripple="false" class="light-green darken-1 white--text">read more</v-btn>
+            </v-card-actions>
+          </v-card>
           </v-col>
-          <v-col cols="12" xl="3" md="4">
-            <v-card :ripple="false">
-              <v-img height="200" class="imgscale" src="https://picsum.photos/1200/1000/?random=9">
-              </v-img>
-              <v-card-title>Cafe Badilico</v-card-title>
-              <v-card-text>
-                <div class="pb-2">2012/12/21</div>
-                <p class="ellipsis mb-0">Small plates, salads & sandwiches - a2 indoor seats plus patio seating.</p>
-              </v-card-text>
-              <v-card-actions class="justify-end px-4 pb-4" >
-                <v-btn to="/news/pages" text :ripple="false" class="light-green darken-1 white--text">read more</v-btn>
-              </v-card-actions>
-            </v-card>
+          <v-col cols="12" xl="3" md="4" sm="6">
+          <v-card :ripple="false">
+            <v-img height="200" class="imgscale" src="https://picsum.photos/1200/1000/?random=9">
+            </v-img>
+            <v-card-title>四四南村活動</v-card-title>
+            <v-card-text>
+              <div class="pb-2">2021/10/10</div>
+              <p class="ellipsis mb-0">我們從台大學生創業起家，已經四年了！由營養師設計的菜單，專為忙碌的上班族與學生，提供健康的外送午餐！使用在地有機、履歷食材，甚至與玉里小農契作無毒米</p>
+            </v-card-text>
+            <v-card-actions class="justify-end px-4 pb-4" >
+              <v-btn to="/news/pages" text :ripple="false" class="light-green darken-1 white--text">read more</v-btn>
+            </v-card-actions>
+          </v-card>
           </v-col>
         </v-row>
         </v-col>

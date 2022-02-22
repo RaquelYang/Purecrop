@@ -9,7 +9,7 @@
         <p class="text-center text-h4 hidden-md-and-down">新鮮健康、食品認證</p>
         <p class="text-center text-h4 mb-0 hidden-md-and-down">在地有機、品質無疑</p>
       </v-overlay>
-      <p class="text-h2 vedioarrowdown white--text hidden-sm-and-down">&#709;</p>
+      <p class="text-h2 vedioarrowdown white--text hidden-sm-and-down">﹀</p>
     </div>
     <!-- 關於無疑農 -->
     <v-container class="about">

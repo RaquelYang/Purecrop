@@ -17,6 +17,9 @@
           <!-- <v-btn class="me-2" icon :ripple="false" plain to="/cart">
             <v-icon v-if="user.isLogin" class="light-green--text icon">mdi-account-circle-outline </v-icon>
           </v-btn> -->
+          <v-btn class="me-2 me-sm-4" large icon :ripple="false" plain to="/orders" v-if="user.isLogin">
+          <v-icon large class="light-green--text icon">mdi-clipboard-list-outline</v-icon>
+          </v-btn>
           <v-btn class="me-2 me-sm-4" large icon :ripple="false" plain to="/cart">
           <v-icon large class="light-green--text icon">mdi-cart</v-icon>
           <v-badge color="red" :content="user.cart"
@@ -40,7 +43,7 @@
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="text-h6 font-weight-bold light-green--text">
-            無疑農
+            Purecrop 無疑農
           </v-list-item-title>
           <v-list-item-subtitle class="font-weight-bold light-green--text mt-5 mb-2">
             產地直送 | 品質無疑

@@ -6,7 +6,7 @@
       <v-col cols="12" class="py-1">
         <v-row>
           <v-col cols="12" md="12" class="px-0 py-0" >
-            <v-carousel  height="400px" cycle hide-delimiters progress interval="2500" :show-arrows="false">
+            <v-carousel  height="auto" cycle hide-delimiters progress interval="2500" :show-arrows="false">
               <v-carousel-item
                 v-for="productcarousel in productscarousel" :key="productcarousel._id"
                 :src="productcarousel.file"

@@ -1,5 +1,5 @@
 <template>
-<div id="AdminSwipers">
+<div id="adminswipers">
   <v-container class="mb-16">
     <v-row class="justify-center">
       <v-col cols="10" class="text-center">
@@ -26,7 +26,7 @@
                       exceed-size-text="檔案大小不能超過"
                       :maxSize = " 1024"
                     ></img-inputer>
-                    <small>圖片尺寸 1920px*900px</small>
+                    <small>圖片尺寸 1904px*400px</small>
                   </v-col>
                 </v-row>
               </v-container>
@@ -46,7 +46,7 @@
       </v-col>
       <v-col cols="10">
         <v-row>
-          <v-col cols="4" v-for="(productcarousel,index) in productscarousel" :key="index">
+          <v-col cols="12" md="4" v-for="(productcarousel,index) in productscarousel" :key="index">
             <v-card height="300px">
               <v-img :src="productcarousel.file" class="rounded" height="220px"></v-img>
               <v-divider class="mx-2 my-2"></v-divider>
@@ -87,7 +87,7 @@
                       exceed-size-text="檔案大小不能超過"
                       :maxSize = " 1024"
                     ></img-inputer>
-                    <small>圖片尺寸 1920px*900px</small>
+                    <small>圖片尺寸 1904px*400px</small>
                   </v-col>
                 </v-row>
               </v-container>
@@ -107,7 +107,7 @@
       </v-col>
       <v-col cols="10">
         <v-row>
-          <v-col cols="4" v-for="(newcarousel,index) in newscarousel" :key="index">
+          <v-col cols="12" md="4" v-for="(newcarousel,index) in newscarousel" :key="index">
             <v-card height="300px">
               <v-img :src="newcarousel.file" class="rounded" height="220px"></v-img>
               <v-divider class="mx-2 my-2"></v-divider>
@@ -124,6 +124,13 @@
   </v-container>
 </div>
 </template>
+<style lang="scss">
+#adminswipers{
+  .img-inputer {
+    width: 100px !important;
+  }
+}
+</style>
 <script>
 export default {
   data () {
@@ -168,6 +175,8 @@ export default {
           title: '失敗',
           text: '新增圖片失敗'
         })
+        this.submitBtnDisabled = false
+        this.cancelBtnDisabled = false
       }
     },
     async addNewsCarousel () {

@@ -9,7 +9,7 @@
           :items="products"
         >
           <template v-slot:top>
-            <v-btn large @click="addproduct"  color="success darken-1" class="text-h5 mb-8">新增商品</v-btn>
+            <v-btn large @click="addproduct"  color="light-green darken-2" class="white--text text-h5 mb-8">新增商品</v-btn>
           </template>
           <template v-slot:item.image="{ item }">
           <img v-if="item.image" :src="item.image"/>
@@ -23,7 +23,7 @@
             <v-switch v-model="item.sell" @change="switchbtn(item._id)"></v-switch>
           </template>
           <template v-slot:item.action="{ item }">
-              <v-btn color="light-green darken-2 white--text" class="lg-mr-2"
+              <v-btn color="light-green darken-2 white--text" class="mr-md-2"
               @click="editProduct(item._id)"
               >
                 <v-icon>mdi-lead-pencil</v-icon>

@@ -4,6 +4,72 @@
       <v-row>
         <v-col></v-col>
         <v-col cols="12" md="9">
+          <v-dialog v-model="dialog"
+            width="600"
+          >
+          <v-card class="px-10 py-5">
+            <v-card-title class="py-5 font-weight-bold text-h6 text-md-h4">
+              輸入信用卡卡號
+            </v-card-title>
+            <vue-paycard :value-fields="valueFields" />
+            <v-row>
+              <v-cols cols="12"></v-cols>
+              <v-cols cols="4"></v-cols>
+              <v-cols cols="4"></v-cols>
+              <v-cols cols="4"></v-cols>
+            </v-row>
+            <v-card-text class="pt-10 pb-0">
+              <v-text-field
+              label="請輸入卡號"
+              hide-spin-buttons
+              outlined
+              type="number"
+              v-model.number="valueFields.cardNumber"
+            >
+            </v-text-field>
+            <v-text-field
+              label="請輸入年"
+              hide-spin-buttons
+              outlined
+              type="number"
+              v-model.number="valueFields.cardYear"
+            >
+            </v-text-field>
+            <v-text-field
+              label="請輸入月"
+              hide-spin-buttons
+              outlined
+              type="number"
+              v-model.number="valueFields.cardMonth"
+            >
+            </v-text-field>
+            <v-text-field
+              label="請輸入安全碼"
+              hide-spin-buttons
+              outlined
+              type="number"
+              v-model.number="valueFields.cardCvv"
+            >
+            </v-text-field>
+            </v-card-text>
+            <v-card-actions class="py-0">
+              <v-spacer></v-spacer>
+              <v-btn
+                class="text-h5 white--text px-5 mx-5 my-5"
+                large
+                color="red darken-1"
+              >
+                取消
+              </v-btn>
+              <v-btn
+                class="text-h5 px-5 mx-5 my-5"
+                large
+                color="success darken-1">
+                送出
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+          </v-dialog>
           <h3 class="text-lg-h2 text-md-h3 text-h3 light-green--text text--darken-2 font-weight-bold">無疑農｜結帳</h3>
           <v-simple-table class="mt-10 grey lighten-4 px-3 py-3">
             <thead>
@@ -106,7 +172,7 @@
               <tr v-if="selected === '信用卡/金融卡'" class="border">
                 <td>選擇帳戶</td>
                 <td class="text-start">
-                  <v-btn  :ripple="false" plain text outlined>
+                  <v-btn  :ripple="false" plain text outlined @click="dialog=true">
                   ＋新增信用卡付款
                   </v-btn>
                 </td>
@@ -159,7 +225,6 @@
         <v-col></v-col>
       </v-row>
     </v-container>
-
   </div>
 </template>
 <style lang="scss">
@@ -206,7 +271,6 @@
       border:none
     }
   }
-
 }
 </style>
 <script>
@@ -214,6 +278,14 @@ import UserInfo from '@/components/UserInfo.vue'
 export default {
   data () {
     return {
+      valueFields: {
+        cardName: '',
+        cardNumber: '',
+        cardMonth: '',
+        cardYear: '',
+        cardCvv: ''
+      },
+      dialog: false,
       parentdialog: false,
       products: [],
       selected: false,

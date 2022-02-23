@@ -1,6 +1,6 @@
 <template>
   <div id="news">
-    <v-carousel height="400px" class="mt-16" cycle hide-delimiters progress interval="2500" :show-arrows="false">
+    <v-carousel height="auto"  class="mt-16" cycle hide-delimiters progress interval="2500" :show-arrows="false">
       <v-carousel-item
         v-for="newcarousel in newscarousel" :key="newcarousel._id"
         :src="newcarousel.file"
@@ -14,14 +14,15 @@
   .swiper-pagination-bullet-active{
   background-color:#8BC34A !important;
   }
-  .swiper{
+  .v-carousel__item{
+    height: auto;
     // min-height: 50vh;
     // max-height: 80vh;
   }
   img{
-    width:100%;
-    height: 100%;
-    object-fit: cover;
+    // width:100%;
+    // height: 100%;
+    // object-fit: cover;
   }
 }
 </style>

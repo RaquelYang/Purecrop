@@ -14,18 +14,25 @@ import { formatDistanceToNow } from 'date-fns'
 import { zhTW } from 'date-fns/locale'
 import parseISO from 'date-fns/fp/parseISO'
 import VueScrollReveal from 'vue-scroll-reveal'
+import VuePaycard from 'vue-paycard'
 
+Vue.use(VuePaycard)
 Vue.use(VueScrollReveal, {
   class: 'v-scroll-reveal',
-  duration: 800,
+  duration: 1000,
   scale: 1,
   distance: '100px',
-  mobile: false
+  mobile: false,
+  easing: 'ease-out'
 })
 
+const options = {
+  confirmButtonColor: '#8BC34A'
+}
+
+Vue.use(VueSweetalert2, options)
 Vue.component('ImgInputer', ImgInputer)
 
-Vue.use(VueSweetalert2)
 Vue.mixin(mixin)
 Vue.config.productionTip = false
 Vue.prototype.$date = {

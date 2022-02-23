@@ -10,12 +10,12 @@
     </p>
     <v-row class="deliverycontent">
       <v-col cols="12" sm="6" class="px-0 imgline">
-        <v-img src="../assets/images/5a22fc9aa25020.8918082015122423306648.png" />
+        <v-img src="../assets/images/5a22fc9aa25020.8918082015122423306648.png" v-scroll-reveal="{delay:500}" />
       </v-col>
 
       <v-col cols="12" sm="6" class="text">
         <div class="text-md-h4 text-h5 text-center mt-8 mt-sm-0 mb-8 mb-sm-0">
-          <h2 class="mb-5">芭樂</h2>
+          <h2 class="mb-16 mb-xs-5">芭樂</h2>
           <p>
             當季水果
           </p>
@@ -24,12 +24,12 @@
           </p>
         </div>
       </v-col>
-      <v-col cols="12" sm="6" order="1" order-sm="2" class="px-0 imgline">
-        <v-img src="../assets/images/5a1c7e70ca3fe7.9399725215118168168284.png" />
+      <v-col cols="12" sm="6" order="1" order-sm="2" class="px-0 ">
+        <v-img src="../assets/images/5a1c7e70ca3fe7.9399725215118168168284.png" v-scroll-reveal="{delay:1000}"/>
       </v-col>
       <v-col cols="12" sm="6" class="text" order="2" order-sm="1">
         <div class="text-md-h4 text-h5 text-center mt-8 mt-sm-0 mb-8 mb-sm-0">
-          <h2 class="mb-5">野菜</h2>
+          <h2 class="mb-16 mb-xs-5">野菜</h2>
           <p>
             無農藥植栽
           </p>
@@ -38,12 +38,12 @@
           </p>
         </div>
       </v-col>
-      <v-col cols="12" sm="6" order="3" order-sm="3" class="px-0 imgline">
-        <v-img src="../assets/images/kisspng-cymbopogon-citratus-asian-cuisine-lemon-stock-phot-garlic-5ab507ce754ed3.5863863715218134544805.png" />
+      <v-col cols="12" sm="6" order="3" order-sm="3" class="px-0 ">
+        <v-img src="../assets/images/kisspng-cymbopogon-citratus-asian-cuisine-lemon-stock-phot-garlic-5ab507ce754ed3.5863863715218134544805.png" v-scroll-reveal="{delay:2000}"/>
       </v-col>
       <v-col cols="12" sm="6" class="text" order="4" order-sm="4">
         <div class="text-md-h4 text-h5 text-center mt-8 mt-sm-0 mb-8 mb-sm-0">
-          <h2 class="mb-5">香茅</h2>
+          <h2 class="mb-16 mb-xs-5">香茅</h2>
           <p>
             再製香茅油
           </p>
@@ -52,12 +52,12 @@
           </p>
         </div>
       </v-col>
-      <v-col cols="12" sm="6" order="5" order-sm="6" class="px-0 imgline">
-        <v-img src="../assets/images/fig.png" />
+      <v-col cols="12" sm="6" order="5" order-sm="6" class="px-0 ">
+        <v-img src="../assets/images/fig.png" v-scroll-reveal="{delay:3000}"/>
       </v-col>
       <v-col cols="12" sm="6" class="text" order="6" order-sm="5">
         <div class="text-md-h4 text-h5 text-center mt-8 mt-sm-0 mb-8 mb-sm-0">
-          <h2 class="mb-5">無花果</h2>
+          <h2 class="mb-16 mb-xs-5">無花果</h2>
           <p>
             古傳烘乾法
           </p>
@@ -93,20 +93,6 @@
     align-items: center;
     justify-content: center;
   }
-  .imgline {
-  position: relative;
-  &::before {
-    content: "";
-    width: 100%;
-    height: 1px;
-    display: block;
-    border-bottom: 2px solid #33333333;
-    position: absolute;
-    bottom: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
 }
 @include sm {
   #delivery {

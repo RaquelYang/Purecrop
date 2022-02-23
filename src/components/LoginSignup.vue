@@ -34,21 +34,19 @@
                           v-model="loginform.password" label="請輸入密碼"
                           @click:append="show2 = !show2"
                           required />
-                        <v-simple-table class="table">
-                          <tbody>
-                            <tr>
-                              <td width="33%">
-                              </td>
-                              <td width="33%" class="text-center">
-                                <v-btn :ripple="false" class="light-green darken-3 white--text"
+                          <v-row class="align-center">
+                            <v-col cols="4" class="text-center"></v-col>
+                            <v-col cols="4" class="text-center">
+                              <v-btn :ripple="false" class="light-green darken-3 white--text"
                                 type="submit" :disabled="!valid">登入</v-btn>
-                              </td>
-                              <td width="33%" class="forgetpassword">
-                                <v-btn :ripple="false" plain text class="light-green--text text--darken-3 text-overline">忘記密碼?</v-btn>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </v-simple-table>
+                            </v-col>
+                            <v-col cols="4" class="text-center pr-12">
+                              <v-btn :ripple="false" text plain class="light-green--text text--darken-3">
+                                忘記密碼
+                              </v-btn>
+                            </v-col>
+                          </v-row>
+
                       </v-form>
                     </v-card-text>
                   </v-tab-item>
@@ -97,11 +95,6 @@
 </template>
 <style lang="scss">
   #loginsignup{
-    table{
-      tr:hover{
-        background-color: transparent !important;
-      }
-    }
     .v-dialog{
       .v-application .text-overline{
       letter-spacing: 0px !important;

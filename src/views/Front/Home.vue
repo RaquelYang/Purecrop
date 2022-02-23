@@ -18,8 +18,8 @@
         <v-col cols="12" md="11" lg="9">
           <v-row >
             <v-col cols="12" md="6">
-              <h3 class="text-center text-h4 text-md-h3 light-green--text text--darken-1 font-weight-bold bottomline1" v-scroll-reveal.reset>關於無疑農</h3>
-              <div class="mt-16 text-center text-md-start text-subtitle-1" v-scroll-reveal.reset="{delay:500}">
+              <h3 class="text-center text-h4 text-md-h3 light-green--text text--darken-1 font-weight-bold bottomline1" v-scroll-reveal>關於無疑農</h3>
+              <div class="mt-16 text-center text-md-start text-subtitle-1" v-scroll-reveal="{delay:250}">
                 <p>我們從台大學生創業起家，已經四年了！</p>
                 <p>由營養師設計的菜單，提供健康的外送午餐！</p>
                 <p>使用在地有機、履歷食材，甚至與玉里小農契作無毒米</p>
@@ -29,7 +29,7 @@
               </div>
             </v-col>
             <v-col cols="12" md="6">
-              <div class="svg">
+              <div class="svg" v-scroll-reveal="{delay:250}">
               </div>
             </v-col>
           </v-row>
@@ -40,7 +40,7 @@
     <!-- 品質保證 -->
     <v-container class="qualtity">
       <h3 class="text-center text-lg-h2 text-sm-h3 text-h4 light-green--text text--darken-1 font-weight-bold bottomline">品質保證</h3>
-      <p class="text-center mt-6 mt-lg-10">當季蔬果 <span class="font-weight-bold">x</span>  小農新鮮直送</p>
+      <p class="text-center mt-6 mt-lg-10">當季蔬果 <span class="font-weight-bold">x</span> 小農新鮮直送</p>
       <v-row class="text-center mt-6 mt-lg-10">
         <v-col></v-col>
         <v-col cols="12" md="11" lg="9">
@@ -109,6 +109,9 @@
   #home{
     .about {
       margin-top: 5rem;
+      .abouttxt{
+      margin-left: 0rem;
+      }
     }
     .qualtity {
     margin-top: 5rem;

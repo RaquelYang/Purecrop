@@ -25,8 +25,7 @@
         <div class="timeline hidden-sm-and-down">
           <v-timeline>
             <v-timeline-item fill-dot>
-              <div class="svg timelineimg">
-              </div>
+              <div class="svg timelineimg"  v-scroll-reveal="{delay:250}"></div>
               <h4 class="text-h4 grey--text text--darken-1">2019</h4>
               <h4 class="text-h4">初期想法</h4>
               <p class="text-subtitle-1">
@@ -35,8 +34,7 @@
               </v-timeline-item>
               <v-timeline-item fill-dot class=" text-right">
 
-                <div class="svg1 timelineimg1">
-                </div>
+                <div class="svg1 timelineimg1"  v-scroll-reveal="{delay:250}"></div>
                 <h4 class="text-h4 grey--text text--darken-1">2020</h4>
                 <h4 class="text-h4">想法與初衷</h4>
                 <p class="text-subtitle-1">
@@ -45,8 +43,7 @@
               </v-timeline-item>
               <v-timeline-item fill-dot>
 
-                <div class="svg2 timelineimg">
-                </div>
+                <div class="svg2 timelineimg"  v-scroll-reveal="{delay:250}"></div>
                 <h4 class="text-h4 grey--text text--darken-1">2021</h4>
               <h4 class="text-h4">架設網站</h4>
               <p class="text-subtitle-1">
@@ -55,8 +52,7 @@
               </v-timeline-item>
               <v-timeline-item fill-dot class=" text-right">
 
-                <div class="svg3 timelineimg1">
-                </div>
+                <div class="svg3 timelineimg1"  v-scroll-reveal="{delay:250}"></div>
                 <h4 class="text-h4 grey--text text--darken-1">Now</h4>
               <h4 class="text-h4">成果發表</h4>
               <p class="text-subtitle-1">
@@ -82,10 +78,10 @@
                   <span class="white--text">2019</span>
                 </template>
                 <v-row justify="space-between">
-                  <v-col cols="12">
-                    <p class="text-h4 font-weight-bold grey--text text--darken-2">初期想法</p>
+                  <v-col cols="12" class="timelinemargin">
+                    <p class="text-h4 font-weight-bold grey--text text--darken-2" >初期想法</p>
                     <p>賣業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗</p>
-                    <div class="svg"></div>
+                    <div class="svg timelineimg" ></div>
                   </v-col>
                 </v-row>
               </v-timeline-item>
@@ -99,10 +95,10 @@
                   <span class="white--text">2020</span>
                 </template>
                 <v-row justify="space-between">
-                  <v-col cols="12">
+                  <v-col cols="12" class="timelinemargin">
                     <p class="text-h4 font-weight-bold grey--text text--darken-2">想法與初衷</p>
                     <p>賣業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗</p>
-                    <div class="svg1"></div>
+                    <div class="svg1 timelineimg"></div>
                   </v-col>
                 </v-row>
               </v-timeline-item>
@@ -116,10 +112,10 @@
                   <span class="white--text">2021</span>
                 </template>
                 <v-row justify="space-between">
-                  <v-col cols="12">
+                  <v-col cols="12" class="timelinemargin">
                     <p class="text-h4 font-weight-bold grey--text text--darken-2">架設網站</p>
                     <p>賣業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗</p>
-                    <div class="svg2"></div>
+                    <div class="svg2 timelineimg"></div>
                   </v-col>
                 </v-row>
               </v-timeline-item>
@@ -133,10 +129,10 @@
                   <span class="white--text">Now</span>
                 </template>
                 <v-row justify="space-between">
-                  <v-col cols="12">
+                  <v-col cols="12" class="timelinemargin">
                     <p class="text-h4 font-weight-bold grey--text text--darken-2">成果發表</p>
                     <p>賣業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗業的第二線業者等，皆歸入農業的一環。「想像與現實是有落差的」，鬼王以走訪農村的經驗</p>
-                    <div class="svg3"></div>
+                    <div class="svg3 timelineimg"></div>
                   </v-col>
                 </v-row>
               </v-timeline-item>
@@ -186,11 +182,10 @@
     margin-top: 5rem;
     flex-direction: column;
   }
-
   .position{
     margin-top: 3rem
   };
-  .svg,.svg1,.svg2,.svg3,.svg4{
+  .svg,.svg1,.svg2,.svg3{
     width: auto;
     height: 400px;
   }
@@ -205,6 +200,17 @@
   }
   .svg3{
     background: url('../../assets/images/undraw_blooming_jtv6.svg') no-repeat center/contain;
+  }
+  .timelineimg{
+    position: absolute;
+    height: 240px !important;
+    width: 100%;
+    left: 0%;
+    top: 120%;
+  }
+  .v-timeline-item{
+    padding:10rem 0 !important ;
+    position: relative;
   }
 }
 @include sm {
@@ -223,10 +229,10 @@
   }
   .timelineimg{
     position: absolute;
-    height: 400px !important;
+    height: 240px !important;
     width: 100%;
-    left: -100%;
-    top:0%
+    left: 0%;
+    top: 120%;
   }
   .timelineimg1{
     position: absolute;
@@ -240,10 +246,47 @@
   }
   .position{
     margin-top: 5rem
-  };
+  }
+  .v-timeline-item{
+    padding:10rem 0 !important ;
+  }
 }
 }
 @include md {
+  #brand{
+  margin-top: 8rem;
+  .brandtext{
+    margin-top: 8rem;
+  }
+  .midcontent{
+    margin-top: 20rem;
+
+  }
+  .v-timeline-item{
+    position: relative;
+    padding: 10rem 0 !important;
+  }
+  .timelineimg{
+    position: absolute;
+    height: 400px !important;
+    left: -140%;
+    top:-20%
+  }
+  .timelineimg1{
+    position: absolute;
+    height: 400px !important;
+    left: 140%;
+    top:-30%
+  }
+  .timeline{
+    margin-top: 15rem;
+  }
+  .position{
+    margin-top: 15rem
+  };
+}
+}
+@include lg {
   #brand{
   margin-top: 8rem;
   .brandtext{

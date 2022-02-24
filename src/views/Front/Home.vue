@@ -1,7 +1,7 @@
 <template>
   <div id="home" >
     <!-- part1 滿版影片 autoplay -->
-    <div class="videobox">
+    <div class="videobox pt-14">
       <video class="video" src="@/assets/video/home_veg.mp4" autoplay loop  muted playsinline webkit-playsinline>
       </video>
       <v-overlay :value="true" :absolute="true" color="rgba(0,0,0,.8)" z-index="1">
@@ -78,14 +78,14 @@
 @import "@/scss/variable.scss";
 @import "@/scss/mixins/rwd.scss";
 #home{
+  .v-overlay__content{
+    top:10%
+  }
   .about{
     margin-top: 1rem;
   }
   .qualtity{
-    margin-top: 10rem !important;
-  }
-  .delivery{
-    margin-top: 2rem;
+    margin-top: 2rem !important;
   }
   .qualityicon{
     margin-top: 1rem;
@@ -102,11 +102,14 @@
   .svg{
     background: url('../../assets/images/undraw_blooming_jtv6.svg') no-repeat center/contain;
     width: auto;
-    height: 400px;
+    height: 250px;
   }
 }
 @include sm{
   #home{
+    .v-overlay__content{
+    top:0%
+    }
     .about {
       margin-top: 5rem;
       .abouttxt{
@@ -121,6 +124,9 @@
     }
     .qualityicon {
       margin-top: 3rem;
+    }
+    .svg{
+      height: 400px;
     }
   }
 }

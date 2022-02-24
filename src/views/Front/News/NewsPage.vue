@@ -4,14 +4,14 @@
   <v-container class="mt-8 mt-md-8">
     <v-row>
       <v-col></v-col>
-      <v-col cols="12" md="9">
+      <v-col cols="12" md="9" class="relative">
         <v-btn text :ripple="false" plain icon class="light-green darken-1 white--text font-weight-black" to="/news">
         <v-icon class="text-h3">mdi-arrow-left-bold</v-icon>
         </v-btn>
 
-        <h3 class="text-center text-lg-h3 text-md-h3 text-h3 light-green--text text--darken-1 font-weight-bold bottomline4">四四南村活動</h3>
+        <h3 class="text-center text-lg-h3 text-md-h3 text-h3 light-green--text text--darken-1 font-weight-bold bottomline4 pt-16">四四南村活動</h3>
         <v-row class="mt-8 mt-md-16">
-          <v-col cols="12" md="6">
+          <v-col cols="12" lg="6" order="2" order-lg="1">
             <div class="txt">
               <p>我們從台大學生創業起家，已經四年了！</p>
               <p>由營養師設計的菜單，專為忙碌的上班族與學生，提供健康的外送午餐！</p>
@@ -31,7 +31,7 @@
               </ul>
             </div>
           </v-col>
-          <v-col cols="12" md="6">
+          <v-col cols="12" lg="6" order="1" order-lg="2">
             <v-img src="https://picsum.photos/1200/800/?random=10" width="100%" height="100%"></v-img>
           </v-col>
         </v-row>
@@ -42,7 +42,12 @@
 </div>
 </template>
 <style lang="scss">
+@import "@/scss/variable.scss";
+@import "@/scss/mixins/rwd.scss";
 #newspages{
+  .relative{
+    position: relative;
+  }
   p{
     margin-bottom: 0;
     line-height: 1.4rem;
@@ -69,8 +74,17 @@
   .v-btn--icon{
     width: 60px;
     height: 60px;
-    position: relative;
-
+    position: absolute;
+    top:-2rem;
+    left: 1rem;
+  }
+}
+@include sm{
+  #newspages{
+    .v-btn--icon{
+    top:0rem;
+    left: 0rem;
+  }
   }
 }
 @keyframes leftright{

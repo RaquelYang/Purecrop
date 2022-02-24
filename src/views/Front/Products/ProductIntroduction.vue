@@ -7,35 +7,36 @@
   </v-overlay>
   <v-container class="mt-8 mt-md-16">
   <!-- part1 -->
-    <v-row class="mt-5">
+    <v-row >
       <v-col></v-col>
       <v-col cols="12" md="11">
-        <v-row class="mt-5">
+        <v-row>
           <!-- left -->
-          <v-col cols="12" md="5" class="grey lighten-3">
+          <v-col cols="12" sm="6" md="5" class="grey lighten-3">
             <v-img :src="this.image"></v-img>
           </v-col>
           <!-- right -->
-          <v-col cols="12" md="7" class="grey lighten-3 ">
+          <v-col cols="12" sm="6" md="7" class="grey lighten-3">
             <div class="txt">
-              <h3 class="text-h3 font-weight-bold">{{name}}</h3>
+              <h3 class="py-5 text-h3 font-weight-bold">{{name}}</h3>
               <p class="text-h4 deep-orange--text text--darken-2 font-weight-bold py-15">
                 $&nbsp;{{ new Intl.NumberFormat('en-IN').format(price) }}
               </p>
-              <v-simple-table class="grey lighten-3" >
+              <v-simple-table class="grey lighten-3 top" >
                 <tbody class="lighten-4">
                   <tr>
-                    <td width="50%" class="text-subtitle-1 text-sm-h6">運送</td>
-                    <td width="50%" class="text-subtitle-1 text-sm-h6">
+                    <td class="text-subtitle-1 text-sm-h6" width="25%">運送</td>
+                    <td class="text-subtitle-1 text-sm-h6 text-end">
                       備貨時間約 3 - 5 天
                     </td>
+                    <td class="hidden-md-and-down" width="50%"></td>
                   </tr>
                   <tr>
                     <td></td>
-                    <td class="text-h6">
+                    <td class="text-h6 text-end">
                       <v-tooltip bottom>
                         <template v-slot:activator="{ on, attrs }">
-                          <span>$60</span>
+                          <span >$60</span>
                           <v-icon
                             large
                             color="grey"
@@ -58,8 +59,9 @@
                   </tr>
                   <tr>
                     <td class="text-subtitle-1 text-sm-h6">數量</td>
-                    <td class="text-subtitle-1 text-sm-h6">
+                    <td class="text-subtitle-1 text-sm-h6 quantity">
                       <v-text-field
+
                         background-color="transparent"
                         hide-spin-buttons
                         readonly
@@ -83,11 +85,11 @@
                 </tbody>
               </v-simple-table>
               <div class="d-flex">
-                <v-btn text :ripple='false' large width="30%" class=" my-10 text-subtitle-1 text-sm-h5 mr-10 addcart"
+                <v-btn text :ripple='false' large width="30%" class=" my-10 text-subtitle-1 text-sm-h6 text-md-h5 mr-10 addcart"
                   @click="addCart"
                   >加入購物車</v-btn>
                   <v-btn text :ripple='false' large width="30%"
-                  class="light-green white--text my-10 text-subtitle-1 text-sm-h5 buynow"
+                  class="light-green white--text my-10 text-subtitle-1 text-sm-h6 text-md-h5 buynow"
                   @click="buyNow"
                   >立即購買</v-btn>
               </div>
@@ -174,6 +176,9 @@
 @import "@/scss/variable.scss";
 @import "@/scss/mixins/rwd.scss";
 #ProductIntroductiom{
+  .quantity .v-input{
+    max-width: 100% !important;
+  }
   .mask{
     width: 100vw;
     height: 100vh;
@@ -210,14 +215,13 @@
   }
   .v-input__prepend-inner,.v-input__append-inner{
     padding: 0px;
-    border:1px solid green;
+    border:1px solid #616161;
   }
   .v-text-field__slot{
     padding: 2px 0;
-    border-top:1px solid green;
-    border-bottom:1px solid green;
+    border-top:1px solid #616161;
+    border-bottom:1px solid #616161;
   }
-
   .v-input__control{
     margin: auto;
   }
@@ -227,6 +231,9 @@
 }
 @include sm{
   #ProductIntroductiom{
+    .quantity .v-input{
+    max-width: 90% !important;
+  }
     .mask{
     width: 100vw;
     height: 100vh;
@@ -259,12 +266,12 @@
     }
       .v-input__prepend-inner,.v-input__append-inner{
       padding: 0px;
-      border:1px solid green;
+      border:1px solid #616161;
     }
     .v-text-field__slot{
       padding: 2px 0;
-      border-top:1px solid green;
-      border-bottom:1px solid green;
+      border-top:1px solid #616161;
+      border-bottom:1px solid #616161;
     }
     .v-input__control{
       margin: auto;
@@ -273,7 +280,20 @@
       text-align: center;
   }
   }
-
+}
+@include md{
+  #ProductIntroductiom{
+    .quantity .v-input{
+    max-width: 80% !important;
+    }
+  }
+}
+@include lg{
+  #ProductIntroductiom{
+    .quantity .v-input{
+    max-width: 100% !important;
+    }
+  }
 }
 </style>
 <script>

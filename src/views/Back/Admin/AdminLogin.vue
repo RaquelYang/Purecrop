@@ -1,9 +1,9 @@
 <template>
   <div id="AdminLogin" class="d-flex justify-center align-center">
     <v-col></v-col>
-    <v-col cols="12" sm="6">
+    <v-col cols="12" sm="6" md="4" lg="3">
       <v-card-text>
-        <p class="text-h4 text-center pb-5">管理員登入</p>
+        <p class="text-h3 text-center pb-5">管理員登入</p>
         <v-form @submit.prevent="adminslogin" v-model="valid">
           <v-text-field
             dense outlined label="請輸入管理員帳號" type="email"
@@ -16,8 +16,10 @@
             v-model="adminlogin.password" label="請輸入密碼"
             @click:append="show1 = !show1"
             required />
-            <v-btn block :ripple="false" class="light-green darken-3 white--text"
-            type="submit" :disabled="!valid">登入</v-btn>
+            <v-btn block large :ripple="false" class="light-green darken-3 white--text"
+            type="submit" :disabled="!valid">
+              <span class="text-h5">登入</span>
+            </v-btn>
         </v-form>
     </v-card-text>
     </v-col>

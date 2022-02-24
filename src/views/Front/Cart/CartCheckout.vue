@@ -58,13 +58,16 @@
                 class="text-h5 white--text px-5 mx-5 my-5"
                 large
                 color="red darken-1"
+                @click="credit"
               >
                 取消
               </v-btn>
               <v-btn
                 class="text-h5 px-5 mx-5 my-5"
                 large
-                color="success darken-1">
+                color="success darken-1"
+                @click="credit"
+              >
                 送出
               </v-btn>
             </v-card-actions>
@@ -350,6 +353,9 @@ export default {
       this.phone = data.phone
       this.address = data.address
       this.addresscolor = true
+    },
+    credit () {
+      this.dialog = false
     }
   },
   computed: {

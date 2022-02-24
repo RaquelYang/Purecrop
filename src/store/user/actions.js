@@ -10,13 +10,15 @@ export const login = async ({ commit }, loginform) => {
     swal.fire({
       icon: 'success',
       title: '成功',
-      text: '登入成功'
+      text: '登入成功',
+      confirmButtonColor: '#8BC34A'
     })
   } catch (error) {
     swal.fire({
       icon: 'error',
       title: '失敗',
-      text: error.response.data.message
+      text: error.response.data.message,
+      confirmButtonColor: '#8BC34A'
     })
   }
 }
@@ -31,7 +33,8 @@ export const logout = async ({ commit, state }) => {
     swal.fire({
       icon: 'success',
       title: '成功',
-      text: '登出成功'
+      text: '登出成功',
+      confirmButtonColor: '#8BC34A'
     })
     commit('logout')
     if (router.currentRoute.meta.login) {
@@ -41,7 +44,8 @@ export const logout = async ({ commit, state }) => {
     swal.fire({
       icon: 'error',
       title: '失敗',
-      text: error.response.data.message
+      text: error.response.data.message,
+      confirmButtonColor: '#8BC34A'
     })
   }
 }
@@ -65,7 +69,8 @@ export const addCart = async ({ commit, state }, data) => {
     swal.fire({
       icon: 'error',
       title: '錯誤',
-      text: '請輸入正確數量'
+      text: '請輸入正確數量',
+      confirmButtonColor: '#8BC34A'
     })
     return
   }
@@ -79,7 +84,8 @@ export const addCart = async ({ commit, state }, data) => {
     swal.fire({
       icon: 'success',
       title: '成功',
-      text: '加入購物車'
+      text: '加入購物車',
+      confirmButtonColor: '#8BC34A'
     })
   } catch (error) {
     swal.fire({

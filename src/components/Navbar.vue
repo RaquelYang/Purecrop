@@ -1,14 +1,15 @@
 <template>
 <div id="navbar">
   <nav>
-    <v-app-bar  min-width="100vw" fixed :elevate-on-scroll="true" elevation="5" hide-on-scroll class="justify-end">
+<!-- hide-on-scroll -->
+    <v-app-bar  min-width="100vw" :elevate-on-scroll="true" fixed elevation="5"  class="justify-end">
       <v-app-bar-nav-icon large @click="sidebar=!sidebar" class="hidden-md-and-up mr-3"></v-app-bar-nav-icon>
       <v-row>
-        <v-toolbar-title tag="router-link" to="/" class=" font-weight-bold light-green--text col-6 col-md-4">
+        <v-toolbar-title tag="router-link" to="/" class=" font-weight-bold light-green--text text--darken-1 col-6 col-md-4">
             <span class="text-h6 text-xs-h5 font-weight-bold mr-2 ">Purecrop</span>
             <span class="text-h6 text-md-h5 font-weight-bold hidden-xs-only">無疑農</span>
             <span class="mx-2 font-weight-light hidden-md-and-down ">|</span>
-            <span class="font-weight-light light-green--text subtitle-2 leghten-2 hidden-md-and-down">產地直送 品質無疑</span>
+            <span class="font-weight-light light-green--text text--darken-1  subtitle-2 leghten-2 hidden-md-and-down">產地直送 品質無疑</span>
         </v-toolbar-title>
         <v-toolbar-items class="hidden-sm-and-down col-6 col-md-4 justify-center">
           <v-btn v-for="item in items" :key="item.title" :ripple="false" plain :to="item.to" text color="grey" class="text--darken-3 text-subtitle-1 navtitle">{{item.title}}</v-btn>
@@ -42,10 +43,10 @@
     <v-navigation-drawer  v-model="sidebar" disable-resize-watcher app>
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title class="text-h6 font-weight-bold light-green--text">
+          <v-list-item-title class="text-h6 font-weight-bold light-green--text text--darken-1 ">
             Purecrop 無疑農
           </v-list-item-title>
-          <v-list-item-subtitle class="font-weight-bold light-green--text mt-5 mb-2">
+          <v-list-item-subtitle class="font-weight-bold light-green--text mt-5 mb-2 text--darken-1 ">
             產地直送 | 品質無疑
           </v-list-item-subtitle>
         </v-list-item-content>
@@ -59,7 +60,7 @@
               {{item.icon}}
             </v-icon>
           </v-list-item-icon>
-          <v-list-item-content class="px-4">
+          <v-list-item-content class="px-4 font-weight-bold">
             {{item.title}}
           </v-list-item-content>
         </v-list-item>

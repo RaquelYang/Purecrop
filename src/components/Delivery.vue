@@ -9,13 +9,13 @@
       當季蔬果 <span class="font-weight-bold">x</span> 小農新鮮直送
     </p>
     <v-row class="deliverycontent">
-      <v-col cols="12" sm="6" class="px-0 imgline">
+      <v-col cols="12" sm="6" class="px-0">
         <v-img src="../assets/images/5a22fc9aa25020.8918082015122423306648.png" v-scroll-reveal="{delay:500}" />
       </v-col>
 
       <v-col cols="12" sm="6" class="text">
         <div class="text-md-h4 text-h5 text-center mt-8 mt-sm-0 mb-8 mb-sm-0">
-          <h2 class="mb-16 mb-xs-5">芭樂</h2>
+          <h2 class="mb-5">芭樂</h2>
           <p>
             當季水果
           </p>
@@ -29,7 +29,7 @@
       </v-col>
       <v-col cols="12" sm="6" class="text" order="2" order-sm="1">
         <div class="text-md-h4 text-h5 text-center mt-8 mt-sm-0 mb-8 mb-sm-0">
-          <h2 class="mb-16 mb-xs-5">野菜</h2>
+          <h2 class="mb-5">野菜</h2>
           <p>
             無農藥植栽
           </p>
@@ -43,7 +43,7 @@
       </v-col>
       <v-col cols="12" sm="6" class="text" order="4" order-sm="4">
         <div class="text-md-h4 text-h5 text-center mt-8 mt-sm-0 mb-8 mb-sm-0">
-          <h2 class="mb-16 mb-xs-5">香茅</h2>
+          <h2 class="mb-5">香茅</h2>
           <p>
             再製香茅油
           </p>
@@ -57,7 +57,7 @@
       </v-col>
       <v-col cols="12" sm="6" class="text" order="6" order-sm="5">
         <div class="text-md-h4 text-h5 text-center mt-8 mt-sm-0 mb-8 mb-sm-0">
-          <h2 class="mb-16 mb-xs-5">無花果</h2>
+          <h2 class="mb-5">無花果</h2>
           <p>
             古傳烘乾法
           </p>
@@ -74,7 +74,7 @@
 @import "@/scss/variable.scss";
 @import "@/scss/mixins/rwd.scss";
 #delivery {
-  margin-top: 10rem !important;
+  margin-top: 4rem !important;
   .deliverycontent {
     margin-top: 5rem;
     margin-left: 1rem;
@@ -96,15 +96,10 @@
 }
 @include sm {
   #delivery {
+    margin-top: 10rem !important;
     .deliverycontent {
       margin-left: 0;
       margin-right: 0;
-    }
-    .imgline{
-      &::before{
-        display: none;
-      }
-
     }
 
   }

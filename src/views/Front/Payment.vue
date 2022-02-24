@@ -11,7 +11,7 @@
         <div class="maincontent mt-15">
           <div class="content px-15 py-15">
           <h4 class="text-h4 light-green--text text--darken-3 font-weight-bold">付款方式</h4>
-          <p class="mt-5">小農飯盒提供【信用卡付款】、【貨到付款】兩種付款方式：</p>
+          <p class="mt-5">無疑農提供【信用卡付款】、【貨到付款】兩種付款方式：</p>
           <div class="subcontent">
             <h4>一、信用卡付款</h4>
             <p class="light-green--text text--darken-2 text-h6 font-weight-bold">提交訂單 > 跳轉至綠界頁面 > 填入信用卡資料 > 驗證 > 完成付款</p>

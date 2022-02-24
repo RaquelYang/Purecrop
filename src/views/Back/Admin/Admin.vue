@@ -5,10 +5,10 @@
       <v-navigation-drawer permanent>
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title class="text-h6 text-center">
+          <v-list-item-title class="text-h6 text-center light-green--text text--darken-2">
             無疑農 | 管理員
-            <v-btn icon @click="logout">
-              <v-icon>mdi-logout</v-icon>
+            <v-btn large icon @click="logout">
+              <v-icon right large class="light-green--text text--darken-2">mdi-logout</v-icon>
             </v-btn>
           </v-list-item-title>
         </v-list-item-content>

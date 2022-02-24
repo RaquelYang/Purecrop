@@ -56,7 +56,7 @@
               </li>
               <li>
                 <v-list-item  class="white--text ">
-                  聯絡電話：02-2485-5242
+                  聯絡電話：(02)2485-5242
                 </v-list-item>
               </li>
               <li>

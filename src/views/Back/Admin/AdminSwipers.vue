@@ -3,7 +3,7 @@
   <v-container class="mb-16">
     <v-row class="justify-center">
       <v-col cols="10" class="text-center">
-        <h2 class="text-h3 mb-10">商品輪播圖</h2>
+        <h2 class="py-10 text-center text-h2 font-weight-medium text--darken-2 light-green--text">商品輪播圖</h2>
         <v-btn large text @click="openproductcarousel" class="text-h5 light-green darken-2 white--text font-weight-bold">
           新增圖片
         </v-btn>
@@ -15,7 +15,7 @@
             <v-card-text>
               <v-container>
                 <v-row>
-                  <v-col cols="12" sm="6" md="4">
+                  <v-col cols="12" sm="6" lg="4">
                     <img-inputer
                       theme="dark"
                       v-model="productcarousel"
@@ -62,7 +62,7 @@
     </v-row>
     <v-row class="justify-center">
       <v-col cols="10" class="text-center">
-        <h2 class="text-h3 mb-10 mt-16">最新消息輪播圖</h2>
+        <h2 class="py-10 text-center text-h2 font-weight-medium text--darken-2 light-green--text">最新消息輪播圖</h2>
         <v-dialog v-model="dialog1" persistent max-width="600px">
           <template v-slot:activator="{ on, attrs }">
               <v-btn @click="newcarousel=''" large text v-bind="attrs" v-on="on" class="text-h5 light-green darken-2 white--text font-weight-bold">
@@ -76,7 +76,7 @@
             <v-card-text>
               <v-container>
                 <v-row>
-                  <v-col cols="12" sm="6" md="4">
+                  <v-col cols="12" sm="6" lg="4">
                     <img-inputer
                       theme="dark"
                       v-model="newcarousel"

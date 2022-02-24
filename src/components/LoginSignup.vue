@@ -1,15 +1,15 @@
 <template>
   <div id="loginsignup">
-    <v-dialog v-model="parentdialog" persistent max-width="600px">
-      <section class="grey lighten-4 py-8 modalheight">
-        <div class="d-flex justify-end pe-6 pb-2">
+    <v-dialog v-model="parentdialog" persistent max-width="500px">
+      <section class="grey lighten-4 pt-3 pb-0 py-sm-8">
+        <div class="d-flex justify-end pe-3 pe-sm-6 pb-sm-2">
           <v-btn icon>
             <v-icon large @click="$emit('closedialog')">mdi-close</v-icon>
           </v-btn>
         </div>
         <v-container>
           <v-row class="justify-center">
-            <v-col cols="10" lg="10">
+            <v-col cols="12" lg="10">
               <v-card flat outlined>
                 <v-tabs v-model="tab" active-class="white" height="40" background-color="grey lighten-2" fixed-tabs hide-slider>
                 <v-tab class="text-h6">登入</v-tab>
@@ -17,7 +17,7 @@
                 </v-tabs>
                 <v-tabs-items v-model="tab">
                   <!-- 登入 -->
-                  <v-tab-item :value="0" style="height:350px">
+                  <v-tab-item :value="0" style="height:300px">
                     <v-card-text>
                       <v-form @submit.prevent="login" v-model="valid">
                         <v-text-field
@@ -35,12 +35,12 @@
                           @click:append="show2 = !show2"
                           required />
                           <v-row class="align-center">
-                            <v-col cols="4" class="text-center"></v-col>
-                            <v-col cols="4" class="text-center">
+                            <v-col cols="12" sm="4" class="text-center hidden-xs-and-down"></v-col>
+                            <v-col cols="12" sm="4" class="text-center">
                               <v-btn :ripple="false" class="light-green darken-3 white--text"
                                 type="submit" :disabled="!valid">登入</v-btn>
                             </v-col>
-                            <v-col cols="4" class="text-center pr-12">
+                            <v-col cols="12" sm="4" class="text-center pr-3 pr-sm-12">
                               <v-btn :ripple="false" text plain class="light-green--text text--darken-3">
                                 忘記密碼
                               </v-btn>
@@ -51,7 +51,7 @@
                     </v-card-text>
                   </v-tab-item>
                   <!-- 註冊 -->
-                  <v-tab-item :value="1" style="height:350px">
+                  <v-tab-item :value="1" style="height:300px">
                     <v-card-text>
                       <v-form @submit.prevent="register" v-model="valid">
                         <v-text-field
@@ -101,7 +101,7 @@
     }
     .v-dialog{
       .container{
-        height: 500px !important;
+        // height: 500px !important;
       }
     }
     .theme--light.v-data-table{

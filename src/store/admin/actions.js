@@ -10,13 +10,15 @@ export const adminlogin = async ({ commit }, adminlogin) => {
     swal.fire({
       icon: 'success',
       title: '成功',
-      text: '登入成功'
+      text: '登入成功',
+      confirmButtonColor: '#8BC34A'
     })
   } catch (error) {
     swal.fire({
       icon: 'error',
       title: '失敗',
-      text: error.response.data.message
+      text: error.response.data.message,
+      confirmButtonColor: '#8BC34A'
     })
   }
 }
@@ -31,7 +33,8 @@ export const adminlogout = async ({ commit, state }) => {
     swal.fire({
       icon: 'success',
       title: '成功',
-      text: '登出成功'
+      text: '登出成功',
+      confirmButtonColor: '#8BC34A'
     })
     commit('logout')
     router.push('/').catch(() => {})
@@ -39,7 +42,8 @@ export const adminlogout = async ({ commit, state }) => {
     swal.fire({
       icon: 'error',
       title: '失敗',
-      text: error.response.data.message
+      text: error.response.data.message,
+      confirmButtonColor: '#8BC34A'
     })
   }
 }
@@ -68,7 +72,8 @@ export const logout = async ({ commit, state }) => {
     swal.fire({
       icon: 'success',
       title: '成功',
-      text: '登出成功'
+      text: '登出成功',
+      confirmButtonColor: '#8BC34A'
     })
     commit('logout')
     router.push('/')
@@ -76,7 +81,8 @@ export const logout = async ({ commit, state }) => {
     swal.fire({
       icon: 'error',
       title: '失敗',
-      text: error.response.data.message
+      text: error.response.data.message,
+      confirmButtonColor: '#8BC34A'
     })
   }
 }

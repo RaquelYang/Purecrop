@@ -226,7 +226,8 @@ router.beforeEach((to, from, next) => {
     // 如果使用者要登入但沒登入的話執行以下程式碼
     swal.fire({
       icon: 'error',
-      title: '請先登入'
+      title: '請先登入',
+      confirmButtonColor: '#8BC34A'
     })
     next('/')
   } else if (to.meta.admin && !admin.isAdmin && !to.path.includes('admin')) {

@@ -1,6 +1,6 @@
 <template>
 <div id="AdminProducts">
-  <h2 class="py-10 text-center text-h2 font-weight-medium">商品管理</h2>
+  <h2 class="py-10 text-center text-h2 font-weight-medium text--darken-2 light-green--text">商品管理</h2>
   <v-container>
     <v-row>
       <v-col cols="10" class="px-0 mx-auto">
@@ -9,7 +9,7 @@
           :items="products"
         >
           <template v-slot:top>
-            <v-btn large @click="addproduct"  color="light-green darken-2" class="white--text text-h5 mb-8">新增商品</v-btn>
+            <v-btn large @click="addproduct"  color="light-green darken-2" class="font-weight-medium white--text text-h5 mb-8">新增商品</v-btn>
           </template>
           <template v-slot:item.image="{ item }">
           <img v-if="item.image" :src="item.image"/>
@@ -48,6 +48,12 @@
     object-fit: contain;
     vertical-align: middle;
     padding: 10px 0;
+  }
+  thead span{
+    font-size: 2rem;
+  }
+  tbody td{
+    font-size: 1.4rem;
   }
 }
 </style>

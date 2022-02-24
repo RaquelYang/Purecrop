@@ -4,15 +4,16 @@
       <v-row>
         <v-col></v-col>
         <v-col cols="12" md="11" lg="9">
-          <h3 class="text-lg-h2 text-h3 light-green--text text--darken-2 font-weight-bold text-center text-sm-start">無疑農｜購物車</h3>
+          <h3 class="text-lg-h2 text-sm-h3 text-h4 light-green--text text--darken-1 font-weight-bold text-center text-sm-start">無疑農｜購物車</h3>
           <div class="nocart"
           v-if="user.cart === 0">
           <span>
             目前購物車沒有商品
           </span>
           </div>
+          <!-- hidden-sm-and-down -->
           <v-simple-table v-if="user.cart !== 0"
-          class="mt-10 grey lighten-4 px-3 py-3"
+          class="mt-10 grey lighten-4 px-3 py-3 hidden-sm-and-down"
           >
             <thead>
               <tr>
@@ -45,7 +46,7 @@
                     v-model.number="product.quantity"
                   >
                   <template slot="append">
-                    <v-btn text :ripple="false" plain @click="plus(product.product._id)"> + </v-btn>
+                    <v-btn class="orange--text text--darken-4" text :ripple="false" plain @click="plus(product.product._id)"> + </v-btn>
                   </template>
                   <template slot="prepend-inner">
                     <v-btn text :ripple="false" plain @click="menos(product.product._id)"> - </v-btn>
@@ -61,9 +62,55 @@
               </tr>
             </tbody>
           </v-simple-table>
+          <v-simple-table v-if="user.cart !== 0"
+          class="mt-10 grey lighten-4 px-3 py-3 hidden-sm-and-up"
+          >
+            <thead>
+              <tr>
+                <th class=" text-h4">購物車商品</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="product in products" :key="product._id">
+                <td>
+                  <v-row class="align-center justify-center">
+                    <v-col cols="4">
+                      <img :src="product.product.image" width="100px">
+                    </v-col>
+                    <v-col cols="5">
+                      <p class="text-h6 text-start">{{product.product.name}}</p>
+                  <p class="text-subtitle-1 text-start">$&nbsp;{{ new Intl.NumberFormat('en-IN').format(product.product.price) }}</p>
+                  <v-text-field
+                    background-color="transparent"
+                    hide-spin-buttons
+                    readonly
+                    flat
+                    solo
+                    type="number"
+                    value="product.quantity"
+                    v-model.number="product.quantity"
+                  >
+                  <template slot="append">
+                    <v-btn class="orange--text text--darken-4" text :ripple="false" plain @click="plus(product.product._id)"> + </v-btn>
+                  </template>
+                  <template slot="prepend-inner">
+                    <v-btn text :ripple="false" plain @click="menos(product.product._id)"> - </v-btn>
+                  </template>
+                  </v-text-field>
+                    </v-col>
+                    <v-col cols="3">
+                      <v-icon class="orange--text text--darken-4" @click="plus(product.product._id,0)">
+                    mdi-trash-can-outline
+                      </v-icon>
+                    </v-col>
+                  </v-row>
+                </td>
+              </tr>
+            </tbody>
+          </v-simple-table>
           <v-simple-table class="grey lighten-4 px-3 py-3" v-if="user.cart !== 0">
-            <tbody >
-              <tr >
+            <tbody>
+              <tr>
                 <td colspan="6">
                   <div class="d-flex align-center justify-end pe-5">
                     <p class="pr-2 text-subtitle-1">總金額 ：</p>
@@ -96,11 +143,11 @@
 @import "@/scss/mixins/rwd.scss";
 #cartcheck{
   .nocart{
-    height: 70vh;
+    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3rem;
+    font-size: 2rem;
   }
   tr,td,th{
     padding: 0.6rem 0;
@@ -128,8 +175,8 @@
   }
   .v-text-field__slot{
     padding: 2px 0;
-    border-top:1px solid green;
-    border-bottom:1px solid green;
+    // border-top:1px solid #616161;
+    // border-bottom:1px solid #616161;
   }
   .v-text-field__details,.v-messages{
     min-height: 0px;
@@ -139,7 +186,7 @@
   }
   .v-input__prepend-inner,.v-input__append-inner{
     padding: 0px;
-    border:1px solid green;
+    // border:1px solid #616161;
   }
   .v-input__control{
     margin: auto;

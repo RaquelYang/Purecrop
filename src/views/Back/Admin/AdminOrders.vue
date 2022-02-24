@@ -1,7 +1,7 @@
 
 <template>
-<div id="AdminOrders">
-  <h2 class="py-10 text-center text-h2 font-weight-medium">訂單管理</h2>
+<div id="adminorders">
+  <h2 class="py-10 text-center text-h2 font-weight-medium text--darken-2 light-green--text">訂單管理</h2>
   <v-container>
     <v-row>
       <v-col cols="10" class="px-0 mx-auto">
@@ -90,37 +90,13 @@
 </div>
 </template>
 <style lang="scss">
-#orders{
-  tr,td,th{
-    padding: 1rem;
-    text-align: center;
+#adminorders{
+  thead span{
+    font-size: 1.8rem;
   }
-  .v-text-field.message input{
-    text-align: left;
+  tbody td{
+    font-size: 1.2rem;
   }
-  .v-text-field__details{
-    margin: 0;
-  }
-  .v-text-field__details,.v-messages{
-    min-height: 0px;
-  }
-  .v-input__slot{
-    margin: 0;
-  }
-  .v-input--selection-controls{
-    padding: 0;
-    margin: 0;
-  }
-  .v-text-field input{
-    text-align: center;
-  }
-  .v-btn--plain:not(.v-btn--active):not(.v-btn--loading):not(:focus):not(:hover).changebtn .v-btn__content {
-    opacity: 1;
-  }
-  tbody tr:nth-of-type(odd) {
-    background-color: rgba(0, 0, 0, .06) !important;
-  }
-
 }
 </style>
 <script>
@@ -133,7 +109,7 @@ export default {
       idx: -1,
       headers: [
         { text: '訂單單號', align: 'start', value: 'orders', width: ' 10%' },
-        { text: '使用者帳號', value: 'user', align: 'center', sortable: false, width: '10%' },
+        { text: '帳號', value: 'user', align: 'center', sortable: false, width: '10%' },
         { text: '已成立時間', value: 'time', align: 'center', width: '20%' },
         { text: '總金額', value: 'total', align: 'center', width: '15%' },
         { text: '商品', value: 'products', align: 'center', width: '20%' },

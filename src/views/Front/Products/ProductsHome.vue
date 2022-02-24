@@ -3,7 +3,7 @@
   <v-container class="mt-8 mt-md-8">
     <v-row>
       <v-col></v-col>
-      <v-col cols="12" class="py-1">
+      <v-col cols="12" class="py-3">
         <v-row>
           <v-col cols="12" md="12" class="px-0 py-0" >
             <v-carousel  height="auto" cycle hide-delimiters progress interval="2500" :show-arrows="false">
@@ -18,10 +18,10 @@
       <v-col></v-col>
     </v-row>
   </v-container>
-  <v-container class="home mt-8 mt-md-16">
+  <v-container class="home mt-8 mt-md-10">
       <h3 class="text-center text-lg-h2 text-md-h3 text-h3 light-green--text text--darken-1 font-weight-bold bottomline">小農產品</h3>
       <p class="text-center mt-6 mt-lg-10">新鮮熱賣 x 自產自銷</p>
-      <v-row class="mt-16">
+      <v-row class="mt-4 mt-sm-10">
         <v-col></v-col>
         <v-col cols="12">
           <v-row>
@@ -34,9 +34,9 @@
               <p class="mb-0 text-h5 orange--text text--darken-4 font-weight-bold"> $&nbsp;{{ new Intl.NumberFormat('en-IN').format(product.price) }}</p>
             </v-card-text>
             <v-card-actions class="px-4 pb-4" >
-              <v-btn width="50%" text large :ripple="false" class="buybtn  mt-4 text-h6 font-weight-bold" @click="buyNow(product)">直接購買</v-btn>
+              <v-btn width="50%" text large :ripple="false" class="buybtn mt-4 text-h6 text-sm-h5 font-weight-bold" @click="buyNow(product)">直接購買</v-btn>
               <v-btn width="50%" text large :ripple="false" class="addcartbtn light-green darken-1 white--text  mt-4 text-h6 font-weight-medium" @click="addCart(product)">
-              <v-icon>mdi-cart</v-icon>
+              <v-icon large>mdi-cart</v-icon>
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -66,7 +66,7 @@
     height: 50%;
   }
   .productcard{
-    margin-top: 3rem;
+    // margin-top: 3rem;
   }
   .badge{
     display: block;

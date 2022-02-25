@@ -15,14 +15,12 @@
                     <v-card-text>
                       <v-container>
                         <v-row>
-
                           <v-col cols="12" class="text-h3 font-weight-bold light-green--text text--darken-3" >寄送資訊</v-col>
                           <v-col
                             cols="12"
                             md="12"
                             xl="12"
                           >
-
                             <v-text-field
                               v-model="form.name"
                               :rules="[rules.required]"

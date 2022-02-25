@@ -5,11 +5,11 @@
     <v-app-bar  min-width="100vw" :elevate-on-scroll="true" fixed elevation="5"  class="justify-end">
       <v-app-bar-nav-icon large @click="sidebar=!sidebar" class="hidden-md-and-up mr-3"></v-app-bar-nav-icon>
       <v-row>
-        <v-toolbar-title tag="router-link" to="/" class=" font-weight-bold light-green--text text--darken-1 col-6 col-md-4">
-            <span class="text-h6 text-xs-h5 font-weight-bold mr-2 ">Purecrop</span>
-            <span class="text-h6 text-md-h5 font-weight-bold hidden-xs-only">無疑農</span>
+        <v-toolbar-title tag="router-link" to="/" class=" font-weight-bold light-green--text text--darken-3 col-6 col-md-4">
+            <span class="text-h6 text-xs-h5 font-weight-bold mr-2 hidden-xs-only">Purecrop</span>
+            <span class="text-h6 text-md-h5 font-weight-bold">無疑農</span>
             <span class="mx-2 font-weight-light hidden-md-and-down ">|</span>
-            <span class="font-weight-light light-green--text text--darken-1  subtitle-2 leghten-2 hidden-md-and-down">產地直送 品質無疑</span>
+            <span class="light-green--text text--darken-3  subtitle-1 hidden-md-and-down">產地直送 品質無疑</span>
         </v-toolbar-title>
         <v-toolbar-items class="hidden-sm-and-down col-6 col-md-4 justify-center">
           <v-btn v-for="item in items" :key="item.title" :ripple="false" plain :to="item.to" text color="grey" class="text--darken-3 text-subtitle-1 navtitle">{{item.title}}</v-btn>
@@ -19,21 +19,21 @@
             <v-icon v-if="user.isLogin" class="light-green--text icon">mdi-account-circle-outline </v-icon>
           </v-btn> -->
           <v-btn class="me-2 me-sm-4" large icon :ripple="false" plain to="/orders" v-if="user.isLogin">
-          <v-icon large class="light-green--text icon">mdi-clipboard-list-outline</v-icon>
+          <v-icon large class="light-green--text text--darken-3 icon">mdi-clipboard-list-outline</v-icon>
           </v-btn>
           <v-btn class="me-2 me-sm-4" large icon :ripple="false" plain to="/cart">
-          <v-icon large class="light-green--text icon">mdi-cart</v-icon>
+          <v-icon large class="light-green--text text--darken-3 icon">mdi-cart</v-icon>
           <v-badge color="red" :content="user.cart"
           offset-x="11" offset-y="-7" v-if="user.cart">
           </v-badge>
           </v-btn>
           <v-btn class="me-0 me-sm-8" large icon :ripple="false" plain>
             <v-icon large v-if="!user.isLogin"
-              class="light-green--text icon"
+              class="light-green--text text--darken-3 icon"
               @click="parentdialog=true"
               >mdi-login</v-icon>
             <v-icon large v-if="user.isLogin"
-              class="light-green--text icon"
+              class="light-green--text text--darken-3 icon"
               @click="logout"
               >mdi-logout</v-icon>
           </v-btn>

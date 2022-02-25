@@ -15,12 +15,18 @@
 
       <v-col cols="12" sm="6" class="text">
         <div class="text-md-h4 text-h5 text-center mt-8 mt-sm-0 mb-8 mb-sm-0">
-          <h2 class="mb-5">芭樂</h2>
+          <h2 class="mb-5">紅心芭樂</h2>
           <p>
-            當季水果
+            富含茄紅素、胡蘿蔔素
           </p>
           <p>
-            天然甜味
+            有助於眼睛健康
+          </p>
+          <p>
+            口感紮實清脆爽口
+          </p>
+          <p>
+            吃得安心又健康
           </p>
         </div>
       </v-col>
@@ -29,12 +35,19 @@
       </v-col>
       <v-col cols="12" sm="6" class="text" order="2" order-sm="1">
         <div class="text-md-h4 text-h5 text-center mt-8 mt-sm-0 mb-8 mb-sm-0">
-          <h2 class="mb-5">野菜</h2>
+          <h2 class="mb-5">有機野菜</h2>
+
           <p>
-            無農藥植栽
+            堅持時令栽培旬味
           </p>
           <p>
-            健康無虞
+            嚴選無毒安心蔬菜
+          </p>
+          <p>
+            有機堆肥、純淨水源灌溉
+          </p>
+          <p>
+            不只安心、更多新鮮美味
           </p>
         </div>
       </v-col>
@@ -59,11 +72,15 @@
         <div class="text-md-h4 text-h5 text-center mt-8 mt-sm-0 mb-8 mb-sm-0">
           <h2 class="mb-5">無花果</h2>
           <p>
-            古傳烘乾法
+            口感清爽、滋味甜蜜
           </p>
           <p>
-            製成無花果乾
+            肉厚柔軟、果蜜潤口
           </p>
+          <p>
+            富含果膠、維生素B2
+          </p>
+          <p>有機栽培、安心購買</p>
         </div>
       </v-col>
     </v-row>

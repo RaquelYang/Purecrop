@@ -3,62 +3,68 @@
     <v-container class="mt-8 mt-md-16">
       <v-row>
         <v-col></v-col>
-        <v-col cols="12" md="9">
+        <v-col cols="12" md="11" lg="9">
           <v-dialog v-model="dialog"
             width="600"
           >
           <v-card class="px-10 py-5">
-            <v-card-title class="py-5 font-weight-bold text-h6 text-md-h4">
+            <v-card-title class="py-5 font-weight-bold text-h6 text-md-h4" >
               輸入信用卡卡號
             </v-card-title>
             <vue-paycard :value-fields="valueFields" />
-            <v-row>
-              <v-cols cols="12"></v-cols>
-              <v-cols cols="4"></v-cols>
-              <v-cols cols="4"></v-cols>
-              <v-cols cols="4"></v-cols>
+            <v-row class="pt-10 pt-sm-10">
+              <v-col cols="12">
+                <v-text-field
+                  label="信用卡卡號"
+                  hint="請輸入卡號"
+                  hide-spin-buttons
+                  outlined
+                  type="number"
+                  v-model.number="valueFields.cardNumber"
+                >
+                </v-text-field>
+              </v-col>
+              <v-col cols="6" sm="4">
+                <v-text-field
+                label="使用年"
+                hint="請輸入使用年"
+                hide-spin-buttons
+                outlined
+                type="number"
+                v-model.number="valueFields.cardYear"
+                >
+                </v-text-field>
+              </v-col>
+              <v-col cols="6" sm="4">
+                <v-text-field
+                label="使用月"
+                hint="請輸入使用月"
+                hide-spin-buttons
+                outlined
+                type="number"
+                v-model.number="valueFields.cardMonth"
+              >
+              </v-text-field >
+              </v-col>
+              <v-col cols="6" sm="4">
+                <v-text-field
+                  label="安全碼"
+                  hint="請輸入安全碼"
+                  hide-spin-buttons
+                  outlined
+                  type="number"
+                  v-model.number="valueFields.cardCvv"
+                >
+                </v-text-field>
+              </v-col>
             </v-row>
-            <v-card-text class="pt-10 pb-0">
-              <v-text-field
-              label="請輸入卡號"
-              hide-spin-buttons
-              outlined
-              type="number"
-              v-model.number="valueFields.cardNumber"
-            >
-            </v-text-field>
-            <v-text-field
-              label="請輸入年"
-              hide-spin-buttons
-              outlined
-              type="number"
-              v-model.number="valueFields.cardYear"
-            >
-            </v-text-field>
-            <v-text-field
-              label="請輸入月"
-              hide-spin-buttons
-              outlined
-              type="number"
-              v-model.number="valueFields.cardMonth"
-            >
-            </v-text-field>
-            <v-text-field
-              label="請輸入安全碼"
-              hide-spin-buttons
-              outlined
-              type="number"
-              v-model.number="valueFields.cardCvv"
-            >
-            </v-text-field>
-            </v-card-text>
             <v-card-actions class="py-0">
               <v-spacer></v-spacer>
               <v-btn
                 class="text-h5 white--text px-5 mx-5 my-5"
                 large
                 color="red darken-1"
-                @click="credit"
+                @click="cancelcredit"
               >
                 取消
               </v-btn>
@@ -66,7 +72,7 @@
                 class="text-h5 px-5 mx-5 my-5"
                 large
                 color="success darken-1"
-                @click="credit"
+                @click="submitcredit"
               >
                 送出
               </v-btn>
@@ -74,11 +80,11 @@
           </v-card>
           </v-dialog>
           <h3 class="text-lg-h2 text-md-h3 text-h3 light-green--text text--darken-2 font-weight-bold">無疑農｜結帳</h3>
-          <v-simple-table class="mt-10 grey lighten-4 px-3 py-3">
+          <v-simple-table class="mt-10 grey lighten-4 px-3 py-3 hidden-sm-and-down">
             <thead>
               <tr>
                 <th colspan="6">
-                  <p class="text-start text-h6">訂單商品</p>
+                  <p class="text-h4">訂單商品</p>
                   </th>
               </tr>
               <tr>
@@ -115,7 +121,46 @@
               </tr>
             </tbody>
           </v-simple-table>
-          <v-simple-table class="grey lighten-4 px-3 py-3">
+          <!-- 手機板table -->
+          <v-simple-table class="mt-10 grey lighten-4 px-3 py-3 hidden-md-and-up">
+            <thead>
+              <tr>
+                <th colspan="6">
+                  <p class="text-h4">訂單商品</p>
+                </th>
+              </tr>
+              <tr>
+                <th class="text-h6">商品</th>
+                <th class="text-h6">總價</th>
+              </tr>
+            </thead>
+            <tbody v-for="product in products" :key="product._id">
+              <tr>
+                <!-- <td class="text-start px-5">
+                  <span class="text-h6">{{product.product.name}}</span>
+                </td> -->
+                <td>
+                  <v-row class="align-center justify-center">
+                    <v-col cols="4">
+                      <img :src="product.product.image" height="80px">
+                    </v-col>
+                    <v-col cols="8" class="text-start pl-8">
+                      <p class="text-h6 mb-1 ellipsis">{{product.product.name}}</p>
+                      <p class="text-subtitle-1 mb-1">$&nbsp;{{ new Intl.NumberFormat('en-IN').format(product.product.price) }}</p>
+                      <p class="text-subtitle-1 mb-1">數量：{{product.quantity}}
+                      </p>
+                    </v-col>
+                  </v-row>
+                </td>
+                <td>
+                  <span class="text-h6 orange--text text--darken-4">
+                    $&nbsp;{{ new Intl.NumberFormat('en-IN').format(product.product.price * product.quantity) }}
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </v-simple-table>
+          <v-simple-table class="grey lighten-4 px-3 py-3 hidden-sm-and-down">
             <tbody>
               <tr>
                 <td colspan="2" class="text-start">
@@ -131,15 +176,15 @@
                 </td>
                 <td colspan="4" class="text-start text-subtitle-1">
                   <tr>
-                    <td class="text-start ps-3 text-h5" width="30%">賣家資訊</td>
-                    <td width="30%"></td>
-                    <td class="text-end pe-3 text-h6" width="30%" >快遞：
+                    <td class="text-start ps-3  text-md-h6 text-lg-h5" width="30%">賣家資訊</td>
+                    <td class="hidden-lg-and-down"></td>
+                    <td colspan="2" class="text-end pe-3 text-md-h6 text-lg-h5" width="50%">快遞：
                       <span class="text-h5 pr-2 orange--text text--darken-4">$ 60</span>
-                      </td>
+                    </td>
                   </tr>
                   <tr>
-                    <td class="text-start ps-3 text-h5">賣家宅配</td>
-                    <td>
+                    <td class="text-start ps-3 text-md-h6 text-lg-h5">賣家宅配</td>
+                    <td class="text-end">
                       <v-btn :ripple="false" plain text outlined @click="parentdialog=true"
                       :class="{payselect:addresscolor}"
                       >
@@ -160,7 +205,7 @@
               </tr>
               <tr class="border">
                 <td width="20%">付款方式</td>
-                <td class="text-start">
+                <td colspan="2" class="text-start">
                   <v-btn v-for="payselect in payselects" :key="payselect" :ripple="false"
                   plain text outlined
                   :class="{payselect:payselect===selected}" class="me-4"
@@ -168,14 +213,12 @@
                   >
                   {{payselect}}
                   </v-btn>
-
                 </td>
-                <td></td>
               </tr>
               <tr v-if="selected === '信用卡/金融卡'" class="border">
                 <td>選擇帳戶</td>
                 <td class="text-start">
-                  <v-btn  :ripple="false" plain text outlined @click="dialog=true">
+                  <v-btn  :ripple="false" plain text outlined @click="dialog=true" :class="{payselect:creditselected}">
                   ＋新增信用卡付款
                   </v-btn>
                 </td>
@@ -224,6 +267,115 @@
               </tr>
             </tbody>
           </v-simple-table>
+          <v-simple-table class="grey lighten-4 px-3 py-3 hidden-md-and-up">
+            <tbody>
+              <tr class="border">
+                <td colspan="2" class="text-start">
+                  <form class=" align-center pt-3">
+                    <label class="px-2 text-h5">留言：</label>
+                    <v-textarea
+                    class="message py-2 text-start"
+                      outlined
+                      placeholder="統一編號/警衛代收/電話聯絡時間..."
+                      v-model="message"
+                    ></v-textarea>
+                  </form>
+                </td>
+              </tr>
+              <tr class="border">
+                <td class="text-start ps-3 text-h6" width="30%" >賣家資訊</td>
+                <td class="text-end pe-3 text-h6" >快遞：
+                  <span class="text-h5 pr-2 orange--text text--darken-4">$ 60</span>
+                </td>
+              </tr>
+              <tr class="border">
+                <td class="text-start ps-3 text-h6">賣家宅配</td>
+                <td class="text-end">
+                  <v-btn :ripple="false" plain text outlined @click="parentdialog=true"
+                  :class="{payselect:addresscolor}"
+                  >
+                    ＋新增收件人地址
+                  </v-btn>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <div class="d-flex align-center justify-end">
+                    <span class="text-subtitle-1 pr-2 orderprice">訂單金額(<span>{{this.products.length}}</span>商品)：</span>
+                    <span class="text-h4 pr-2 orange--text text--darken-4">{{ new Intl.NumberFormat('en-IN').format(total) }}</span>
+                    <span class="text-subtitle-1">元</span>
+                  </div>
+                </td>
+              </tr>
+              <tr class="border">
+                <td colspan="2" class="text-start text-h6">付款方式</td>
+              </tr>
+              <tr >
+                <td colspan="2" class="text-start">
+                  <v-btn v-for="payselect in payselects" :key="payselect" :ripple="false"
+                  plain text outlined
+                  :class="{payselect:payselect===selected}" class="me-4"
+                  @click="payselected(payselect)"
+                  >
+                  {{payselect}}
+                  </v-btn>
+                </td>
+              </tr>
+              <tr v-if="selected === '信用卡/金融卡'">
+                <td class="text-h6">選擇帳戶</td>
+                <td class="text-start">
+                  <v-btn  :ripple="false" plain text outlined @click="dialog=true" :class="{payselect:creditselected}">
+                  ＋新增信用卡付款
+                  </v-btn>
+                </td>
+              </tr>
+              <tr class="border">
+                <td colspan="2">
+                  <v-row class="justify-center align-center">
+                    <v-col class="text-subtitle-1">商品總金額</v-col>
+                    <v-col class="text-end">
+                      <span class="text-h6 pr-2 orange--text text--darken-4">
+                        $&nbsp;{{ new Intl.NumberFormat('en-IN').format(total) }}
+                      </span>
+                    </v-col>
+                  </v-row>
+                </td>
+              </tr>
+              <tr class="border">
+                <td colspan="2">
+                  <v-row class="justify-center align-center">
+                    <v-col class="text-subtitle-1">運費總金額</v-col>
+                    <v-col class="text-end">
+                      <span class="text-h6 pr-2 orange--text text--darken-4">
+                        $&nbsp;60
+                      </span>
+                    </v-col>
+                  </v-row>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <v-row class="justify-center align-center">
+                    <v-col class="text-subtitle-1">總付款金額</v-col>
+                    <v-col class="text-end">
+                      <span class="text-h4 pr-2 orange--text text--darken-4">
+                        $&nbsp;{{ new Intl.NumberFormat('en-IN').format(total+60) }}
+                      </span>
+                    </v-col>
+                  </v-row>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" class="text-end pb-1">
+                  <v-btn :ripple="false" plain text outlined large class="changebtn light-green  darken-2 white--text font-weight-bold text-h6"
+                  @click="checkOut()">
+                    下訂單
+                  </v-btn>
+                  <UserInfo :products='products' :parentdialog="parentdialog" @closedialog="parentdialog=false" @changetable='adddelivey'/>
+                </td>
+              </tr>
+            </tbody>
+          </v-simple-table>
         </v-col>
         <v-col></v-col>
       </v-row>
@@ -231,7 +383,14 @@
   </div>
 </template>
 <style lang="scss">
+@import "@/scss/variable.scss";
+@import "@/scss/mixins/rwd.scss";
 #cartcheckout{
+  .ellipsis{
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    }
   tr,td,th{
     padding: 1rem;
     text-align: center;
@@ -275,6 +434,7 @@
     }
   }
 }
+
 </style>
 <script>
 import UserInfo from '@/components/UserInfo.vue'
@@ -292,6 +452,7 @@ export default {
       parentdialog: false,
       products: [],
       selected: false,
+      creditselected: false,
       message: '',
       name: '',
       phone: null,
@@ -354,8 +515,24 @@ export default {
       this.address = data.address
       this.addresscolor = true
     },
-    credit () {
+    cancelcredit () {
+      this.valueFields = {
+        cardName: '',
+        cardNumber: '',
+        cardMonth: '',
+        cardYear: '',
+        cardCvv: ''
+      }
       this.dialog = false
+    },
+    submitcredit () {
+      this.dialog = false
+      this.creditselected = true
+      this.$swal({
+        icon: 'success',
+        title: '成功',
+        text: '編輯成功'
+      })
     }
   },
   computed: {

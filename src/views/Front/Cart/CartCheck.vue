@@ -63,11 +63,11 @@
             </tbody>
           </v-simple-table>
           <v-simple-table v-if="user.cart !== 0"
-          class="mt-10 grey lighten-4 px-3 py-3 hidden-sm-and-up"
+          class="mt-10 grey lighten-4 px-3 py-3 hidden-md-and-up"
           >
             <thead>
               <tr>
-                <th class=" text-h4">購物車商品</th>
+                <th class="text-h4">購物車商品</th>
               </tr>
             </thead>
             <tbody>
@@ -78,7 +78,7 @@
                       <img :src="product.product.image" width="100px">
                     </v-col>
                     <v-col cols="5">
-                      <p class="text-h6 text-start">{{product.product.name}}</p>
+                      <p class="text-h6 text-start ellipsis">{{product.product.name}}</p>
                   <p class="text-subtitle-1 text-start">$&nbsp;{{ new Intl.NumberFormat('en-IN').format(product.product.price) }}</p>
                   <v-text-field
                     background-color="transparent"
@@ -114,7 +114,7 @@
                 <td colspan="6">
                   <div class="d-flex align-center justify-end pe-5">
                     <p class="pr-2 text-subtitle-1">總金額 ：</p>
-                    <p class="text-h4 orange--text text--darken-4 pr-2">{{ new Intl.NumberFormat('en-IN').format(total) }}</p>
+                    <p class="text-h4 orange--text text--darken-4 ">{{ new Intl.NumberFormat('en-IN').format(total) }}</p>
                     <p class="text-subtitle-1">元</p>
                   </div>
                 </td>
@@ -142,6 +142,11 @@
 @import "@/scss/variable.scss";
 @import "@/scss/mixins/rwd.scss";
 #cartcheck{
+  .ellipsis{
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    }
   .nocart{
     height: 60vh;
     display: flex;

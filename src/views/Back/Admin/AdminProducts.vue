@@ -130,7 +130,6 @@ export default {
       }
     },
     changetable (data) {
-      console.log(data)
       const idx = this.products.findIndex(product => product._id === data._id)
       this.products[idx] = data
       this.products.push({})

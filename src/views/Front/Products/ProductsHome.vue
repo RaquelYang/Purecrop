@@ -99,7 +99,6 @@ export default {
       this.products = data.result
       this.getProduct()
     } catch (error) {
-      console.log(error)
       this.$swal({
         icon: 'error',
         title: '失敗',

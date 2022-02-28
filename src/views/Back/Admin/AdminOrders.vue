@@ -131,7 +131,6 @@ export default {
         return order
       })
     } catch (error) {
-      console.log(error)
       this.$swal({
         icon: 'error',
         title: '失敗',

@@ -8,7 +8,10 @@
     "lint": "SET NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service lint",
     "build-mac": "SET NODE_OPTIONS=--openssl-legacy-provider; vue-cli-service build",
     "lint-mac": "SET NODE_OPTIONS=--openssl-legacy-provider; vue-cli-service lint",
-    "serve-mac": "SET NODE_OPTIONS=--openssl-legacy-provider; vue-cli-service serve"
+    "serve-mac": "SET NODE_OPTIONS=--openssl-legacy-provider; vue-cli-service serve",
+    "serve-linux": "export SET NODE_OPTIONS=--openssl-legacy-provider; vue-cli-service serve",
+    "build-linux": "export SET NODE_OPTIONS=--openssl-legacy-provider; vue-cli-service build",
+    "lint-linux": "export SET NODE_OPTIONS=--openssl-legacy-provider; vue-cli-service lint"
   },
   "dependencies": {
     "axios": "^0.25.0",

@@ -200,7 +200,6 @@ export default {
         })
         this.getProduct()
       } catch (error) {
-        console.log(error)
         this.$swal({
           icon: 'error',
           title: '失敗',
@@ -211,7 +210,6 @@ export default {
     async getProduct () {
       try {
         const { data } = await this.api.get('/images')
-        console.log(data.result[0].productswiper)
         this.productscarousel = data.result[0].productswiper
         this.newscarousel = data.result[0].newsswiper
       } catch (error) {

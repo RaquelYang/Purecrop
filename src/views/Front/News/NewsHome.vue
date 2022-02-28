@@ -39,7 +39,7 @@
           <v-card :ripple="false">
             <v-img height="200" class="imgscale" src="https://static.accupass.com/eventbanner/2110271218561340948097.jpg">
             </v-img>
-            <v-card-title>Chill 農遊 x 小農 DIY 體驗活動</v-card-title>
+            <v-card-title>小農 DIY 體驗活動</v-card-title>
             <v-card-text>
               <div class="pb-2">2021/05/10</div>
               <p class="ellipsis mb-0">我們從台大學生創業起家，已經四年了！由營養師設計的菜單，專為忙碌的上班族與學生，提供健康的外送午餐！使用在地有機、履歷食材，甚至與玉里小農契作無毒米</p>
@@ -71,10 +71,8 @@
 </div>
 </template>
 <style lang="scss">
-@import "@/scss/variable.scss";
-@import "@/scss/mixins/rwd.scss";
+
 #newshome{
-  // margin-top: 10rem;
   .home{
     .v-image__image.v-image__image--cover{
     z-index: 1;
@@ -88,7 +86,7 @@
     overflow:hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    }
+  }
 }
 
 </style>

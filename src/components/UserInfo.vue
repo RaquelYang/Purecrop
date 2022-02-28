@@ -65,7 +65,7 @@
                       <v-btn
                         class="text-h5 px-5 mx-5 my-5"
                         large
-                        color="success darken-1"
+                        color="primary darken-1"
                         @click="submitForm"
                         :disabled="!valid"
                       >
@@ -85,7 +85,6 @@
 <style lang="scss">
 @import "../scss/variable.scss";
 @import "../scss/mixins/rwd.scss";
-
 @include lg{
 #userinfo{
     .v-dialog{
@@ -93,18 +92,6 @@
     }
   }
 }
-@include xl{
-#userinfo{
-    .v-dialog{
-      width: 50%;
-    }
-  }
-}
-#userinfo{
-    .v-dialog{
-      width: 50%;
-    }
-  }
 </style>
 <script>
 import validator from 'validator'

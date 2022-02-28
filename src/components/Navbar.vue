@@ -12,12 +12,9 @@
             <span class="light-green--text text--darken-3  subtitle-1 hidden-md-and-down">產地直送 品質無疑</span>
         </v-toolbar-title>
         <v-toolbar-items class="hidden-sm-and-down col-6 col-md-4 justify-center">
-          <v-btn v-for="item in items" :key="item.title" :ripple="false" plain :to="item.to" text color="grey" class="text--darken-3 text-subtitle-1 navtitle">{{item.title}}</v-btn>
+          <v-btn v-for="item in items" :key="item.title" :ripple="false" plain :to="item.to" text color="grey" class="text--darken-3 text-subtitle-1 navtitle font-weight-medium">{{item.title}}</v-btn>
         </v-toolbar-items>
         <v-toolbar-items class="col-6 col-md-4 justify-end">
-          <!-- <v-btn class="me-2" icon :ripple="false" plain to="/cart">
-            <v-icon v-if="user.isLogin" class="light-green--text icon">mdi-account-circle-outline </v-icon>
-          </v-btn> -->
           <v-btn class="me-2 me-sm-4" large icon :ripple="false" plain to="/orders" v-if="user.isLogin">
           <v-icon large class="light-green--text text--darken-3 icon">mdi-clipboard-list-outline</v-icon>
           </v-btn>

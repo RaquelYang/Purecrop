@@ -84,7 +84,7 @@
     .v-btn--icon{
     top:0rem;
     left: 0rem;
-  }
+    }
   }
 }
 @keyframes leftright{

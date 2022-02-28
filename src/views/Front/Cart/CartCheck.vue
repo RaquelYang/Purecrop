@@ -180,8 +180,6 @@
   }
   .v-text-field__slot{
     padding: 2px 0;
-    // border-top:1px solid #616161;
-    // border-bottom:1px solid #616161;
   }
   .v-text-field__details,.v-messages{
     min-height: 0px;
@@ -191,7 +189,6 @@
   }
   .v-input__prepend-inner,.v-input__append-inner{
     padding: 0px;
-    // border:1px solid #616161;
   }
   .v-input__control{
     margin: auto;
@@ -200,10 +197,6 @@
 @include sm{
   #cartcheck{
     .nocart{
-      height: 60vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       font-size: 3rem;
     }
   }

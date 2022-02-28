@@ -65,27 +65,6 @@
   .image{
     height: 50%;
   }
-  .productcard{
-    // margin-top: 3rem;
-  }
-  .badge{
-    display: block;
-    background-color: red;
-    width: 80px;
-    height: 40px;
-    position: absolute;
-    top:10px;
-    right: 10px;
-    &::before{
-      position: absolute;
-      content:'HOT';
-      font-weight: bold;
-      font-size: 30px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%);
-    }
-  }
   .buybtn{
     border:1px solid #689F38;
     transition: .3s;
@@ -100,51 +79,10 @@
 }
 @include sm{
   #ProductsHome{
-  .home{
-    .v-image__image.v-image__image--cover{
-    z-index: 1;
-    transition: .5s;
-    &:hover{
-      transform: scale(1.2);
-      }
+    .productcard{
+      margin-top: 3rem;
     }
   }
-  .image{
-    height: 50%;
-  }
-  .productcard{
-    margin-top: 3rem;
-  }
-  .badge{
-    display: block;
-    background-color: red;
-    width: 80px;
-    height: 40px;
-    position: absolute;
-    top:10px;
-    right: 10px;
-    &::before{
-      position: absolute;
-      content:'HOT';
-      font-weight: bold;
-      font-size: 30px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%);
-    }
-  }
-  .buybtn{
-    border:1px solid #689F38;
-    transition: .3s;
-    color: #689F38;
-  }
-  .cursor{
-    cursor: pointer;
-  }
-  .swiper-pagination-bullet-active{
-  background-color:#8BC34A !important;
-  }
-}
 }
 </style>
 <script>

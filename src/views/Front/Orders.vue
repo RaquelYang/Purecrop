@@ -116,7 +116,7 @@ export default {
           authorization: 'Bearer ' + this.user.token
         }
       })
-      this.orders = data.result
+      this.orders = data.result.reverse()
     } catch (error) {
       this.$swal({
         icon: 'error',

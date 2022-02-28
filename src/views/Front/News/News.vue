@@ -16,13 +16,6 @@
   }
   .v-carousel__item{
     height: auto;
-    // min-height: 50vh;
-    // max-height: 80vh;
-  }
-  img{
-    // width:100%;
-    // height: 100%;
-    // object-fit: cover;
   }
 }
 </style>

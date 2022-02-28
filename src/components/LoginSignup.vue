@@ -94,15 +94,10 @@
   </div>
 </template>
 <style lang="scss">
-  #loginsignup{
-    .v-dialog{
-      .v-application .text-overline{
+#loginsignup{
+  .v-dialog{
+    .v-application .text-overline{
       letter-spacing: 0px !important;
-    }
-    .v-dialog{
-      .container{
-        // height: 500px !important;
-      }
     }
     .theme--light.v-data-table{
       background-color: transparent !important;
@@ -111,11 +106,10 @@
       }
     }
     .v-btn--plain:not(.v-btn--active):not(.v-btn--loading):not(:focus):not(:hover) .v-btn__content {
-    opacity: 1 !important;
+      opacity: 1 !important;
     }
-    }
-
   }
+}
 </style>
 <script>
 import validator from 'validator'

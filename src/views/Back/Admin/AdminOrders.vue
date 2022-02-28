@@ -1,10 +1,9 @@
-
 <template>
 <div id="adminorders">
   <h2 class="py-10 text-center text-h2 font-weight-medium text--darken-2 light-green--text">訂單管理</h2>
   <v-container>
     <v-row>
-      <v-col cols="10" class="px-0 mx-auto">
+      <v-col cols="11" class="px-0 mx-auto">
         <template>
           <v-data-table
             :headers="headers"
@@ -40,7 +39,7 @@
                 <v-list-item  v-for="product in item.products" :key="product._id">
                   <v-list-item-content >
                     <v-list-title>
-                      {{product.product.name}} <span>x</span> {{product.quantity}} 個
+                      {{product.product.name}} <span>x</span> {{product.quantity}}
                     </v-list-title>
                   </v-list-item-content>
                 </v-list-item>
@@ -92,7 +91,7 @@
 <style lang="scss">
 #adminorders{
   thead span{
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
   tbody td{
     font-size: 1.2rem;
@@ -110,7 +109,7 @@ export default {
       headers: [
         { text: '訂單單號', align: 'start', value: 'orders', width: ' 10%' },
         { text: '帳號', value: 'user', align: 'center', sortable: false, width: '10%' },
-        { text: '已成立時間', value: 'time', align: 'center', width: '20%' },
+        { text: '已成立時間', value: 'time', align: 'center', sortable: false, width: '20%' },
         { text: '總金額', value: 'total', align: 'center', width: '15%' },
         { text: '商品', value: 'products', align: 'center', width: '20%' },
         { text: '狀態', value: 'action', align: 'center', width: '15%', sortable: false }
@@ -125,7 +124,7 @@ export default {
         }
       })
 
-      this.orders = data.result.map((order) => {
+      this.orders = data.result.reverse().map((order) => {
         order.total = order.products.reduce((accu, curr) => {
           return accu + curr.quantity * curr.product.price
         }, 0)

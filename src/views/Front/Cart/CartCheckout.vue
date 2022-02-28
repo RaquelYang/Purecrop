@@ -5,60 +5,37 @@
         <v-col></v-col>
         <v-col cols="12" md="11" lg="9">
           <v-dialog v-model="dialog"
-            width="600"
+            width="600" persistent
           >
           <v-card class="px-10 py-5">
             <v-card-title class="py-5 font-weight-bold text-h6 text-md-h4" >
-              輸入信用卡卡號
+              請輸入信用卡卡號
             </v-card-title>
-            <vue-paycard :value-fields="valueFields" />
-            <v-row class="pt-10 pt-sm-10">
-              <v-col cols="12">
-                <v-text-field
-                  label="信用卡卡號"
-                  hint="請輸入卡號"
-                  hide-spin-buttons
-                  outlined
-                  type="number"
-                  v-model.number="valueFields.cardNumber"
-                >
-                </v-text-field>
-              </v-col>
-              <v-col cols="6" sm="4">
-                <v-text-field
-                label="使用年"
-                hint="請輸入使用年"
-                hide-spin-buttons
-                outlined
-                type="number"
-                v-model.number="valueFields.cardYear"
-                >
-                </v-text-field>
-              </v-col>
-              <v-col cols="6" sm="4">
-                <v-text-field
-                label="使用月"
-                hint="請輸入使用月"
-                hide-spin-buttons
-                outlined
-                type="number"
-                v-model.number="valueFields.cardMonth"
-              >
-              </v-text-field >
-              </v-col>
-              <v-col cols="6" sm="4">
-                <v-text-field
-                  label="安全碼"
-                  hint="請輸入安全碼"
-                  hide-spin-buttons
-                  outlined
-                  type="number"
+            <v-form v-model="valid">
+              <vue-paycard :value-fields="valueFields" />
+              <v-row class="pt-10 pt-sm-10">
+                <v-col cols="12">
+                  <input type="text" style="width:100%;border:1px solid #888;border-radius: .2rem;outline:none" class="py-3 px-5"
+                  placeholder="請輸入信用卡卡號" v-cardformat:formatCardNumber
+                  v-model="valueFields.cardNumber"
+                  >
+                </v-col>
+                <v-col cols="6">
+                  <input type="text" style="width:100%;border:1px solid #888;border-radius: .2rem;outline:none"
+                  class="py-3 px-5" placeholder="請輸入使用期限"
+                  v-cardformat:formatCardExpiry
+                  >
+                </v-col>
+                <v-col cols="6">
+                  <input type="text" style="width:100%;border:1px solid #888;border-radius: .2rem;outline:none"
+                  class="py-3 px-5" placeholder="請輸入安全碼"
+                  v-cardformat:formatCardCVC
                   v-model.number="valueFields.cardCvv"
-                >
-                </v-text-field>
-              </v-col>
-            </v-row>
-            <v-card-actions class="py-0">
+                  >
+                </v-col>
+              </v-row>
+            </v-form>
+            <v-card-actions class="py-0 px-0">
               <v-spacer></v-spacer>
               <v-btn
                 class="text-h5 white--text px-5 mx-5 my-5"
@@ -69,9 +46,9 @@
                 取消
               </v-btn>
               <v-btn
-                class="text-h5 px-5 mx-5 my-5"
+                class="text-h5 px-5 my-5"
                 large
-                color="success darken-1"
+                color="primary darken-1"
                 @click="submitcredit"
               >
                 送出
@@ -386,6 +363,11 @@
 @import "@/scss/variable.scss";
 @import "@/scss/mixins/rwd.scss";
 #cartcheckout{
+  input.input{
+    background-color: #33691E !important;
+    border: 1px solid #888 !important;
+    border-radius: .1rem;
+  }
   .ellipsis{
     overflow:hidden;
     white-space: nowrap;
@@ -441,6 +423,9 @@ import UserInfo from '@/components/UserInfo.vue'
 export default {
   data () {
     return {
+      months: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+      years: ['2022', '2023', '2024', '2025'],
+      valid: true,
       valueFields: {
         cardName: '',
         cardNumber: '',
@@ -462,7 +447,10 @@ export default {
         '信用卡/金融卡',
         '貨到付款'
       ],
-      addresscolor: false
+      addresscolor: false,
+      rules: {
+        required: v => !!v || '此為必填欄位'
+      }
     }
   },
   async created () {
@@ -517,7 +505,7 @@ export default {
     },
     cancelcredit () {
       this.valueFields = {
-        cardName: '',
+        cardName: null,
         cardNumber: '',
         cardMonth: '',
         cardYear: '',

@@ -29,7 +29,7 @@
                     <td class="text-subtitle-1 text-sm-h6 text-end">
                       備貨時間約 3 - 5 天
                     </td>
-                    <td class="hidden-md-and-down" width="50%"></td>
+                    <td class="hidden-lg-and-down" width="50%"></td>
                   </tr>
                   <tr>
                     <td></td>
@@ -85,11 +85,11 @@
                 </tbody>
               </v-simple-table>
               <div class="d-flex">
-                <v-btn text :ripple='false' large width="30%" class=" my-10 text-subtitle-1 text-sm-h6 text-md-h5 mr-10 addcart"
+                <v-btn text :ripple='false' large width="30%" class=" my-10 text-subtitle-1  text-md-h5 mr-10 addcart"
                   @click="addCart"
                   >加入購物車</v-btn>
                   <v-btn text :ripple='false' large width="30%"
-                  class="light-green white--text my-10 text-subtitle-1 text-sm-h6 text-md-h5 buynow"
+                  class="light-green white--text my-10 text-subtitle-1  text-md-h5 buynow"
                   @click="buyNow"
                   >立即購買</v-btn>
               </div>
@@ -233,65 +233,28 @@
   #ProductIntroductiom{
     .quantity .v-input{
     max-width: 90% !important;
-  }
-    .mask{
-    width: 100vw;
-    height: 100vh;
-    text-align: center;
-    }
-    .v-data-table{
-      border-radius: 0px;
-    }
-    th,td{
-      border:none
     }
     .addcart{
       border:2px solid #558B2F
     }
-    .v-input--selection-controls{
-      margin: 0;
-      padding: 0;
+    .v-text-field__slot,.v-input__prepend-inner,.v-input__append-inner{
+      border:none
     }
-    button{
-      font-size: 2rem;
-    }
-    .v-text-field__details{
-      margin: 0;
-    }
-    .v-text-field__details,.v-messages{
-      min-height: 0px;
-    }
-    .v-input__slot{
-      margin: 0;
-    }
-      .v-input__prepend-inner,.v-input__append-inner{
-      padding: 0px;
-      border:1px solid #616161;
-    }
-    .v-text-field__slot{
-      padding: 2px 0;
-      border-top:1px solid #616161;
-      border-bottom:1px solid #616161;
-    }
-    .v-input__control{
-      margin: auto;
-    }
-    .v-text-field input{
-      text-align: center;
-  }
   }
 }
 @include md{
   #ProductIntroductiom{
     .quantity .v-input{
-    max-width: 80% !important;
+    max-width: 300px !important;
     }
-  }
-}
-@include lg{
-  #ProductIntroductiom{
-    .quantity .v-input{
-    max-width: 100% !important;
+    .v-input__prepend-inner,.v-input__append-inner{
+    padding: 0px;
+    border:1px solid #616161;
+    }
+  .v-text-field__slot{
+    padding: 2px 0;
+    border-top:1px solid #616161;
+    border-bottom:1px solid #616161;
     }
   }
 }

@@ -137,9 +137,6 @@
     </v-dialog>
   </div>
 </template>
-<style lang="scss">
-
-</style>
 <script>
 export default {
   data () {

@@ -3,7 +3,7 @@
   <h2 class="py-10 text-center text-h2 font-weight-medium text--darken-2 light-green--text">商品管理</h2>
   <v-container>
     <v-row>
-      <v-col cols="10" class="px-0 mx-auto">
+      <v-col cols="11" class="px-0 mx-auto">
         <v-data-table
           :headers="headers"
           :items="products"
@@ -23,7 +23,7 @@
             <v-switch v-model="item.sell" @change="switchbtn(item._id)"></v-switch>
           </template>
           <template v-slot:item.action="{ item }">
-              <v-btn color="light-green darken-2 white--text" class="mr-md-2"
+              <v-btn color="light-green darken-2 white--text" class="mr-0 mr-lg-2"
               @click="editProduct(item._id)"
               >
                 <v-icon>mdi-lead-pencil</v-icon>
@@ -50,7 +50,7 @@
     padding: 10px 0;
   }
   thead span{
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   tbody td{
     font-size: 1.4rem;

@@ -9,7 +9,7 @@
       當季蔬果 <span class="font-weight-bold">x</span> 小農新鮮直送
     </p>
     <v-row class="deliverycontent">
-      <v-col cols="12" sm="6" class="px-0">
+      <v-col cols="12" sm="6" class="px-0 px-md-10 px-lg-16">
         <v-img src="../assets/images/5a22fc9aa25020.8918082015122423306648.png" v-scroll-reveal="{delay:500}" />
       </v-col>
 
@@ -30,8 +30,8 @@
           </p>
         </div>
       </v-col>
-      <v-col cols="12" sm="6" order="1" order-sm="2" class="px-0 ">
-        <v-img src="../assets/images/5a1c7e70ca3fe7.9399725215118168168284.png" v-scroll-reveal="{delay:1000}"/>
+      <v-col cols="12" sm="6" order="1" order-sm="2" class="px-0 px-md-10 px-lg-16">
+        <v-img src="../assets/images/5a1c7e70ca3fe7.9399725215118168168284.png" v-scroll-reveal="{delay:750}"/>
       </v-col>
       <v-col cols="12" sm="6" class="text" order="2" order-sm="1">
         <div class="text-md-h4 text-h5 text-center mt-8 mt-sm-0 mb-8 mb-sm-0">
@@ -51,22 +51,28 @@
           </p>
         </div>
       </v-col>
-      <v-col cols="12" sm="6" order="3" order-sm="3" class="px-0 ">
-        <v-img src="../assets/images/kisspng-cymbopogon-citratus-asian-cuisine-lemon-stock-phot-garlic-5ab507ce754ed3.5863863715218134544805.png" v-scroll-reveal="{delay:2000}"/>
+      <v-col cols="12" sm="6" order="3" order-sm="3" class="px-0 px-md-10 px-lg-16">
+        <v-img src="../assets/images/kisspng-cymbopogon-citratus-asian-cuisine-lemon-stock-phot-garlic-5ab507ce754ed3.5863863715218134544805.png" v-scroll-reveal="{delay:1050}"/>
       </v-col>
       <v-col cols="12" sm="6" class="text" order="4" order-sm="4">
         <div class="text-md-h4 text-h5 text-center mt-8 mt-sm-0 mb-8 mb-sm-0">
           <h2 class="mb-5">香茅</h2>
           <p>
-            再製香茅油
+            南洋風味必用香料
           </p>
           <p>
-            天然驅蚊
+            具檸檬香氣、味道獨特
+          </p>
+          <p>
+            再製香茅油、天然無負擔
+          </p>
+          <p>
+            露營、野餐有效驅蚊
           </p>
         </div>
       </v-col>
-      <v-col cols="12" sm="6" order="5" order-sm="6" class="px-0 ">
-        <v-img src="../assets/images/fig.png" v-scroll-reveal="{delay:3000}"/>
+      <v-col cols="12" sm="6" order="5" order-sm="6" class="px-0 px-md-10 px-lg-16">
+        <v-img src="../assets/images/fig.png" v-scroll-reveal="{delay:1500}"/>
       </v-col>
       <v-col cols="12" sm="6" class="text" order="6" order-sm="5">
         <div class="text-md-h4 text-h5 text-center mt-8 mt-sm-0 mb-8 mb-sm-0">
@@ -80,7 +86,9 @@
           <p>
             富含果膠、維生素B2
           </p>
-          <p>有機栽培、安心購買</p>
+          <p>
+            有機栽培、安心購買
+          </p>
         </div>
       </v-col>
     </v-row>
@@ -118,18 +126,17 @@
       margin-left: 0;
       margin-right: 0;
     }
-
   }
 }
 @include md {
   #delivery {
     .deliverycontent {
       margin-top: 6rem;
-    img {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-    }
+      img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+      }
     }
   }
 }

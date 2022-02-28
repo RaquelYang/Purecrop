@@ -15,7 +15,8 @@ import { zhTW } from 'date-fns/locale'
 import parseISO from 'date-fns/fp/parseISO'
 import VueScrollReveal from 'vue-scroll-reveal'
 import VuePaycard from 'vue-paycard'
-
+import VueCardFormat from 'vue-credit-card-validation'
+Vue.use(VueCardFormat)
 Vue.use(VuePaycard)
 Vue.use(VueScrollReveal, {
   class: 'v-scroll-reveal',

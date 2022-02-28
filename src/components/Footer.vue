@@ -128,26 +128,26 @@
   }
 }
 @include md{
-#footer{
-  margin-top: 15rem;
-    .contact{
-      text-align: start;
-      margin-left: 4.5rem;
-      .v-list-item{
-      justify-content: start;
+  #footer{
+    margin-top: 15rem;
+      .contact{
+        text-align: start;
+        margin-left: 4.5rem;
+        .v-list-item{
+        justify-content: start;
+        }
       }
     }
-  }
 }
 @include lg{
-#footer{
+  #footer{
     .contact{
       margin-left:5.5rem;
     }
   }
 }
 @include xl{
-#footer{
+  #footer{
     .contact{
       margin-left:11rem;
     }

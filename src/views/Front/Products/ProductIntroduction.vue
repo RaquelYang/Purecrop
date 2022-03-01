@@ -11,7 +11,7 @@
     </div>
   </v-overlay>
   <v-overlay :value="!sell">
-    <div class="mask black">
+    <div class="mask black d-flex justify-center align-center">
       <p class="text-h1">產品已下架</p>
     </div>
   </v-overlay>
@@ -276,7 +276,7 @@ export default {
       price: 0,
       description: '',
       image: '',
-      sell: '',
+      sell: true,
       spec: {
         origin: '',
         from: '',

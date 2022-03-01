@@ -1,5 +1,15 @@
 <template>
   <div id="cartcheck">
+    <v-overlay :value="init">
+    <div class="mask white d-flex justify-center align-center">
+      <v-progress-circular
+        :size="70"
+        :width="7"
+        indeterminate
+        color="green"
+      ></v-progress-circular>
+    </div>
+  </v-overlay>
     <v-container class="mt-8 mt-md-16">
       <v-row>
         <v-col></v-col>
@@ -142,6 +152,11 @@
 @import "@/scss/variable.scss";
 @import "@/scss/mixins/rwd.scss";
 #cartcheck{
+  .mask{
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+  }
   .ellipsis{
     overflow:hidden;
     white-space: nowrap;
@@ -216,6 +231,7 @@ export default {
   data () {
     return {
       products: [],
+      init: true,
       idx: -1
     }
   },
@@ -227,6 +243,7 @@ export default {
         }
       })
       this.products = data.result
+      this.init = false
     } catch (error) {
       this.$swal({
         icon: 'error',

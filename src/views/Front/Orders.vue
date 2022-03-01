@@ -1,5 +1,15 @@
 <template>
 <div id="orders">
+  <v-overlay :value="init">
+    <div class="mask white d-flex justify-center align-center">
+      <v-progress-circular
+        :size="70"
+        :width="7"
+        indeterminate
+        color="green"
+      ></v-progress-circular>
+    </div>
+  </v-overlay>
   <v-container class="mt-8 mt-md-16">
     <v-row>
       <v-col></v-col>
@@ -56,6 +66,11 @@
 @import "@/scss/variable.scss";
 @import "@/scss/mixins/rwd.scss";
 #orders{
+  .mask{
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+  }
   .productimg{
     width: 50px;
   }
@@ -105,7 +120,8 @@
 export default {
   data () {
     return {
-      orders: []
+      orders: [],
+      init: true
 
     }
   },
@@ -117,6 +133,7 @@ export default {
         }
       })
       this.orders = data.result.reverse()
+      this.init = false
     } catch (error) {
       this.$swal({
         icon: 'error',

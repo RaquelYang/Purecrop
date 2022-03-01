@@ -118,7 +118,7 @@ export default {
       }
       this.$store.dispatch('user/addCart', { product: product._id, quantity: 1 })
     },
-    buyNow (product) {
+    async buyNow (product) {
       if (!this.user.isLogin) {
         this.$swal({
           icon: 'error',
@@ -127,7 +127,7 @@ export default {
         })
         return
       }
-      this.$store.dispatch('user/addCart', { product: product._id, quantity: 1 })
+      await this.$store.dispatch('user/addCart', { product: product._id, quantity: 1 })
       this.$router.push('/cart')
     },
     singleproduct (id) {

@@ -1,5 +1,15 @@
 <template>
 <div id="ProductsHome">
+  <v-overlay :value="init">
+      <div class="mask white d-flex justify-center align-center">
+        <v-progress-circular
+          :size="70"
+          :width="7"
+          indeterminate
+          color="green"
+        ></v-progress-circular>
+      </div>
+    </v-overlay>
   <v-container class="mt-8 mt-md-8">
     <v-row>
       <v-col></v-col>
@@ -53,6 +63,11 @@
 @import "@/scss/variable.scss";
 @import "@/scss/mixins/rwd.scss";
 #ProductsHome{
+  .mask{
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+  }
   .home{
     .v-image__image.v-image__image--cover{
     z-index: 1;
@@ -90,7 +105,8 @@ export default {
   data () {
     return {
       products: [],
-      productscarousel: []
+      productscarousel: [],
+      init: true
     }
   },
   async created () {
@@ -98,6 +114,7 @@ export default {
       const { data } = await this.api.get('/products')
       this.products = data.result
       this.getProduct()
+      this.init = false
     } catch (error) {
       this.$swal({
         icon: 'error',

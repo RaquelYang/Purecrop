@@ -1,5 +1,15 @@
 <template>
   <div id="news">
+    <v-overlay :value="init">
+      <div class="mask white d-flex justify-center align-center">
+        <v-progress-circular
+          :size="70"
+          :width="7"
+          indeterminate
+          color="green"
+        ></v-progress-circular>
+      </div>
+    </v-overlay>
     <v-carousel height="auto"  class="mt-14 mt-sm-16" cycle hide-delimiters progress interval="2500" :show-arrows="false">
       <v-carousel-item
         v-for="newcarousel in newscarousel" :key="newcarousel._id"
@@ -11,6 +21,11 @@
 </template>
 <style lang="scss">
 #news{
+  .mask{
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+  }
   .swiper-pagination-bullet-active{
   background-color:#8BC34A !important;
   }
@@ -25,14 +40,15 @@ export default {
   data () {
     return {
       products: [],
-      newscarousel: []
+      newscarousel: [],
+      init: true
     }
   },
   async created () {
     try {
       this.getProduct()
+      this.init = false
     } catch (error) {
-      console.log(error)
       this.$swal({
         icon: 'error',
         title: '失敗',
@@ -44,7 +60,6 @@ export default {
     async getProduct () {
       try {
         const { data } = await this.api.get('/images')
-        // console.log(data.result[0].productsiper)
         this.newscarousel = data.result[0].newsswiper
       } catch (error) {
         this.$swal({

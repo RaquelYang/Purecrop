@@ -114,6 +114,7 @@ export default {
       const { data } = await this.api.get('/products')
       this.products = data.result
       this.getProduct()
+      this.init = false
     } catch (error) {
       this.$swal({
         icon: 'error',
@@ -121,9 +122,6 @@ export default {
         text: '商品取得失敗'
       })
     }
-  },
-  mounted () {
-    this.init = false
   },
   methods: {
     addCart (product) {

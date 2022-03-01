@@ -13,7 +13,7 @@
     <v-carousel height="auto"  class="mt-14 mt-sm-16" cycle hide-delimiters progress interval="2500" :show-arrows="false">
       <v-carousel-item
         v-for="newcarousel in newscarousel" :key="newcarousel._id"
-        :src="newcarousel.file"
+        :src="newcarousel.file" eager
       ></v-carousel-item>
     </v-carousel>
   <v-container class="home mt-8 mt-md-16">

@@ -16,8 +16,8 @@
       <v-col cols="12" class="py-3">
         <v-row>
           <v-col cols="12" md="12" class="px-0 py-0" >
-            <v-carousel  height="auto" cycle hide-delimiters progress interval="2500" :show-arrows="false">
-              <v-carousel-item
+            <v-carousel  class="carousel" cycle hide-delimiters progress interval="2500" :show-arrows="false">
+              <v-carousel-item class="carousel"
                 v-for="productcarousel in productscarousel" :key="productcarousel._id"
                 :src="productcarousel.file"
               ></v-carousel-item>
@@ -63,6 +63,9 @@
 @import "@/scss/variable.scss";
 @import "@/scss/mixins/rwd.scss";
 #ProductsHome{
+  .carousel{
+    height: auto !important;
+  }
   .mask{
     width: 100vw;
     height: 100vh;

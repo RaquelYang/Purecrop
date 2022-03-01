@@ -10,8 +10,8 @@
         ></v-progress-circular>
       </div>
     </v-overlay>
-    <v-carousel height="auto"  class="mt-14 mt-sm-16" cycle hide-delimiters progress interval="2500" :show-arrows="false">
-      <v-carousel-item
+    <v-carousel  class="carousel mt-14 mt-sm-16" cycle hide-delimiters progress interval="2500" :show-arrows="false">
+      <v-carousel-item class="carousel"
         v-for="newcarousel in newscarousel" :key="newcarousel._id"
         :src="newcarousel.file"
       ></v-carousel-item>
@@ -59,6 +59,9 @@
 @import "@/scss/variable.scss";
 @import "@/scss/mixins/rwd.scss";
 #newspages{
+  .carousel{
+    height: auto !important;
+  }
   .mask{
     width: 100vw;
     height: 100vh;

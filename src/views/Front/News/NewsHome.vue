@@ -1,19 +1,19 @@
 <template>
 <div id="newshome" >
   <v-overlay :value="init">
-      <div class="mask white d-flex justify-center align-center">
-        <v-progress-circular
-          :size="70"
-          :width="7"
-          indeterminate
-          color="green"
-        ></v-progress-circular>
-      </div>
-    </v-overlay>
-    <v-carousel height="auto"  class="mt-14 mt-sm-16" cycle hide-delimiters progress interval="2500" :show-arrows="false">
-      <v-carousel-item
+    <div class="mask white d-flex justify-center align-center">
+      <v-progress-circular
+        :size="70"
+        :width="7"
+        indeterminate
+        color="green"
+      ></v-progress-circular>
+    </div>
+  </v-overlay>
+    <v-carousel class="carousel mt-14 mt-sm-16" cycle hide-delimiters progress interval="2500" :show-arrows="false">
+      <v-carousel-item class="carousel"
         v-for="newcarousel in newscarousel" :key="newcarousel._id"
-        :src="newcarousel.file" eager
+        :src="newcarousel.file"
       ></v-carousel-item>
     </v-carousel>
   <v-container class="home mt-8 mt-md-16">
@@ -87,8 +87,17 @@
 </div>
 </template>
 <style lang="scss">
-
+@import "@/scss/variable.scss";
+@import "@/scss/mixins/rwd.scss";
 #newshome{
+  .carousel{
+    height: auto !important;
+  }
+  .mask{
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+  }
   .home{
     .v-image__image.v-image__image--cover{
     z-index: 1;
@@ -97,11 +106,6 @@
       transform: scale(1.2);
       }
     }
-  .mask{
-    width: 100vw;
-    height: 100vh;
-    text-align: center;
-  }
   .swiper-pagination-bullet-active{
   background-color:#8BC34A !important;
   }

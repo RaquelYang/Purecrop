@@ -130,9 +130,6 @@ export default {
   async created () {
     try {
       await this.getProduct()
-      for await (const c of this.newscarousel) {
-        await this.loadImage(c.file)
-      }
       this.init = false
     } catch (error) {
       this.$swal({
@@ -143,16 +140,6 @@ export default {
     }
   },
   methods: {
-    loadImage (src) {
-      return new Promise((resolve, reject) => {
-        const img = new Image()
-        img.src = src
-        img.onload = () => {
-          console.log('++')
-          resolve()
-        }
-      })
-    },
     async getProduct () {
       try {
         const { data } = await this.api.get('/images')

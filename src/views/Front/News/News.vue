@@ -47,7 +47,6 @@ export default {
   async created () {
     try {
       this.getProduct()
-      this.init = false
     } catch (error) {
       this.$swal({
         icon: 'error',
@@ -55,6 +54,9 @@ export default {
         text: '商品取得失敗'
       })
     }
+  },
+  mounted () {
+    this.init = false
   },
   methods: {
     async getProduct () {

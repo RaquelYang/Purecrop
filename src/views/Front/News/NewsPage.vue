@@ -5,10 +5,9 @@
     <v-row>
       <v-col></v-col>
       <v-col cols="12" md="9" class="relative">
-        <v-btn text :ripple="false" plain icon class="light-green darken-1 white--text font-weight-black" to="/news">
+        <v-btn text :ripple="false" plain icon class="light-green darken-1 white--text font-weight-black backtolastpage" to="/news">
         <v-icon class="text-h3">mdi-arrow-left-bold</v-icon>
         </v-btn>
-
         <h3 class="text-center text-lg-h3 text-md-h3 text-h3 light-green--text text--darken-1 font-weight-bold bottomline4 pt-16">四四南村活動</h3>
         <v-row class="mt-8 mt-md-16">
           <v-col cols="12" lg="6" order="2" order-lg="1">
@@ -45,6 +44,9 @@
 @import "@/scss/variable.scss";
 @import "@/scss/mixins/rwd.scss";
 #newspages{
+  .backtolastpage{
+    z-index: 10;
+  }
   .relative{
     position: relative;
   }

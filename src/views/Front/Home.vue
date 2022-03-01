@@ -5,11 +5,11 @@
       <video class="video" src="@/assets/video/home_veg.mp4" autoplay loop  muted playsinline webkit-playsinline>
       </video>
       <v-overlay :value="true" :absolute="true" color="rgba(0,0,0,.8)" z-index="1">
-        <p class="text-h4 text-sm-h2 pb-md-4 font-weight-light">在地有機 履歷食材</p>
-        <p class="text-center text-h4 hidden-md-and-down">新鮮健康、食品認證</p>
-        <p class="text-center text-h4 mb-0 hidden-md-and-down">在地有機、品質無疑</p>
+        <p class="text-h4 text-sm-h2 pb-md-4 font-weight-light" v-scroll-reveal>在地有機 履歷食材</p>
+        <p class="text-center text-h4 hidden-md-and-down" v-scroll-reveal>新鮮健康、食品認證</p>
+        <p class="text-center text-h4 mb-0 hidden-md-and-down" v-scroll-reveal>在地有機、品質無疑</p>
       </v-overlay>
-      <p class="text-h2 vedioarrowdown white--text hidden-sm-and-down">﹀</p>
+      <p class="text-h2 vedioarrowdown white--text hidden-sm-and-down" v-scroll-reveal>﹀</p>
     </div>
     <!-- 關於無疑農 -->
     <v-container class="about">
@@ -20,12 +20,10 @@
             <v-col cols="12" md="6">
               <h3 class="text-center text-h4 text-md-h3 light-green--text text--darken-1 font-weight-bold bottomline1" v-scroll-reveal>關於無疑農</h3>
               <div class="mt-16 text-center text-md-start text-subtitle-1" v-scroll-reveal="{delay:250}">
-                <p>我們從台大學生創業起家，已經四年了！</p>
-                <p>由營養師設計的菜單，提供健康的外送午餐！</p>
-                <p>使用在地有機、履歷食材，甚至與玉里小農契作無毒米</p>
-                <p>為了讓吃得安心，符合國際食品安全認證的食品廠生產。</p>
-                <p>用善待土地而來的食材，善待你的身體。</p>
-                <p>從產地到廚房，每一步都為了更好的環境謹慎用心。</p>
+                <p>我們使用土地友善且無農藥方式種植並供蔬果履歷</p>
+                <p>使用在地有機、履歷食材，讓您吃得更安心</p>
+                <p>用善待土地而來的食材，善待你的身體</p>
+                <p>獲得CAS 有機農產品標章，生產過程不使用農藥</p>
               </div>
             </v-col>
             <v-col cols="12" md="6">

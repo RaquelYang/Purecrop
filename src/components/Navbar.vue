@@ -2,7 +2,7 @@
 <div id="navbar">
   <nav>
 <!-- hide-on-scroll -->
-    <v-app-bar  min-width="100vw" :elevate-on-scroll="true" fixed elevation="5"  class="justify-end">
+    <v-app-bar  min-width="100vw" :elevate-on-scroll="true" fixed elevation="5"  class="justify-en">
       <v-app-bar-nav-icon large @click="sidebar=!sidebar" class="hidden-md-and-up mr-3"></v-app-bar-nav-icon>
       <v-row>
         <v-toolbar-title tag="router-link" to="/" class=" font-weight-bold light-green--text text--darken-3 col-6 col-md-4">
@@ -71,7 +71,9 @@
 
 <style lang="scss">
 #navbar{
-  z-index: 99999;
+  .v-toolbar{
+    z-index: 99999;
+  }
   .navtitle{
     transition: .15s;
     &:hover{

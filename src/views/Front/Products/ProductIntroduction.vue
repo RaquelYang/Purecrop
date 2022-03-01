@@ -1,5 +1,15 @@
 <template>
 <div id="ProductIntroductiom">
+  <v-overlay :value="init">
+    <div class="mask white d-flex justify-center align-center">
+      <v-progress-circular
+        :size="70"
+        :width="7"
+        indeterminate
+        color="green"
+      ></v-progress-circular>
+    </div>
+  </v-overlay>
   <v-overlay :value="!sell">
     <div class="mask black">
       <p class="text-h1">產品已下架</p>
@@ -61,7 +71,6 @@
                     <td class="text-subtitle-1 text-sm-h6">數量</td>
                     <td class="text-subtitle-1 text-sm-h6 quantity">
                       <v-text-field
-
                         background-color="transparent"
                         hide-spin-buttons
                         readonly
@@ -169,7 +178,6 @@
       <v-col></v-col>
     </v-row>
   </v-container>
-
 </div>
 </template>
 <style lang="scss">
@@ -263,6 +271,7 @@
 export default {
   data () {
     return {
+      init: true,
       name: '',
       price: 0,
       description: '',
@@ -292,6 +301,7 @@ export default {
         content: data.result.spec.content
       }
       document.title = ` 無疑農 | ${this.name}`
+      this.init = false
     } catch (error) {
       this.$swal({
         icon: 'error',

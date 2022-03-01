@@ -21,6 +21,7 @@
     "vue": "^2.6.11",
     "vue-axios": "^3.4.0",
     "vue-credit-card-validation": "^0.1.11",
+    "vue-gtag": "^1.16.1",
     "vue-img-inputer": "^2.1.6",
     "vue-paycard": "^0.7.0",
     "vue-router": "^3.2.0",

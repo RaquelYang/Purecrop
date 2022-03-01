@@ -16,6 +16,10 @@ import parseISO from 'date-fns/fp/parseISO'
 import VueScrollReveal from 'vue-scroll-reveal'
 import VuePaycard from 'vue-paycard'
 import VueCardFormat from 'vue-credit-card-validation'
+import VueGtag from 'vue-gtag'
+Vue.use(VueGtag, {
+  config: { id: 'G-RHGPJJ8G7V' }
+})
 Vue.use(VueCardFormat)
 Vue.use(VuePaycard)
 Vue.use(VueScrollReveal, {

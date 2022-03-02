@@ -104,7 +104,7 @@
   margin-top: 4rem !important;
   margin-bottom: 5rem;
   .deliverycontent {
-    margin-top: 5rem;
+    margin-top: 0rem;
     margin-left: 1rem;
     margin-right: 1rem;
     .col:not(:first-child):not(:nth-child(2)){

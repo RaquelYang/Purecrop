@@ -10,7 +10,7 @@
       ></v-progress-circular>
     </div>
   </v-overlay>
-    <v-carousel class="carousel mt-14 mt-sm-16" cycle hide-delimiters progress interval="2500" :show-arrows="false">
+    <v-carousel height="auto" class="carousel mt-14 mt-sm-16" cycle hide-delimiters progress interval="2500" :show-arrows="false">
       <v-carousel-item class="carousel"
         v-for="newcarousel in newscarousel" :key="newcarousel._id"
         :src="newcarousel.file"

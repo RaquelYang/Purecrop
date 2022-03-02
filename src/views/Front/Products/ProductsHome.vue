@@ -150,7 +150,6 @@ export default {
     async getProduct () {
       try {
         const { data } = await this.api.get('/images')
-        // console.log(data.result[0].productsiper)
         this.productscarousel = data.result[0].productswiper
       } catch (error) {
         this.$swal({

@@ -49,12 +49,12 @@
 export default {
   data () {
     return {
+      // { title: '最新消息管理', icon: 'mdi-newspaper-variant-outline', to: '/admin' },
+      //  { title: '會員管理', icon: 'mdi-account-outline ', to: '/admin' }
       items: [
         { title: '商品管理', icon: 'mdi-corn', to: '/admin' },
         { title: '訂單管理', icon: 'mdi-clipboard-list-outline ', to: '/admin/orders' },
-        { title: '輪播圖管理', icon: 'mdi-file-image-outline ', to: '/admin/swipers' },
-        { title: '最新消息管理', icon: 'mdi-newspaper-variant-outline', to: '/admin' },
-        { title: '會員管理', icon: 'mdi-account-outline ', to: '/admin' }
+        { title: '輪播圖管理', icon: 'mdi-file-image-outline ', to: '/admin/swipers' }
       ],
       right: null
     }

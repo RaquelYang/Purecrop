@@ -125,6 +125,7 @@
 @include sm {
   #delivery {
     margin-top: 10rem !important;
+    margin-bottom: 0rem;
     .deliverycontent {
       margin-left: 0;
       margin-right: 0;

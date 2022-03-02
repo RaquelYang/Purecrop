@@ -132,7 +132,7 @@
       height: 400px;
     }
     .deliverycontent{
-    .col-12:nth-child(2),.col-12:nth-child(5),.col-12:nth-child(6),.col-12:nth-child(1){
+    .col-12:nth-child(3),.col-12:nth-child(4),.col-12:nth-child(7),.col-12:nth-child(8){
       background: #EEEEEE !important;
     }
   }

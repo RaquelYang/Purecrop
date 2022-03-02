@@ -90,6 +90,7 @@
 @import "@/scss/variable.scss";
 @import "@/scss/mixins/rwd.scss";
 #newshome{
+  margin-bottom: 5rem;
   .carousel{
     height: auto !important;
   }
@@ -119,7 +120,11 @@
     text-overflow: ellipsis;
   }
 }
-
+@include sm{
+  #newshome{
+    margin-bottom: 15rem;
+  }
+}
 </style>
 <script>
 

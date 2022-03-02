@@ -19,11 +19,11 @@
           <v-row >
             <v-col cols="12" md="6">
               <h3 class="text-center text-h4 text-md-h3 light-green--text text--darken-1 font-weight-bold bottomline1" v-scroll-reveal>關於無疑農</h3>
-              <div class="mt-16 text-center text-md-start text-subtitle-1" v-scroll-reveal="{delay:250}">
-                <p>我們使用土地友善且無農藥方式種植並供蔬果履歷</p>
-                <p>使用在地有機、履歷食材，讓您吃得更安心</p>
-                <p>用善待土地而來的食材，善待你的身體</p>
-                <p>獲得CAS 有機農產品標章，生產過程不使用農藥</p>
+              <div class="mt-16 text-center text-md-start text-subtitle-1" v-scroll-reveal="{delay:500}">
+                <p class="text-xl-h5 text-h6">我們使用土地友善且無農藥方式種植並供蔬果履歷</p>
+                <p class="text-xl-h5 text-h6">使用在地有機、履歷食材，讓您吃得更安心</p>
+                <p class="text-xl-h5 text-h6">用善待土地而來的食材，善待你的身體</p>
+                <p class="text-xl-h5 text-h6">獲得CAS 有機農產品標章，生產過程不使用農藥</p>
               </div>
             </v-col>
             <v-col cols="12" md="6">
@@ -102,6 +102,11 @@
     width: auto;
     height: 250px;
   }
+  .deliverycontent{
+    .col-12{
+      background: transparent !important;
+    }
+  }
 }
 @include sm{
   #home{
@@ -115,10 +120,10 @@
       }
     }
     .qualtity {
-    margin-top: 5rem;
+    margin-top: 5rem !important;
     }
     .delivery {
-      margin-top: 5rem;
+      margin-top: 5rem !important;
     }
     .qualityicon {
       margin-top: 3rem;
@@ -126,6 +131,11 @@
     .svg{
       height: 400px;
     }
+    .deliverycontent{
+    .col-12:nth-child(2),.col-12:nth-child(5),.col-12:nth-child(6),.col-12:nth-child(1){
+      background: #EEEEEE !important;
+    }
+  }
   }
 }
 @include md{
@@ -134,10 +144,10 @@
       margin-top: 10rem;
     }
     .qualtity {
-    margin-top: 14rem;
+    margin-top: 15rem !important;
     }
     .delivery {
-      margin-top: 15rem;
+      margin-top: 15rem !important;
     }
     .qualityicon {
       margin-top: 3rem;

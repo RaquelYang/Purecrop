@@ -9,10 +9,9 @@
       當季蔬果 <span class="font-weight-bold">x</span> 小農新鮮直送
     </p>
     <v-row class="deliverycontent">
-      <v-col cols="12" sm="6" class="px-0 px-md-10 px-lg-16">
+      <v-col cols="12" sm="6" class="px-0 px-md-10 px-lg-16 py-16">
         <v-img src="../assets/images/5a22fc9aa25020.8918082015122423306648.png" v-scroll-reveal="{delay:500}" />
       </v-col>
-
       <v-col cols="12" sm="6" class="text">
         <div class="text-md-h4 text-h5 text-center mt-8 mt-sm-0 mb-8 mb-sm-0">
           <h2 class="mb-5">紅心芭樂</h2>
@@ -23,20 +22,20 @@
             有助於眼睛健康
           </p>
           <p>
-            口感紮實清脆爽口
+            口感紮實清脆
           </p>
           <p>
-            吃得安心又健康
+            吃得安心健康
           </p>
+          <v-btn class="light-green darken-2 white--text text-h6 mt-10" to="/products" large>立即購買</v-btn>
         </div>
       </v-col>
-      <v-col cols="12" sm="6" order="1" order-sm="2" class="px-0 px-md-10 px-lg-16">
+      <v-col cols="12" sm="6" order="1" order-sm="2" class="px-0 px-md-10 px-lg-16 grey lighten-3 py-16">
         <v-img src="../assets/images/5a1c7e70ca3fe7.9399725215118168168284.png" v-scroll-reveal="{delay:750}"/>
       </v-col>
-      <v-col cols="12" sm="6" class="text" order="2" order-sm="1">
+      <v-col cols="12" sm="6" class="text grey lighten-3" order="2" order-sm="1">
         <div class="text-md-h4 text-h5 text-center mt-8 mt-sm-0 mb-8 mb-sm-0">
           <h2 class="mb-5">有機野菜</h2>
-
           <p>
             堅持時令栽培旬味
           </p>
@@ -49,9 +48,10 @@
           <p>
             不只安心、更多新鮮美味
           </p>
+          <v-btn class="light-green darken-2 white--text text-h6 mt-10" to="/products" large>立即購買</v-btn>
         </div>
       </v-col>
-      <v-col cols="12" sm="6" order="3" order-sm="3" class="px-0 px-md-10 px-lg-16">
+      <v-col cols="12" sm="6" order="3" order-sm="3" class="px-0 px-md-10 px-lg-16 py-16">
         <v-img src="../assets/images/kisspng-cymbopogon-citratus-asian-cuisine-lemon-stock-phot-garlic-5ab507ce754ed3.5863863715218134544805.png" v-scroll-reveal="{delay:1050}"/>
       </v-col>
       <v-col cols="12" sm="6" class="text" order="4" order-sm="4">
@@ -69,13 +69,14 @@
           <p>
             露營、野餐有效驅蚊
           </p>
+          <v-btn class="light-green darken-2 white--text text-h6 mt-10" to="/products" large>立即購買</v-btn>
         </div>
       </v-col>
-      <v-col cols="12" sm="6" order="5" order-sm="6" class="px-0 px-md-10 px-lg-16">
+      <v-col cols="12" sm="6" order="5" order-sm="6" class="px-0 px-md-10 px-lg-16 py-sm-16 grey lighten-3">
         <v-img src="../assets/images/fig.png" v-scroll-reveal="{delay:1500}"/>
       </v-col>
-      <v-col cols="12" sm="6" class="text" order="6" order-sm="5">
-        <div class="text-md-h4 text-h5 text-center mt-8 mt-sm-0 mb-8 mb-sm-0">
+      <v-col cols="12" sm="6" class="text grey lighten-3" order="6" order-sm="5">
+        <div class="text-md-h4 text-h5 text-center mt-8 mt-sm-0 mb-8 mb-sm-0 ">
           <h2 class="mb-5">無花果</h2>
           <p>
             口感清爽、滋味甜蜜
@@ -89,6 +90,7 @@
           <p>
             有機栽培、安心購買
           </p>
+          <v-btn class="light-green darken-2 white--text text-h6 mt-10" to="/products" large>立即購買</v-btn>
         </div>
       </v-col>
     </v-row>
@@ -100,6 +102,7 @@
 @import "@/scss/mixins/rwd.scss";
 #delivery {
   margin-top: 4rem !important;
+  margin-bottom: 5rem;
   .deliverycontent {
     margin-top: 5rem;
     margin-left: 1rem;

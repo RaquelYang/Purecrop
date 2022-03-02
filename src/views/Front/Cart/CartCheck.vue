@@ -152,6 +152,7 @@
 @import "@/scss/variable.scss";
 @import "@/scss/mixins/rwd.scss";
 #cartcheck{
+  margin-bottom: 5rem;
   .mask{
     width: 100vw;
     height: 100vh;
@@ -211,6 +212,7 @@
 }
 @include sm{
   #cartcheck{
+    margin-bottom: 15rem;
     .nocart{
       font-size: 3rem;
     }

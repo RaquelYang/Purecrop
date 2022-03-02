@@ -66,6 +66,7 @@
 @import "@/scss/variable.scss";
 @import "@/scss/mixins/rwd.scss";
 #orders{
+  margin-bottom: 5rem;
   .mask{
     width: 100vw;
     height: 100vh;
@@ -107,6 +108,7 @@
 }
 @include sm{
   #orders{
+    margin-bottom: 15rem;
   .productimg{
     width: 100px;
     }

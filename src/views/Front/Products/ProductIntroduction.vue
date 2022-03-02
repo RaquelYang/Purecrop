@@ -19,7 +19,7 @@
   <!-- part1 -->
     <v-row >
       <v-col></v-col>
-      <v-col cols="12" md="11">
+      <v-col cols="12" md="11" lg="9">
         <v-row>
           <!-- left -->
           <v-col cols="12" sm="6" md="5" class="grey lighten-3">
@@ -39,7 +39,6 @@
                     <td class="text-subtitle-1 text-sm-h6 text-end">
                       備貨時間約 3 - 5 天
                     </td>
-                    <td class="hidden-lg-and-down" width="50%"></td>
                   </tr>
                   <tr>
                     <td></td>
@@ -106,12 +105,13 @@
           </v-col>
         </v-row>
       </v-col>
-      <v-col></v-col>
+      <v-col class="py-0"></v-col>
     </v-row>
     <!-- bottom -->
     <v-row>
-      <v-col></v-col>
-      <v-col cols="12" md="11" class="px-0 py-0" >
+      <v-col class="py-0"></v-col>
+      <v-col cols="12" md="11" lg="9" class="px-0 py-0 shadow" >
+        <v-divider></v-divider>
         <v-simple-table class="grey lighten-3">
           <thead>
             <tr>
@@ -151,25 +151,6 @@
             <tr>
               <td>
                 <p class="text-subtitle-1 text-sm-h6" v-html="descriptionProduct"></p>
-                <!-- <p>選用在地新水果，再經由低溫烘乾而成</p>
-                <p>果乾天然 美味 無添加</p>
-                <p>產品通過SGS檢驗，無添加防腐劑、糖精、色素</p>
-                <p>老少咸宜，越吃越涮嘴</p>
-                <p>包裝風格簡約時尚，送禮自用兩相宜</p>
-                <ul>
-                  <li>挑選台南在地新鮮芭樂</li>
-                  <li>採用低溫烘乾製作而成</li>
-                  <li>＠商品描述</li> -->
-                  <!-- <li>
-                    因此特地挑選出品質好的芭樂來製作果乾（非低級加工品），讓顧客彷彿吃得到新鮮芭樂的味道，
-                  產品並通過SGS認證，保證無添加防腐劑、色素、糖精。
-                  </li>
-                  <li>＠商品規格</li>
-                  <li>品名：台南芭樂乾
-                  淨重：150/ 300/ 600g
-                  成分：新鮮芭樂、砂糖、檸檬酸、鹽
-                  現貨有效期限：2022/ 7/ 15</li>
-                </ul> -->
               </td>
             </tr>
           </tbody>
@@ -184,6 +165,10 @@
 @import "@/scss/variable.scss";
 @import "@/scss/mixins/rwd.scss";
 #ProductIntroductiom{
+  hr{
+    border-width: 3px;
+  }
+  margin-bottom: 5rem;
   .quantity .v-input{
     max-width: 100% !important;
   }
@@ -239,6 +224,7 @@
 }
 @include sm{
   #ProductIntroductiom{
+    margin-bottom: 15rem;
     .quantity .v-input{
     max-width: 90% !important;
     }

@@ -363,6 +363,7 @@
 @import "@/scss/variable.scss";
 @import "@/scss/mixins/rwd.scss";
 #cartcheckout{
+  margin-bottom: 5rem;
   input.input{
     background-color: #33691E !important;
     border: 1px solid #888 !important;
@@ -416,7 +417,11 @@
     }
   }
 }
-
+@include sm{
+  #cartcheckout{
+    margin-bottom: 15rem;
+  }
+}
 </style>
 <script>
 import UserInfo from '@/components/UserInfo.vue'

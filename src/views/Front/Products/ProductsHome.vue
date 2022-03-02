@@ -10,24 +10,12 @@
         ></v-progress-circular>
       </div>
     </v-overlay>
-  <v-container class="mt-8 mt-md-8">
-    <v-row>
-      <v-col></v-col>
-      <v-col cols="12" class="py-3">
-        <v-row>
-          <v-col cols="12" md="12" class="px-0 py-0" >
-            <v-carousel  class="carousel" cycle hide-delimiters progress interval="2500" :show-arrows="false">
-              <v-carousel-item class="carousel"
-                v-for="productcarousel in productscarousel" :key="productcarousel._id"
-                :src="productcarousel.file"
-              ></v-carousel-item>
-            </v-carousel>
-          </v-col>
-        </v-row>
-      </v-col>
-      <v-col></v-col>
-    </v-row>
-  </v-container>
+    <v-carousel height="auto" class="carousel" cycle hide-delimiters progress interval="2500" :show-arrows="false">
+      <v-carousel-item class="carousel"
+        v-for="productcarousel in productscarousel" :key="productcarousel._id"
+        :src="productcarousel.file"
+      ></v-carousel-item>
+    </v-carousel>
   <v-container class="home mt-8 mt-md-10">
       <h3 class="text-center text-lg-h2 text-md-h3 text-h3 light-green--text text--darken-1 font-weight-bold bottomline">小農產品</h3>
       <p class="text-center mt-6 mt-lg-10">新鮮熱賣 x 自產自銷</p>
@@ -63,8 +51,13 @@
 @import "@/scss/variable.scss";
 @import "@/scss/mixins/rwd.scss";
 #ProductsHome{
+  margin-bottom: 5rem;
+  .v-window__container{
+    height: auto !important;
+  }
   .carousel{
     height: auto !important;
+    margin-top: 1.7rem;
   }
   .mask{
     width: 100vw;
@@ -97,6 +90,7 @@
 }
 @include sm{
   #ProductsHome{
+    margin-bottom: 15rem;
     .productcard{
       margin-top: 3rem;
     }

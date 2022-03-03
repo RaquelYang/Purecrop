@@ -27,7 +27,7 @@
           <p>
             吃得安心健康
           </p>
-          <v-btn class="light-green darken-2 white--text text-h6 mt-10" to="/products" large>立即購買</v-btn>
+          <v-btn class="light-green darken-2 white--text text-h6 mt-10" to="/products/productintroduction/6204c718c0b8fe12e8847058" large>立即購買</v-btn>
         </div>
       </v-col>
       <v-col cols="12" sm="6" order="1" order-sm="2" class="px-0 px-md-10 px-lg-16 grey lighten-3 py-16">
@@ -48,7 +48,7 @@
           <p>
             不只安心、更多新鮮美味
           </p>
-          <v-btn class="light-green darken-2 white--text text-h6 mt-10" to="/products" large>立即購買</v-btn>
+          <v-btn class="light-green darken-2 white--text text-h6 mt-10" to="/products/productintroduction/620f37b796600b7b273c295e" large>立即購買</v-btn>
         </div>
       </v-col>
       <v-col cols="12" sm="6" order="3" order-sm="3" class="px-0 px-md-10 px-lg-16 py-16">
@@ -69,7 +69,7 @@
           <p>
             露營、野餐有效驅蚊
           </p>
-          <v-btn class="light-green darken-2 white--text text-h6 mt-10" to="/products" large>立即購買</v-btn>
+          <v-btn class="light-green darken-2 white--text text-h6 mt-10" to="/products/productintroduction/622011e9cf367e8c8a437500" large>立即購買</v-btn>
         </div>
       </v-col>
       <v-col cols="12" sm="6" order="5" order-sm="6" class="px-0 px-md-10 px-lg-16 py-sm-16 grey lighten-3">
@@ -90,7 +90,7 @@
           <p>
             有機栽培、安心購買
           </p>
-          <v-btn class="light-green darken-2 white--text text-h6 mt-10" to="/products" large>立即購買</v-btn>
+          <v-btn class="light-green darken-2 white--text text-h6 mt-10" to="/products/productintroduction/6205f11124897566f8273115" large>立即購買</v-btn>
         </div>
       </v-col>
     </v-row>

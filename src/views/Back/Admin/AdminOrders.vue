@@ -11,7 +11,6 @@
             :expanded.sync="expanded"
             item-key="_id"
             show-expand
-            multi-sort
             class="elevation-1"
           >
             <template v-slot:item.orders="{ item }">

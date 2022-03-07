@@ -37,48 +37,6 @@
             </v-card-actions>
           </v-card>
           </v-col>
-          <v-col cols="12" xl="3" md="4" sm="6">
-          <v-card :ripple="false">
-            <v-img height="200" class="imgscale" src="https://www.newsmarket.com.tw/files/2016/12/%E6%94%A4%E4%BD%8D%E5%B8%86%E5%B8%832-%E6%94%A4%E4%BD%8D%E5%90%8D-01-02-edm.jpg">
-            </v-img>
-            <v-card-title>樂土友善小農市集</v-card-title>
-            <v-card-text>
-              <div class="pb-2">2021/07/22</div>
-              <p class="ellipsis mb-0">我們從台大學生創業起家，已經四年了！由營養師設計的菜單，專為忙碌的上班族與學生，提供健康的外送午餐！使用在地有機、履歷食材，甚至與玉里小農契作無毒米</p>
-            </v-card-text>
-            <v-card-actions class="justify-end px-4 pb-4" >
-              <v-btn to="/news/pages" text :ripple="false" class="light-green darken-1 white--text">read more</v-btn>
-            </v-card-actions>
-          </v-card>
-          </v-col>
-          <v-col cols="12" xl="3" md="4" sm="6">
-          <v-card :ripple="false">
-            <v-img height="200" class="imgscale" src="https://static.accupass.com/eventbanner/2110271218561340948097.jpg">
-            </v-img>
-            <v-card-title>小農 DIY 體驗活動</v-card-title>
-            <v-card-text>
-              <div class="pb-2">2021/05/10</div>
-              <p class="ellipsis mb-0">我們從台大學生創業起家，已經四年了！由營養師設計的菜單，專為忙碌的上班族與學生，提供健康的外送午餐！使用在地有機、履歷食材，甚至與玉里小農契作無毒米</p>
-            </v-card-text>
-            <v-card-actions class="justify-end px-4 pb-4" >
-              <v-btn to="/news/pages" text :ripple="false" class="light-green darken-1 white--text">read more</v-btn>
-            </v-card-actions>
-          </v-card>
-          </v-col>
-          <v-col cols="12" xl="3" md="4" sm="6">
-          <v-card :ripple="false">
-            <v-img height="200" class="imgscale" src="https://static.accupass.com/userupload/1908260648129407078010.jpg">
-            </v-img>
-            <v-card-title>小農時光走廊</v-card-title>
-            <v-card-text>
-              <div class="pb-2">2019/08/25</div>
-              <p class="ellipsis mb-0">我們從台大學生創業起家，已經四年了！由營養師設計的菜單，專為忙碌的上班族與學生，提供健康的外送午餐！使用在地有機、履歷食材，甚至與玉里小農契作無毒米</p>
-            </v-card-text>
-            <v-card-actions class="justify-end px-4 pb-4" >
-              <v-btn to="/news/pages" text :ripple="false" class="light-green darken-1 white--text">read more</v-btn>
-            </v-card-actions>
-          </v-card>
-          </v-col>
         </v-row>
         </v-col>
         <v-col></v-col>

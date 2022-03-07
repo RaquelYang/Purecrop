@@ -40,7 +40,7 @@
             </div>
           </v-col>
           <v-col cols="12" lg="6" order="1" order-lg="2">
-            <v-img :src="news.image" width="100%" height="100%"></v-img>
+            <v-img :src="news.image" width="100%"></v-img>
           </v-col>
         </v-row>
       </v-col>

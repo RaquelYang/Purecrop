@@ -45,7 +45,7 @@ const routes = [
             name: 'NewsPages',
             component: () => import(/* webpackChunkName: "news" */ '../views/Front/News/NewsPage.vue'),
             meta: {
-              title: '無疑農 | title'
+              title: '無疑農 | 活動介紹'
             }
           }
         ]

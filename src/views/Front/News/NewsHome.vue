@@ -23,17 +23,17 @@
         <v-col></v-col>
         <v-col cols="12">
           <v-row>
-          <v-col cols="12" xl="3" md="4" sm="6">
-          <v-card :ripple="false">
-            <v-img height="200" class="imgscale" src="https://i.imgur.com/cwfWaCOh.jpg">
+          <v-col cols="12" xl="3" md="4" sm="6" v-for="newsdata in news" :key="newsdata._id">
+          <v-card :ripple="false" >
+            <v-img height="200" class="imgscale" :src="newsdata.image">
             </v-img>
-            <v-card-title>春日野餐 x 食物戀</v-card-title>
+            <v-card-title>{{newsdata.name}}</v-card-title>
             <v-card-text>
-              <div class="pb-2">2022/03/01</div>
-              <p class="ellipsis mb-0">我們從台大學生創業起家，已經四年了！由營養師設計的菜單，專為忙碌的上班族與學生，提供健康的外送午餐！使用在地有機、履歷食材，甚至與玉里小農契作無毒米</p>
+              <div class="pb-2">{{new Date(newsdata.date).toLocaleDateString('zh-tw')}}</div>
+              <p class="ellipsis mb-0">{{newsdata.content}}</p>
             </v-card-text>
             <v-card-actions class="justify-end px-4 pb-4" >
-              <v-btn to="/news/pages" text :ripple="false" class="light-green darken-1 white--text">read more</v-btn>
+              <v-btn :to="'/news/singlenews/'+ newsdata._id"  text :ripple="false" class="light-green darken-1 white--text">read more</v-btn>
             </v-card-actions>
           </v-card>
           </v-col>
@@ -131,25 +131,26 @@
 export default {
   data () {
     return {
-      products: [],
+      news: [],
       newscarousel: [],
       init: true
     }
   },
   async created () {
     try {
-      await this.getProduct()
+      await this.getCarousel()
+      await this.getNews()
       this.init = false
     } catch (error) {
       this.$swal({
         icon: 'error',
         title: '失敗',
-        text: '商品取得失敗'
+        text: '取得失敗'
       })
     }
   },
   methods: {
-    async getProduct () {
+    async getCarousel () {
       try {
         const { data } = await this.api.get('/images')
         this.newscarousel = data.result[0].newsswiper
@@ -158,6 +159,19 @@ export default {
           icon: 'error',
           title: '失敗',
           text: '取得圖片失敗'
+        })
+      }
+    },
+    async getNews () {
+      try {
+        const { data } = await this.api.get('/news')
+        console.log(data.result)
+        this.news = data.result
+      } catch (error) {
+        this.$swal({
+          icon: 'error',
+          title: '失敗',
+          text: '取得最新消息失敗'
         })
       }
     }

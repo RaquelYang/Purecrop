@@ -23,30 +23,24 @@
         <v-btn text :ripple="false" plain icon class="light-green darken-1 white--text font-weight-black backtolastpage" to="/news">
         <v-icon class="text-h3">mdi-arrow-left-bold</v-icon>
         </v-btn>
-        <h3 class="text-center text-lg-h3 text-md-h3 text-h3 light-green--text text--darken-1 font-weight-bold bottomline4 pt-16">四四南村活動</h3>
+        <h3 class="text-center text-lg-h3 text-md-h3 text-h3 light-green--text text--darken-1 font-weight-bold bottomline4 pt-16">{{news.name}}</h3>
         <v-row class="mt-8 mt-md-16">
           <v-col cols="12" lg="6" order="2" order-lg="1">
             <div class="txt">
-              <p>我們從台大學生創業起家，已經四年了！</p>
-              <p>由營養師設計的菜單，專為忙碌的上班族與學生，提供健康的外送午餐！</p>
-              <p>使用在地有機、履歷食材，甚至與玉里小農契作無毒米</p>
-              <p>為了讓吃得安心，更請符合國際食品安全認證的食品廠生產。</p>
-              <p>用善待土地而來的食材，善待你的身體。</p>
-              <p>從產地到廚房，再到你手上，每一步都為了更好的環境謹慎用心。</p>
+              <p class="text-subtitle-1 text-sm-h6" v-html="contentNews"></p>
               <v-divider class="mt-10"></v-divider>
               <ul class="mt-10">
                 <li class="font-weight-bold text-h6">注意事項</li>
               </ul>
-              <ul class="mt-3">
-                <li>▹ 活動日期：2021/10/15（五）- 10/17（日）</li>
-                <li>▹ 活動時間：10/15｜13:00 - 19:00 10/16.17｜13:00 - 20:00</li>
-                <li>▹ 活動地點：台北市信義區 四四南村</li>
-                <li>▹ 現場須配合防疫規定全程配戴</li>
+              <ul class="mt-3 notice">
+                <li>
+                  <span class="pb-0" v-html="noticeNews"></span>
+                </li>
               </ul>
             </div>
           </v-col>
           <v-col cols="12" lg="6" order="1" order-lg="2">
-            <v-img src="https://picsum.photos/1200/800/?random=10" width="100%" height="100%"></v-img>
+            <v-img :src="news.image" width="100%" height="100%"></v-img>
           </v-col>
         </v-row>
       </v-col>
@@ -59,6 +53,7 @@
 @import "@/scss/variable.scss";
 @import "@/scss/mixins/rwd.scss";
 #newspages{
+  margin-bottom: 5rem;
   .carousel{
     height: auto !important;
   }
@@ -132,25 +127,26 @@
 export default {
   data () {
     return {
-      products: [],
+      news: [],
       newscarousel: [],
       init: true
     }
   },
   async created () {
     try {
-      this.getProduct()
+      await this.getCarousel()
+      await this.getSingleNews()
       this.init = false
     } catch (error) {
       this.$swal({
         icon: 'error',
         title: '失敗',
-        text: '商品取得失敗'
+        text: '取得失敗'
       })
     }
   },
   methods: {
-    async getProduct () {
+    async getCarousel () {
       try {
         const { data } = await this.api.get('/images')
         this.newscarousel = data.result[0].newsswiper
@@ -161,6 +157,26 @@ export default {
           text: '取得圖片失敗'
         })
       }
+    },
+    async getSingleNews () {
+      try {
+        const { data } = await this.api.get('/news/' + this.$route.params.id)
+        this.news = data.result
+      } catch (error) {
+        this.$swal({
+          icon: 'error',
+          title: '失敗',
+          text: '取得最新消息失敗'
+        })
+      }
+    }
+  },
+  computed: {
+    contentNews () {
+      return this.news.content.replace(/\n/g, '<br /><br />')
+    },
+    noticeNews () {
+      return this.news.notice.replace(/\n/g, '<br /><br />')
     }
   }
 }
